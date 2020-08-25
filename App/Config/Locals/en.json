@@ -1,0 +1,105 @@
+{
+  "login": {
+    "customer_portal": "CUSTOMER PORTAL",
+    "userName": "Username/Email-id",
+    "password": "Password",
+    "customerId": "Customer ID",
+    "rememberMe": "Remember Me",
+    "signIn": "SIGN IN",
+    "forgotPassword": "Forgot password?",
+    "signUp": "SIGN UP",
+    "onSubmit": "Please  fill all required details",
+    "validation_err": "You have entered an invalid username/email-id! "
+  },
+  "signIn": {
+    "first_name": "Firstname",
+    "last_name": "Lastname",
+    "company": "Company",
+    "phone": "Phone",
+    "email": "Email",
+    "address": "Address",
+    "city": "City",
+    "signUp": "SIGN UP",
+    "signIn": "SIGN IN",
+    "onSubmit": "Please fill  all required details",
+    "onSubmitSuccess": "Registerd successfully",
+    "phoneNo_err": "You have entered an invalid  phone-no! "
+
+  },
+  "forgetPassword": {
+    "userName": "Username/Email-id",
+    "send": "SEND",
+    "forget_password": "FORGET PASSWORD",
+    "onSubmit": "Please fill all required details",
+    "onSubmitSuccess": "Please check your email",
+    "validation_err": "You have entered an invalid username/email-id!"
+  },
+  "changePassword": {
+    "current_password": "Current password",
+    "new_password": "New password",
+    "repeat_password": "Repeat password",
+    "save": "SAVE",
+    "change_password": "CHANGE PASSWORD",
+    "onSubmit": "Please fill all required details ",
+    "onSubmitSuccess": "Your password  changed successfully",
+    "passwordNotMatch": "Password and repeat password does not match ",
+    "currentPasswordNotMatched": "Please enter correct current password"
+  },
+  "tasks": {
+    "add_task": "ADD TASK",
+    "search": "Search",
+    "change_password": "Change Password",
+    "language": "Language",
+    "sign_out": "Sign Out",
+    "tasks": "TASKS",
+    "task_no": "Task No.",
+    "name": "Name",
+    "address": "Address",
+    "title": "Title",
+    "status": "Status",
+    "task_date": "Task date",
+    "empty_task": " Task are not available"
+  },
+  "task": {
+    "task": "TASK",
+    "add_task": "ADD TASK",
+    "search": "Search",
+    "change_password": "Change Password",
+    "language": "Language",
+    "sign_out": "Sign Out",
+    "task_no": "Task No.",
+    "name": "Name",
+    "address": "Address",
+    "title": "Title",
+    "status": "Status",
+    "task_date": "Task date",
+    "description": "Description",
+    "documents": "DOCUMENTS",
+    "messages": "MESSAGES",
+    "add_message": "ADD MESSAGE",
+    "cancel": "CANCEL",
+    "save": "SAVE",
+    "empty_message": " Messages are  not available",
+    "empty_document": "Documents are  not available",
+    "document_name": "Doc"
+  },
+  "newTask": {
+    "new_task": "NEW TASK",
+    "title": "Title",
+    "name": "Name",
+    "address": "Address",
+    "description": "Description",
+    "cancel": "CANCEL",
+    "save": "SAVE",
+    "document_name": "Doc",
+    "image_name": "Photo",
+    "task_save": " Your task save successfully",
+    "taskid_not_availabel": "Firstly save the task then upload documents",
+    "upload_success": "Document uploaded successfully",
+    "validation_err": "Please fill the required details"
+  },
+  "validation": {
+    "username_Required ": " User Name is Required"
+  },
+  "infoPopUp": {}
+}
