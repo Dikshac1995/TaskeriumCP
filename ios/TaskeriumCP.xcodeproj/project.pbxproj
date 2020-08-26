@@ -69,33 +69,47 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = TaskeriumCP/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = TaskeriumCP/main.m; sourceTree = "<group>"; };
 		17A0F3C41050365A4D7BEB01 /* Pods-TaskeriumCPTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCPTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskeriumCPTests/Pods-TaskeriumCPTests.debug.xcconfig"; sourceTree = "<group>"; };
-		1E2AAC0446AF4776B9B7E524 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
-		276E247FD672458794C8A477 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		1E2AAC0446AF4776B9B7E524 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		276E247FD672458794C8A477 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		2D02E47B1E0B4A5D006451C7 /* TaskeriumCP-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TaskeriumCP-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* TaskeriumCP-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TaskeriumCP-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3B49A1018EC34498936DE584 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		3B49A1018EC34498936DE584 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		4930103ACBE2286F5B0216D4 /* Pods-TaskeriumCP-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP-tvOSTests/Pods-TaskeriumCP-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		4AA17F928EF4FD899819D090 /* libPods-TaskeriumCP.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskeriumCP.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50A6A4074BD84ADAAFBA9967 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
-		60448B728D7B43258E034B4E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		50A6A4074BD84ADAAFBA9967 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		60448B728D7B43258E034B4E /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		6334E10430BF3EC3DF972612 /* libPods-TaskeriumCP-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskeriumCP-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		65919EA0DCB9434EA7968920 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
-		6EAA25C33BFB414A9AFFC00A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		65919EA0DCB9434EA7968920 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		6EAA25C33BFB414A9AFFC00A /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		7DF5BC5C6218907518BB58C8 /* Pods-TaskeriumCP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP.release.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP/Pods-TaskeriumCP.release.xcconfig"; sourceTree = "<group>"; };
-		87887C7235C743AAB6E1F21B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		87887C7235C743AAB6E1F21B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		90BC165FA46FB367AC37117A /* Pods-TaskeriumCP-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP-tvOSTests/Pods-TaskeriumCP-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		935A5B88961A403CBDC1F7A9 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		935A5B88961A403CBDC1F7A9 /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
 		9BB0B3BC5B3F1C71C27351CD /* libPods-TaskeriumCP-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskeriumCP-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9C8D91EFD4F24AB5B980FB86 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		9C8D91EFD4F24AB5B980FB86 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
 		A7BCE60AA62D685791B30601 /* Pods-TaskeriumCP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP.debug.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP/Pods-TaskeriumCP.debug.xcconfig"; sourceTree = "<group>"; };
-		B8C9D4F85A96429C85F1E22C /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
-		C612CD6E7B8B411EABEE085F /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		B8C9D4F85A96429C85F1E22C /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		C612CD6E7B8B411EABEE085F /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		C7D8D3FC0763156A6E01B6BE /* libPods-TaskeriumCPTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TaskeriumCPTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		C8C15008435044159F217AC2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		C8C15008435044159F217AC2 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		CB75096D2D71083D8290ADB5 /* Pods-TaskeriumCPTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCPTests.release.xcconfig"; path = "Target Support Files/Pods-TaskeriumCPTests/Pods-TaskeriumCPTests.release.xcconfig"; sourceTree = "<group>"; };
-		CC0F5F6FFAA746CEA8EB2815 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		D459D316D3734B97BA8315C6 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
-		D8348DC312B8458190A069F3 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		CC0F5F6FFAA746CEA8EB2815 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		D459D316D3734B97BA8315C6 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		D8348DC312B8458190A069F3 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		E926EFE224F63ED300795BD6 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Black.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Black.otf"; sourceTree = "<group>"; };
+		E926EFE324F63ED300795BD6 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Light.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Light.otf"; sourceTree = "<group>"; };
+		E926EFE424F63ED300795BD6 /* MyriadPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-LightIt.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-LightIt.otf"; sourceTree = "<group>"; };
+		E926EFE524F63ED400795BD6 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-SemiboldIt.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		E926EFE624F63ED400795BD6 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldIt.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		E926EFE724F63ED400795BD6 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-CondIt.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
+		E926EFE824F63ED400795BD6 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Regular.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		E926EFE924F63ED400795BD6 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCond.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		E926EFEA24F63ED400795BD6 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Semibold.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		E926EFEB24F63ED400795BD6 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Cond.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		E926EFEC24F63ED400795BD6 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Bold.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		E926EFED24F63ED400795BD6 /* MyriadPro-BlackCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BlackCond.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-BlackCond.otf"; sourceTree = "<group>"; };
+		E926EFEE24F63ED400795BD6 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCondIt.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
+		E926EFEF24F63ED400795BD6 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-It.otf"; path = "../../../../../Downloads/Taskerium 2/Fontas_Myriad_pro/MyriadPro-It.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F303F12F8E7C7127D0D5D488 /* Pods-TaskeriumCP-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP-tvOS.release.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP-tvOS/Pods-TaskeriumCP-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,7 +180,6 @@
 				17A0F3C41050365A4D7BEB01 /* Pods-TaskeriumCPTests.debug.xcconfig */,
 				CB75096D2D71083D8290ADB5 /* Pods-TaskeriumCPTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -218,7 +231,6 @@
 				50A6A4074BD84ADAAFBA9967 /* Zocial.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -231,6 +243,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				E926EFE124F63E8F00795BD6 /* fonts */,
 				13B07FAE1A68108700A75B9A /* TaskeriumCP */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* TaskeriumCPTests */,
@@ -253,6 +266,27 @@
 				2D02E4901E0B4A5D006451C7 /* TaskeriumCP-tvOSTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E926EFE124F63E8F00795BD6 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E926EFE224F63ED300795BD6 /* MyriadPro-Black.otf */,
+				E926EFED24F63ED400795BD6 /* MyriadPro-BlackCond.otf */,
+				E926EFEC24F63ED400795BD6 /* MyriadPro-Bold.otf */,
+				E926EFE924F63ED400795BD6 /* MyriadPro-BoldCond.otf */,
+				E926EFEE24F63ED400795BD6 /* MyriadPro-BoldCondIt.otf */,
+				E926EFE624F63ED400795BD6 /* MyriadPro-BoldIt.otf */,
+				E926EFEB24F63ED400795BD6 /* MyriadPro-Cond.otf */,
+				E926EFE724F63ED400795BD6 /* MyriadPro-CondIt.otf */,
+				E926EFEF24F63ED400795BD6 /* MyriadPro-It.otf */,
+				E926EFE324F63ED300795BD6 /* MyriadPro-Light.otf */,
+				E926EFE424F63ED300795BD6 /* MyriadPro-LightIt.otf */,
+				E926EFE824F63ED400795BD6 /* MyriadPro-Regular.otf */,
+				E926EFEA24F63ED400795BD6 /* MyriadPro-Semibold.otf */,
+				E926EFE524F63ED400795BD6 /* MyriadPro-SemiboldIt.otf */,
+			);
+			path = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -366,6 +400,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
