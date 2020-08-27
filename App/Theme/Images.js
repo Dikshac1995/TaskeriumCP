@@ -14,6 +14,7 @@ export const images = {
   location: require("../Assets/Images/Common/Location.png"),
   menu: require("../Assets/Images/Common/Menu.png"),
   clock: require("../Assets/Images/Common/clock.png"),
+  menu1: require("../Assets/Images/Menu-512.webp")
 
 
 };

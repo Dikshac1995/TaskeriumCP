@@ -141,14 +141,14 @@ const ForgetPassword = (props) => {
                 <_InputText
                     style={styles.TextInput}
                     placeholder={helpers.getLocale(localize, "forgetPassword", "userName")}
-                    onChangeText={value => { setuserName(value.trim()) }}
+                    onChangeText={value => { setuserName(value) }}
                     value={userName}
 
                 />
                 <_InputText
                     style={styles.TextInput}
                     placeholder={helpers.getLocale(localize, "login", "customerId")}
-                    onChangeText={value => { setcustomerId(value.trim()) }}
+                    onChangeText={value => { setcustomerId(value) }}
                     value={customerId}
                 />
             </View>

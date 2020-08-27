@@ -23,6 +23,7 @@ import AddressLocation from '../map'
 import ImagePicker1 from 'react-native-image-crop-picker';
 import { Container, Header, Button, Content, ActionSheet } from "native-base";
 import Map from "../map"
+import { localeData } from 'moment';
 
 const NewTask = (props) => {
     const localize = useSelector(state => state.localize);
@@ -90,14 +91,49 @@ const NewTask = (props) => {
             let cb = {
                 success: async (res) => {
                     console.log({ res })
-                    // setTimeout(
-                    //     () => {
-                    setloading(false),
-                        Alert.alert(helpers.getLocale(localize, "newTask", "task_save"));
+                    settask_id(res.record_id)
 
+                    if (uploadedDoc.length > 0) {
+                        var mape = uploadedDoc.map((element) => {
+                            // console.log(element)
+                            uploadDoc(element, res.record_id)
+                            return element
+
+
+                        })
+                        for (let i = 0; i < uploadedDoc.length; i++) {
+
+                            // const abc = await uploadDoc()
+                        }
+                        // console.log("123", mape)
+
+                        Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
+                            [
+                                {
+                                    text: 'OK', onPress: () => {
+                                        props.navigation.navigate('Tasks')
+                                    }
+                                },
+                            ])
+                    }
+
+
+
+                    else {
+                        // setTimeout(
+                        //     () => {
+                        setloading(false),
+                            Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
+                                [
+                                    {
+                                        text: 'OK', onPress: () => {
+                                            props.navigation.navigate('Tasks')
+                                        }
+                                    },
+                                ])
+                    }
                     //     }, 2000
                     // )
-                    settask_id(res.record_id)
                 },
                 error: (err) => {
                     setloading(false)
@@ -134,7 +170,7 @@ const NewTask = (props) => {
                 "portal_user": userAuthdetails.portal_user,
                 "api_key": globals.API_KEY
             };
-            console.log("data2", data)
+
 
             API.sync_data(data, cb, header);
         }
@@ -168,51 +204,22 @@ const NewTask = (props) => {
     //     }
     // }
     const imagePicker = () => {
-        if (!task_id) {
-            Alert.alert(helpers.getLocale(localize, "newTask", "taskid_not_availabel"))
-
-        }
-        else {
-
-            ActionSheet.show(
-                {
-                    options: BUTTONS,
-                    cancelButtonIndex: CANCEL_INDEX,
-                    title: "Select Photo"
-                },
-                buttonIndex => {
-                    if (buttonIndex === 0) {
-                        imagefromCamera()
-                    }
-                    else if (buttonIndex === 1) {
-                        imagefromGalary()
-                    }
+        ActionSheet.show(
+            {
+                options: BUTTONS,
+                cancelButtonIndex: CANCEL_INDEX,
+                title: "Select Photo"
+            },
+            buttonIndex => {
+                if (buttonIndex === 0) {
+                    imagefromCamera()
                 }
-            )
+                else if (buttonIndex === 1) {
+                    imagefromGalary()
+                }
+            }
+        )
 
-            // Alert.alert(
-            //     'Success', " select image  ",
-            //     [
-            //         {
-            //             text: 'camera', onPress: () => {
-            //                 imagefromCamera()
-
-            //             }
-            //         },
-            //         {
-            //             text: 'galary', onPress: () => {
-
-            //                 imagefromGalary()
-
-
-            //             }
-
-
-
-            //         },
-            //     ]
-            // );
-        }
 
     }
     const imagefromGalary = () => {
@@ -227,9 +234,21 @@ const NewTask = (props) => {
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
-            // this.getImageURL(response, 'photo')
-            // console.log("response :", response)
-            uploadDoc(name, response.path, base64, " ", "Photo1")
+
+
+            // uploadDoc(name, response.path, base64, " ", "Photo1")
+            const item = {
+                "fileName": name,
+                "base64": base64
+            }
+
+            // const arr = [...uploadedImg]
+            // arr.push(item)
+            // Document.push(item);
+            // setuploadedImg(arr)
+            const array = [...uploadedDoc]
+            array.push(item)
+            setuploadedDoc(array)
 
 
         })
@@ -238,6 +257,7 @@ const NewTask = (props) => {
             })
 
     }
+
 
     const imagefromCamera = () => {
         ImagePicker1.openCamera({
@@ -249,50 +269,63 @@ const NewTask = (props) => {
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
-            uploadDoc(name, response.path, base64, " ", "Photo1")
+            // uploadDoc(name, response.path, base64, " ", "Photo1")
+            const item = {
+                "fileName": name,
+                "base64": base64
+            }
+            const array = [...uploadedDoc]
+            array.push(item)
+            setuploadedDoc(array)
+            // const arr = [...uploadedImg]
+            // arr.push(item)
+            // Document.push(item);
+            // setuploadedImg(arr)
         })
             .catch(err => {
                 console.log("err", err)
             })
 
     }
+    // (fileName, uri, photo, doc, image) 
 
-    const uploadDoc = async (fileName, uri, photo, doc, image) => {
-        console.log("Filename", fileName)
-        setloading(true)
+    const uploadDoc = async (dataValue, taskId) => {
+
+        // setloading(true)
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
                     console.log({ res })
-                    Alert.alert(
-                        'Success',
-                        helpers.getLocale(localize, "newTask", "upload_success"),
-                        [
-                            {
-                                text: 'OK', onPress: () => {
-                                    const source = { uri: uri };
-                                    if (image != " ") {
-                                        const item = { "fileName": fileName }
-                                        const arr = [...uploadedImg]
-                                        arr.push(item)
-                                        const img = { source }
-                                        Document.push(item);
-                                        setuploadedImg(arr)
-                                    }
-                                    else {
-                                        const item = { "fileName": fileName }
-                                        const array = [...uploadedDoc]
-                                        array.push(item)
-                                        setuploadedDoc(array)
-                                    }
+                    return (true)
+                    // Alert.alert(
+                    //     'Success',
+                    //     helpers.getLocale(localize, "newTask", "upload_success"),
+                    //     [
+                    //         {
+                    //             text: 'OK', onPress: () => {
+                    //                 // const source = { uri: uri };
+                    //                 // if (image != " ") {
+                    //                 // const item = { "fileName": fileName }
+                    //                 // const arr = [...uploadedImg]
+                    //                 // arr.push(item)
+                    //                 // const img = { source }
+                    //                 // Document.push(item);
+                    //                 // setuploadedImg(arr)
+                    //                 // }
+                    //                 // else {
+                    //                 // const item = { "fileName": fileName }
+                    //                 // const array = [...uploadedDoc]
+                    //                 // array.push(item)
+                    //                 // setuploadedDoc(array)
+                    //                 // }
 
-                                    return true
-                                }
-                            },
-                        ]
-                    );
+                    //                 return true
+                    //             }
+                    //         },
+                    //     ]
+                    // );
                     setTimeout(() => { setloading(false) }, 300)
                 },
                 error: (err) => {
@@ -309,11 +342,12 @@ const NewTask = (props) => {
             let data = {
                 "user_id": userAuthdetails.user_id,
                 "token": userAuthdetails.token,
-                "task_id": task_id,
-                "filename": fileName,
-                "photo": photo,
+                "task_id": taskId,
+                "filename": dataValue.fileName,
+                "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
+            console.log("data", data)
             API.postDocument(data, cb, header);
         } else {
             // getEndPoint()
@@ -338,32 +372,35 @@ const NewTask = (props) => {
     }
 
     const addDocument = async () => {
-        if (!task_id) {
-            Alert.alert(helpers.getLocale(localize, "newTask", "taskid_not_availabel"))
-        }
-        else {
-            DocumentPicker.pick({
-                type: [DocumentPicker.types.allFiles]
-            })
-                .then(res => {
-                    console.log('rest', res, res.uri)
-                    let filepath = ""
-                    if (Platform.OS === "android") {
-                        filepath = res.uri
-                    } else {
-                        let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
-                        filepath = basepath + "/" + res.name;
-                    }
-                    RNFS.readFile(filepath, "base64").then(result => {
-                        uploadDoc(res.name, res.uri, result, "Doc1 ", " ")
-                        setTimeout(() => { setdocument("Doc1") }, 3000)
-                    })
 
+        DocumentPicker.pick({
+            type: [DocumentPicker.types.allFiles]
+        })
+            .then(res => {
+                console.log('rest', res, res.uri)
+                let filepath = ""
+                if (Platform.OS === "android") {
+                    filepath = res.uri
+                } else {
+                    let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
+                    filepath = basepath + "/" + res.name;
+                }
+                RNFS.readFile(filepath, "base64").then(result => {
+                    // uploadDoc(res.name, res.uri, result, "Doc1 ", " ")
+                    const item = {
+                        "fileName": res.name,
+                        "base64": result
+                    }
+                    const array = [...uploadedDoc]
+                    array.push(item)
+                    setuploadedDoc(array)
                 })
-                .catch(error => {
-                    console.log(error)
-                })
-        }
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+        // }
     }
     const signout = async () => {
         let token = await AsyncStorage.getItem('token');
@@ -429,7 +466,9 @@ const NewTask = (props) => {
                         name /> :
                         <>
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
-                                rightIcon={images.menu} rightcb
+                                rightIcon1={images.menu1}
+                                rightcb
+                                rightIcon="ellipsis-v"
                                 onPress_signout={() => signout()}
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
@@ -439,15 +478,16 @@ const NewTask = (props) => {
                                     style={styles.TextInput}
                                     value={title}
                                     placeholder={helpers.getLocale(localize, "newTask", "title")}
-                                    onChangeText={value => { settitle(value.trim()) }
-                                    }
+                                    onChangeText={value => {
+                                        settitle(value)
+                                    }}
                                 />
                                 <_InputText
                                     style={styles.TextInput1}
                                     placeholder={helpers.getLocale(localize, "newTask", "name")}
-                                    value={name}
+                                    value={name.trim()}
                                     onChangeText={value => {
-                                        setname(value.trim()),
+                                        setname(value),
                                             onEdit()
                                     }
                                     }
@@ -458,7 +498,7 @@ const NewTask = (props) => {
                                     value={address}
                                     leftIcon={images.location}
                                     onChangeText={value => {
-                                        setaddress(value.trim()), onEdit()
+                                        setaddress(value), onEdit()
                                     }}
                                     multiline={true}
 

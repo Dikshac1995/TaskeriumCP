@@ -29,6 +29,7 @@ import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
 
 
+
 const Tasks = (props) => {
     const localize = useSelector(state => state.localize);
     const dispatch = useDispatch();
@@ -108,8 +109,6 @@ const Tasks = (props) => {
                     return (b.id - a.id)
 
                 })
-                // const sorted = TaskList.reverse();
-                // console.log("sor", sorted)
                 settask(TaskList)
                 setarrayHolder(res[0].tasks)
             },
@@ -160,21 +159,32 @@ const Tasks = (props) => {
             </View >
         )
     }
-    const searchFilterFunction = text => {
+    const searchFilterFunction = text1 => {
+        console.log("text", text1)
         const newData = arrayholder.filter(function (item) {
-            //applying filter for the inserted text in search bar
-            const itemData = item.object ? item.object.toUpperCase() : ''.toUpperCase();
-            const textData = text.toUpperCase();
-            return itemData.indexOf(textData) > -1;
 
+            // console.log("tem", item.id)sssssss       
+            //applying filter for the inserted text in search bar
+            const itemData = item.object
+
+            const textData = text1
+
+            return itemData.indexOf(textData) > -1;
+            // const textData = text
+            // console.log(itemData, "item")
+            // return itemData.match(textData)
         });
+
+
         if (newData.length == 0) {
             Alert.alert('search not found')
         }
         else {
+            console.log("new", newData)
             settask(newData)
         }
     }
+
 
 
     const _keyExtractor = (item, index) => "tasks" + index.toString();
@@ -185,7 +195,9 @@ const Tasks = (props) => {
                     <Loader
                         loading={loading} />
                     <_Header header={helpers.getLocale(localize, "tasks", "tasks")}
-                        rightIcon={images.menu} rightcb
+                        rightIcon1={images.menu1}
+                        rightcb
+                        rightIcon="ellipsis-v"
                         onPress={() => props.navigation.navigate('ChangePassord')}
                         onPress_signout={() => signoutHandler()}
                     />
@@ -193,11 +205,11 @@ const Tasks = (props) => {
                         <_InputText
                             style={styles.TextInput}
                             placeholder={helpers.getLocale(localize, "tasks", "search")}
-                            editable={false}
-                        // onChangeText={value =>
-                        //     setsearch(value)
-                        //     // searchFilterFunction(value)
-                        // }
+                            // editable={false}
+                            onChangeText={value =>
+                                //  setsearch(value)
+                                searchFilterFunction(value)
+                            }
                         />
                     </View>
                     <View style={styles.tasksListWrapper}>
