@@ -107,7 +107,7 @@ const NewTask = (props) => {
                             // console.log(element)
                             await uploadDoc(element, res.record_id)
                         });
-                        var results = Promise.all(mape)
+
 
 
 
@@ -124,7 +124,6 @@ const NewTask = (props) => {
                                     },
                                 ])
                     }
-
                 },
                 error: (err) => {
                     setloading(false)
@@ -272,6 +271,7 @@ const NewTask = (props) => {
             })
 
     }
+    // (fileName, uri, photo, doc, image) 
 
 
     const uploadDoc = async (dataValue, taskId) => {
@@ -332,6 +332,7 @@ const NewTask = (props) => {
                 "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
+            console.log("data", data)
             API.postDocument(data, cb, header);
         } else {
             // getEndPoint()
