@@ -152,6 +152,7 @@ const Tasks = (props) => {
 
 
     const taskRender = (a) => {
+        console.log(" task item :", a)
         return (
             <View style={styles.infoCartWrapper}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('Task', { task: a })}>
@@ -161,18 +162,53 @@ const Tasks = (props) => {
         )
     }
     const searchFilterFunction = text => {
-        const newData = arrayholder.filter(function (item) {
-            //applying filter for the inserted text in search bar
-            const itemData = item.object ? item.object.toUpperCase() : ''.toUpperCase();
-            const textData = text.toUpperCase();
-            return itemData.indexOf(textData) > -1;
+        // const newData = arrayholder.filter(function (item) {
+        //     //applying filter for the inserted text in search bar
+        //     console.log("item :", item)
+        //     const itemData = item.object ? item.object.toUpperCase() : ''.toUpperCase();
+        //     const textData = text.toUpperCase();
+        //     return itemData.indexOf(textData) > -1;
 
-        });
-        if (newData.length == 0) {
-            Alert.alert('search not found')
+        // });
+        // if (newData.length == 0) {
+        //     // Alert.alert('search not found')
+        // }
+        // else {
+        //     settask(newData)
+        // }
+
+        if (text !== "") {
+            const newData = arrayholder.filter(function (item) {
+                for (var key in item) {
+                    if (key === "documents") {
+                        let fileFound = false
+                        item[key].forEach((docitem) => {
+                            for (const prop in docitem) {
+                                if (docitem[prop].title.indexOf(text) != -1) {
+                                    fileFound = true
+                                    return true
+                                }
+                            }
+                        })
+                        if (fileFound) {
+                            return true
+                        }
+                    } else {
+                        if (item[key].toString().indexOf(text) != -1) {
+                            return true
+                        }
+                    }
+                }
+                return false
+
+            });
+            settask(newData)
         }
         else {
-            settask(newData)
+            settask(arrayholder.sort(function (a, b) {
+                return (b.id - a.id)
+
+            }))
         }
     }
 
@@ -193,11 +229,12 @@ const Tasks = (props) => {
                         <_InputText
                             style={styles.TextInput}
                             placeholder={helpers.getLocale(localize, "tasks", "search")}
-                            editable={false}
-                        // onChangeText={value =>
-                        //     setsearch(value)
-                        //     // searchFilterFunction(value)
-                        // }
+                            // editable={false}
+                            onChangeText={value => {
+                                setsearch(value)
+                                searchFilterFunction(value)
+                            }
+                            }
                         />
                     </View>
                     <View style={styles.tasksListWrapper}>

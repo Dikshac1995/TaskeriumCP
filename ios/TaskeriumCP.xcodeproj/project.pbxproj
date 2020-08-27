@@ -35,6 +35,20 @@
 		D19A0E3D21C041E895580390 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC0F5F6FFAA746CEA8EB2815 /* Ionicons.ttf */; };
 		E257D6E954F44CDBA89ACC95 /* libPods-TaskeriumCPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D8D3FC0763156A6E01B6BE /* libPods-TaskeriumCPTests.a */; };
 		E3FAADF0EC674F29B9DB9BCA /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D91EFD4F24AB5B980FB86 /* FontAwesome5_Regular.ttf */; };
+		E918678424F677A300A63F95 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE224F63ED300795BD6 /* MyriadPro-Black.otf */; };
+		E918678524F677A300A63F95 /* MyriadPro-BlackCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFED24F63ED400795BD6 /* MyriadPro-BlackCond.otf */; };
+		E918678624F677A300A63F95 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFEC24F63ED400795BD6 /* MyriadPro-Bold.otf */; };
+		E918678724F677A300A63F95 /* MyriadPro-BoldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE924F63ED400795BD6 /* MyriadPro-BoldCond.otf */; };
+		E918678824F677A300A63F95 /* MyriadPro-BoldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFEE24F63ED400795BD6 /* MyriadPro-BoldCondIt.otf */; };
+		E918678924F677A300A63F95 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE624F63ED400795BD6 /* MyriadPro-BoldIt.otf */; };
+		E918678A24F677A300A63F95 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFEB24F63ED400795BD6 /* MyriadPro-Cond.otf */; };
+		E918678B24F677A300A63F95 /* MyriadPro-CondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE724F63ED400795BD6 /* MyriadPro-CondIt.otf */; };
+		E918678C24F677A300A63F95 /* MyriadPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFEF24F63ED400795BD6 /* MyriadPro-It.otf */; };
+		E918678D24F677A300A63F95 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE324F63ED300795BD6 /* MyriadPro-Light.otf */; };
+		E918678E24F677A300A63F95 /* MyriadPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE424F63ED300795BD6 /* MyriadPro-LightIt.otf */; };
+		E918678F24F677A300A63F95 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE824F63ED400795BD6 /* MyriadPro-Regular.otf */; };
+		E918679024F677A300A63F95 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFEA24F63ED400795BD6 /* MyriadPro-Semibold.otf */; };
+		E918679124F677A300A63F95 /* MyriadPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EFE524F63ED400795BD6 /* MyriadPro-SemiboldIt.otf */; };
 		EB32EB911D614E3E82012ED5 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65919EA0DCB9434EA7968920 /* FontAwesome5_Brands.ttf */; };
 /* End PBXBuildFile section */
 
@@ -384,6 +398,10 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = 8U8LW972MB;
+						ProvisioningStyle = Manual;
+					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
 						ProvisioningStyle = Automatic;
@@ -429,6 +447,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E918678424F677A300A63F95 /* MyriadPro-Black.otf in Resources */,
+				E918678524F677A300A63F95 /* MyriadPro-BlackCond.otf in Resources */,
+				E918678624F677A300A63F95 /* MyriadPro-Bold.otf in Resources */,
+				E918678724F677A300A63F95 /* MyriadPro-BoldCond.otf in Resources */,
+				E918678824F677A300A63F95 /* MyriadPro-BoldCondIt.otf in Resources */,
+				E918678924F677A300A63F95 /* MyriadPro-BoldIt.otf in Resources */,
+				E918678A24F677A300A63F95 /* MyriadPro-Cond.otf in Resources */,
+				E918678B24F677A300A63F95 /* MyriadPro-CondIt.otf in Resources */,
+				E918678C24F677A300A63F95 /* MyriadPro-It.otf in Resources */,
+				E918678D24F677A300A63F95 /* MyriadPro-Light.otf in Resources */,
+				E918678E24F677A300A63F95 /* MyriadPro-LightIt.otf in Resources */,
+				E918678F24F677A300A63F95 /* MyriadPro-Regular.otf in Resources */,
+				E918679024F677A300A63F95 /* MyriadPro-Semibold.otf in Resources */,
+				E918679124F677A300A63F95 /* MyriadPro-SemiboldIt.otf in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 				AC6E39AA77B347CC8D1D77AC /* AntDesign.ttf in Resources */,
@@ -789,8 +821,11 @@
 			baseConfigurationReference = A7BCE60AA62D685791B30601 /* Pods-TaskeriumCP.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = 8U8LW972MB;
 				INFOPLIST_FILE = TaskeriumCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -798,8 +833,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.saleseyes;
 				PRODUCT_NAME = TaskeriumCP;
+				PROVISIONING_PROFILE_SPECIFIER = SalesEyeIOS;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -809,7 +845,10 @@
 			baseConfigurationReference = 7DF5BC5C6218907518BB58C8 /* Pods-TaskeriumCP.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8U8LW972MB;
 				INFOPLIST_FILE = TaskeriumCP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -817,8 +856,9 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ios.saleseyes;
 				PRODUCT_NAME = TaskeriumCP;
+				PROVISIONING_PROFILE_SPECIFIER = SalesEyeIOS;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
