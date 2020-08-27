@@ -13,6 +13,8 @@ import {
 import { MenuContext } from 'react-native-popup-menu';
 import AsyncStorage from '@react-native-community/async-storage';
 import { globals, helpers, validators, API, } from '../../../Config';
+import Icon from 'react-native-vector-icons/FontAwesome5';
+
 
 
 
@@ -40,9 +42,10 @@ const _Header = (props) => {
                                     <MenuTrigger customStyles={triggerStyles} >
                                         <FastImage
                                             style={{ height: 45, width: 40, paddingLeft: 0, color: 'black' }}
-                                            source={props.rightIcon}
+                                            source={props.rightIcon1}
                                             resizeMode={"contain"}
                                         />
+                                        {/* <Icon name={props.rightIcon} size={40} /> */}
                                     </MenuTrigger>
                                     <MenuOptions customStyles={{
                                         optionText: { fontSize: 20, fontFamily: 'MyriadPro-Regular' },

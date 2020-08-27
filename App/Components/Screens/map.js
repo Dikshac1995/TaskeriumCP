@@ -37,7 +37,9 @@ export default class Map extends React.Component {
             },
             locationChosen: false,
             address: "",
-            userLocation: "Your current location"
+            userLocation: "Your current location",
+            loading: false,
+            // initialLoading: true
         }
     }
 
@@ -76,6 +78,8 @@ export default class Map extends React.Component {
 
     // Fetch location details as a JOSN from google map API
     fetchAddress = () => {
+        console.log({})
+        // this.setState({ loading: true })
         fetch("https://maps.googleapis.com/maps/api/geocode/json?address="
             + this.state.focusedLocation.latitude + "," + this.state.focusedLocation.longitude +
             "&key=" + "AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
@@ -87,17 +91,20 @@ export default class Map extends React.Component {
                     const userLocation = responseJson.results[0].formatted_address;
                     this.setState({
                         userLocation: userLocation,
-                        address: res
+                        address: res,
+                        loading: false
                     });
                 }
                 else {
                     Alert.alert("Failed", responseJson.error_message)
+                    this.setState({ loading: false })
                 }
 
             })
             .catch((err) => {
                 console.log("eror", err)
                 Alert.alert(err)
+                this.setState({ loading: false })
             })
 
 
@@ -146,7 +153,8 @@ export default class Map extends React.Component {
                     latitude: coords.latitude,
                     longitude: coords.longitude
                 },
-                locationChosen: true
+                locationChosen: true,
+                // initialLoading: false
             };
         });
         this.fetchAddress()
@@ -177,7 +185,7 @@ export default class Map extends React.Component {
     render() {
         let marker = null;
 
-        if (this.state.locationChosen) {
+        if (this.state.locationChosen && !this.state.loading) {
             marker = <MapView.Marker coordinate={this.state.focusedLocation}
                 title={this.state.userLocation}
                 onPress={() => this.onPressHandler()}
@@ -189,22 +197,24 @@ export default class Map extends React.Component {
                 onRequestClose={() => this.closeHandler()
                 }
             >
-                <View style={styles.container}>
-                    <MapView
-                        initialRegion={this.state.focusedLocation}
-                        region={!this.state.locationChosen ? this.state.focusedLocation : null}
-                        style={styles.map}
-                        onPress={this.pickLocationHandler}
-                        ref={ref => this.map = ref}
-                    >
-                        {marker}
-                        <View style={{ alignItems: 'flex-end', paddingRight: 10 }}>
-                            <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
-                        </View>
-                    </MapView>
-                </View>
-            </Modal>
+                {this.state.loading ? <ActivityIndicator color="red" /> :
 
+
+                    <View style={styles.container}>
+                        <MapView
+                            initialRegion={this.state.focusedLocation}
+                            region={!this.state.locationChosen ? this.state.focusedLocation : null}
+                            style={styles.map}
+                            onPress={this.pickLocationHandler}
+                            ref={ref => this.map = ref}
+                        >
+                            {marker}
+                            <View style={{ alignItems: 'flex-end', paddingRight: 10 }}>
+                                <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
+                            </View>
+                        </MapView>
+                    </View>}
+            </Modal>
 
 
 

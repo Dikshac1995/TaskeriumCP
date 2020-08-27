@@ -289,7 +289,9 @@ const Task = (props) => {
                 loading={loading} />
             <ScrollView style={{ flex: 1 }}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
-                    rightIcon={images.menu} rightcb
+                    rightIcon1={images.menu1}
+                    rightIcon="ellipsis-v"
+                    rightcb
                     onPress={() => props.navigation.navigate('ChangePassord')}
                     onPress_signout={() => signout()}
                 />
