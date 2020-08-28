@@ -27,8 +27,8 @@ import { StackActions, CommonActions } from "@react-navigation/native";
 
 const Login = (props) => {
     const localize = useSelector(state => state.localize);
-    const [userName, setuserName] = useState(!globals.live ? "ace@yopmail.com" : "");
-    const [password, setpassword] = useState(!globals.live ? "123456" : "");
+    const [userName, setuserName] = useState(!globals.live ? "jack@yopmail.com" : "");
+    const [password, setpassword] = useState(!globals.live ? "itm0u2lv" : "");
     const [customerId, setcustomerId] = useState("");
     const [checked, setchecked] = useState(false);
     const [loading, setloading] = useState(false);
@@ -89,7 +89,7 @@ const Login = (props) => {
     const logInUser = () => {
         let cb = {
             success: async (res) => {
-                // console.log({ res })
+                console.log({ res })
 
                 await AsyncStorage.setItem("userAuthDetails", JSON.stringify(res[0]));
                 await AsyncStorage.setItem("token", res[0].token);
@@ -109,7 +109,7 @@ const Login = (props) => {
 
             },
             error: (err) => {
-                // console.log(err, "e")
+                console.log(err, "e")
                 setloading(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
                     setTimeout(() => {
@@ -194,13 +194,13 @@ const Login = (props) => {
                 <_InputText
                     style={styles.TextInput}
                     placeholder={helpers.getLocale(localize, "login", "userName")}
-                    onChangeText={value => { setuserName(value.trim()) }}
+                    onChangeText={value => { setuserName(value) }}
                     value={userName}
                 />
                 <_InputText
                     style={styles.TextInput}
                     placeholder={helpers.getLocale(localize, "login", "password")}
-                    onChangeText={value => { setpassword(value.trim()) }}
+                    onChangeText={value => { setpassword(value) }}
                     value={password}
                     secureTextEntry
 
@@ -208,7 +208,7 @@ const Login = (props) => {
                 <_InputText
                     style={styles.TextInput}
                     placeholder={helpers.getLocale(localize, "login", "customerId")}
-                    onChangeText={value => { setcustomerId(value.trim()) }}
+                    onChangeText={value => { setcustomerId(value) }}
                     value={customerId}
                 />
                 <View style={styles.checkboxWrapper}>

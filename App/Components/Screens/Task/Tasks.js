@@ -29,6 +29,7 @@ import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
 
 
+
 const Tasks = (props) => {
     const localize = useSelector(state => state.localize);
     const dispatch = useDispatch();
@@ -108,8 +109,6 @@ const Tasks = (props) => {
                     return (b.id - a.id)
 
                 })
-                // const sorted = TaskList.reverse();
-                // console.log("sor", sorted)
                 settask(TaskList)
                 setarrayHolder(res[0].tasks)
             },
@@ -213,6 +212,7 @@ const Tasks = (props) => {
     }
 
 
+
     const _keyExtractor = (item, index) => "tasks" + index.toString();
     return (
         <>
@@ -221,7 +221,9 @@ const Tasks = (props) => {
                     <Loader
                         loading={loading} />
                     <_Header header={helpers.getLocale(localize, "tasks", "tasks")}
-                        rightIcon={images.menu} rightcb
+                        rightIcon1={images.menu}
+                        rightcb
+                        rightIcon="ellipsis-v"
                         onPress={() => props.navigation.navigate('ChangePassord')}
                         onPress_signout={() => signoutHandler()}
                     />

@@ -12,8 +12,6 @@ export const images = {
   camera: require("../Assets/Images/Common/Camera.png"),
   document: require("../Assets/Images/Common/Document.png"),
   location: require("../Assets/Images/Common/Location.png"),
-  menu: require("../Assets/Images/Common/Menu.png"),
+  menu: require("../Assets/Images/Common/menu.png"),
   clock: require("../Assets/Images/Common/clock.png"),
-
-
 };

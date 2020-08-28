@@ -127,21 +127,21 @@ const ChangePassword = (props) => {
                     style={styles.TextInput}
                     value={currentPassword}
                     placeholder={helpers.getLocale(localize, "changePassword", "current_password")}
-                    onChangeText={value => { setcurrentPassword(value.trim()) }}
+                    onChangeText={value => { setcurrentPassword(value) }}
                     secureTextEntry
                 />
                 <_InputText
                     style={styles.TextInput}
                     value={password}
                     placeholder={helpers.getLocale(localize, "changePassword", "new_password")}
-                    onChangeText={value => { setpassword(value.trim()) }
+                    onChangeText={value => { setpassword(value) }
                     } secureTextEntry
                 />
                 <_InputText
                     style={styles.TextInput}
                     value={confirmPassword}
                     placeholder={helpers.getLocale(localize, "changePassword", "repeat_password")}
-                    onChangeText={value => { setconfirmPassword(value.trim()) }
+                    onChangeText={value => { setconfirmPassword(value) }
                     } secureTextEntry
                 />
             </View>
