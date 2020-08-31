@@ -14,7 +14,6 @@ export default styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: fonts.fontFamily.Regular,
 
-
   }
 
 

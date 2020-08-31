@@ -151,7 +151,6 @@ const Tasks = (props) => {
 
 
     const taskRender = (a) => {
-        console.log(" task item :", a)
         return (
             <View style={styles.infoCartWrapper}>
                 <TouchableOpacity onPress={() => props.navigation.navigate('Task', { task: a })}>
@@ -177,13 +176,17 @@ const Tasks = (props) => {
         // }
 
         if (text !== "") {
+            var pattern = RegExp(text, "gi")
             const newData = arrayholder.filter(function (item) {
                 for (var key in item) {
                     if (key === "documents") {
                         let fileFound = false
                         item[key].forEach((docitem) => {
                             for (const prop in docitem) {
-                                if (docitem[prop].title.indexOf(text) != -1) {
+
+                                if (docitem[prop].title.toLowerCase().indexOf(text.toLowerCase()) != -1) {
+                                    // if (docitem[prop].title.search(pattern) != -1) {
+
                                     fileFound = true
                                     return true
                                 }
@@ -193,7 +196,9 @@ const Tasks = (props) => {
                             return true
                         }
                     } else {
-                        if (item[key].toString().indexOf(text) != -1) {
+                        if (item[key].toString().toLowerCase().indexOf(text.toLowerCase()) != -1) {
+                            // if (item[key].toString().indexOf(pattern) != -1) {
+
                             return true
                         }
                     }

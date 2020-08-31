@@ -93,59 +93,90 @@ const NewTask = (props) => {
                     console.log({ res })
                     settask_id(res.record_id)
 
-                    if (uploadedDoc.length > 0) {
-                        var mape = uploadedDoc.map((element) => {
-                            // console.log(element)
-                            uploadDoc(element, res.record_id)
-                            return element
+                    Promise.all(uploadedDoc.map((element) => {
+                        return new Promise((resolve, reject) => {
+                            uploadDoc(element, res.record_id,
+                                (res) => {
+                                    console.log(" promise res", res)
+                                    resolve(res)
+                                },
+                                (err) => {
+                                    console.log(" promise err", err)
+                                    reject(err)
+                                })
+                        });
+                    }))
+                        .then(values => {
+                            console.log("values :", values);
+                            setloading(false)
+                            props.navigation.goBack()
+                            setTimeout(() => {
+                                Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"))
+                            }, 100)
 
 
                         })
-                        for (let i = 0; i < uploadedDoc.length; i++) {
-
-                            // const abc = await uploadDoc()
-                        }
-                        // console.log("123", mape)
-
-                        Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
-                            [
-                                {
-                                    text: 'OK', onPress: () => {
-                                        props.navigation.navigate('Tasks')
-                                    }
-                                },
-                            ])
-                    }
+                        .catch(error => {
+                            setloading(false)
+                            setTimeout(() => {
+                                Alert.alert("Error", error.message)
+                            }, 100)
+                        });
 
 
 
-                    else {
-                        // setTimeout(
-                        //     () => {
-                        setloading(false),
-                            Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
-                                [
-                                    {
-                                        text: 'OK', onPress: () => {
-                                            props.navigation.navigate('Tasks')
-                                        }
-                                    },
-                                ])
-                    }
-                    //     }, 2000
-                    // )
+                    // if (uploadedDoc.length > 0) {
+                    //     var mape = uploadedDoc.map((element) => {
+                    //         // console.log(element)
+                    //         uploadDoc(element, res.record_id)
+                    //         return element
+
+
+                    //     })
+                    //     for (let i = 0; i < uploadedDoc.length; i++) {
+
+                    //         // const abc = await uploadDoc()
+                    //     }
+                    //     // console.log("123", mape)
+
+                    //     Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
+                    //         [
+                    //             {
+                    //                 text: 'OK', onPress: () => {
+                    //                     props.navigation.navigate('Tasks')
+                    //                 }
+                    //             },
+                    //         ])
+                    // }
+
+
+
+                    // else {
+                    //     // setTimeout(
+                    //     //     () => {
+                    //     setloading(false),
+                    //         Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
+                    //             [
+                    //                 {
+                    //                     text: 'OK', onPress: () => {
+                    //                         props.navigation.navigate('Tasks')
+                    //                     }
+                    //                 },
+                    //             ])
+                    // }
+                    // //     }, 2000
+                    // // )
                 },
                 error: (err) => {
                     setloading(false)
                     Alert.alert("error", err.message)
                 },
                 complete: () => {
-                    setloading(false)
+                    // setloading(false)
 
                 },
             };
             let header = helpers.buildHeader();
-            console.log('header', header)
             let newdata = [
                 edit ?
                     {
@@ -162,7 +193,6 @@ const NewTask = (props) => {
                         "title": title,
                     }
             ]
-            console.log('newdata', newdata)
             let data = {
                 "user_id": userAuthdetails.user_id,
                 "task_actions": newdata,
@@ -289,7 +319,7 @@ const NewTask = (props) => {
     }
     // (fileName, uri, photo, doc, image) 
 
-    const uploadDoc = async (dataValue, taskId) => {
+    const uploadDoc = async (dataValue, taskId, resolve, reject) => {
 
         // setloading(true)
         let userAuthdetails = await helpers.userAuthdetails();
@@ -297,8 +327,8 @@ const NewTask = (props) => {
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    console.log({ res })
-                    return (true)
+                    // console.log({ res })
+                    // return (true)
                     // Alert.alert(
                     //     'Success',
                     //     helpers.getLocale(localize, "newTask", "upload_success"),
@@ -326,15 +356,19 @@ const NewTask = (props) => {
                     //         },
                     //     ]
                     // );
-                    setTimeout(() => { setloading(false) }, 300)
+                    // setTimeout(() => { setloading(false) }, 300)
+                    // reject({ message: "not found" })
+
+                    resolve(res)
                 },
                 error: (err) => {
-                    console.log({ err })
-                    setloading(false)
-                    Alert.alert(err.message)
+                    // console.log({ err })
+                    // setloading(false)
+                    // Alert.alert(err.message)
+                    reject(err)
                 },
                 complete: () => {
-                    setloading(false)
+                    // setloading(false)
 
                 },
             };
@@ -347,7 +381,6 @@ const NewTask = (props) => {
                 "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
-            console.log("data", data)
             API.postDocument(data, cb, header);
         } else {
             // getEndPoint()
@@ -377,7 +410,6 @@ const NewTask = (props) => {
             type: [DocumentPicker.types.allFiles]
         })
             .then(res => {
-                console.log('rest', res, res.uri)
                 let filepath = ""
                 if (Platform.OS === "android") {
                     filepath = res.uri
@@ -485,10 +517,10 @@ const NewTask = (props) => {
                                 <_InputText
                                     style={styles.TextInput1}
                                     placeholder={helpers.getLocale(localize, "newTask", "name")}
-                                    value={name.trim()}
+                                    value={name}
                                     onChangeText={value => {
-                                        setname(value),
-                                            onEdit()
+                                        setname(value)
+                                        onEdit()
                                     }
                                     }
                                 />
