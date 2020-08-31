@@ -79,17 +79,13 @@ const ForgetPassword = (props) => {
 
         let header = helpers.buildHeader({});
         let data = {
-            // company_code: "app"
             company_code: customerId
-
         };
         API.getEndPoint(data, cb, header);
     };
 
 
     const forgetPassword = async () => {
-        // const baseUrl = await AsyncStorage.getItem("baseUrl");
-        // if (baseUrl && baseUrl !== undefined) {
         let cb = {
             success: async (res) => {
                 setloading(false)
@@ -124,10 +120,6 @@ const ForgetPassword = (props) => {
         API.forgetPassword(data, cb, header);
 
     }
-    //     else {
-    //         // getEndPoint()
-    //     }
-    // }
 
 
 
@@ -143,7 +135,6 @@ const ForgetPassword = (props) => {
                     placeholder={helpers.getLocale(localize, "forgetPassword", "userName")}
                     onChangeText={value => { setuserName(value) }}
                     value={userName}
-
                 />
                 <_InputText
                     style={styles.TextInput}

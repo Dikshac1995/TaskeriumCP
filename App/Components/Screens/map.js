@@ -1,6 +1,6 @@
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
 import React from "react";
-import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
+import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, Platform, Alert, ActivityIndicator } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -18,14 +18,9 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class Map extends React.Component {
 
-
-
     constructor(props) {
         super(props)
-
-        console.log(props, "8605")
         this.state = {
-
             focusedLocation: {
                 latitude: 37.7900352,
                 longitude: -122.4013726,
@@ -78,18 +73,18 @@ export default class Map extends React.Component {
 
     // Fetch location details as a JOSN from google map API
     fetchAddress = () => {
-        console.log({})
+        console.log("address", this.state.locationChosen)
         // this.setState({ loading: true })
         fetch("https://maps.googleapis.com/maps/api/geocode/json?address="
             + this.state.focusedLocation.latitude + "," + this.state.focusedLocation.longitude +
             "&key=" + "AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
             .then((response) => response.json())
             .then((responseJson) => {
-                // console.log(responseJson, )
                 if (responseJson.status === "OK") {
                     const res = responseJson.results[0].formatted_address;
                     const userLocation = responseJson.results[0].formatted_address;
                     this.setState({
+                        locationChosen: true,
                         userLocation: userLocation,
                         address: res,
                         loading: false
@@ -121,8 +116,6 @@ export default class Map extends React.Component {
                     {
                         text: 'YES', onPress: () => {
                             this.props.onPressmap(address)
-                            // return (this.state.address)
-                            // this.props.navigation.navigate('NewTask', { addressfromMap: this.state.address })
                         }
                     },
                     {
@@ -132,6 +125,7 @@ export default class Map extends React.Component {
                     },
                 ]
             );
+            this.setState({ address: " " })
         }
 
     }
@@ -139,7 +133,8 @@ export default class Map extends React.Component {
 
 
 
-    pickLocationHandler = event => {
+    pickLocationHandler = async (event) => {
+        console.log("hi c cn")
         const coords = event.nativeEvent.coordinate;
         this.map.animateToRegion({
             ...this.state.focusedLocation,
@@ -153,11 +148,12 @@ export default class Map extends React.Component {
                     latitude: coords.latitude,
                     longitude: coords.longitude
                 },
-                locationChosen: true,
+                address: ' ',
+                locationChosen: false,
                 // initialLoading: false
             };
         });
-        this.fetchAddress()
+        await this.fetchAddress()
 
     };
     getLocationHandler = () => {
@@ -174,7 +170,7 @@ export default class Map extends React.Component {
         },
             err => {
                 console.log(err);
-                alert("Fetching the Position failed, please pick one manually!");
+                alert("Fetching the Position failed, please pick one manually!", err);
             })
     }
     closeHandler = () => {
@@ -198,8 +194,6 @@ export default class Map extends React.Component {
                 }
             >
                 {this.state.loading ? <ActivityIndicator color="red" /> :
-
-
                     <View style={styles.container}>
                         <MapView
                             initialRegion={this.state.focusedLocation}
@@ -224,11 +218,12 @@ export default class Map extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        // marginTop: 20,
         // height: screen.height - 140,
         display: "flex",
         height: Dimensions.get("screen").height,
         width: Dimensions.get("screen").width,
+        // marginTop: Platform.OS === 'ios' ? 20 : 0,
+
         // position: "relative"
 
     },

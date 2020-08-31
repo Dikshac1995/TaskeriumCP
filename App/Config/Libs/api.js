@@ -31,7 +31,7 @@ const SYNC_EVALUTION_DATA = { type: "POST", url: URL + "sync_evaluation_data" };
 
 export const API = {
 
-  getEndPoint: (data, cb,) => request(data, cb, END_POINT, {}, "", false),
+  getEndPoint: (data, cb, ) => request(data, cb, END_POINT, {}, "", false),
   registerUser: async (data, cb) => request(data, cb, REGISTER_USER),
   loginUser: async (data, cb, header) => request(data, cb, LOGIN_USER, header),
   getAllTasks: async (data, cb, header) => request(data, cb, GET_TASKS, header),
@@ -47,6 +47,7 @@ export const API = {
 }
 
 async function request(requestData, cb, featureURL, secureRequest, urlData = '', retriveBaseUrl = true) {
+
   let url = "";
   if (retriveBaseUrl) {
     let baseUrl = await getBaseUrl()

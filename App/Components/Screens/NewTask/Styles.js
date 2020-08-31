@@ -50,8 +50,9 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular
     },
     uploadDocWrapper: {
-        paddingVertical: 3,
+        paddingVertical: 5,
         paddingHorizontal: 15,
+        height: '30%'
     },
     text: {
         color: colors.text,

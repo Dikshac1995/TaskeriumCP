@@ -24,6 +24,13 @@ export default styles = StyleSheet.create({
         // fontFamily: 'MyriadPro-Bold'
         fontFamily: fonts.fontFamily.Regular
 
+    },
+    menuIcon: {
+        height: 45,
+        width: 40,
+        paddingLeft: 0,
+        color: 'black'
+
     }
 
 

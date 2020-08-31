@@ -28,7 +28,7 @@ import { StackActions, CommonActions } from "@react-navigation/native";
 const Login = (props) => {
     const localize = useSelector(state => state.localize);
     const [userName, setuserName] = useState(!globals.live ? "jack@yopmail.com" : "");
-    const [password, setpassword] = useState(!globals.live ? "itm0u2lv" : "");
+    const [password, setpassword] = useState(!globals.live ? "123456" : "");
     const [customerId, setcustomerId] = useState("");
     const [checked, setchecked] = useState(false);
     const [loading, setloading] = useState(false);
@@ -66,8 +66,6 @@ const Login = (props) => {
                 getEndPoint();
             }
         }
-
-        // set
         else {
             Alert.alert(helpers.getLocale(localize, "login", "onSubmit"))
 
@@ -90,14 +88,12 @@ const Login = (props) => {
         let cb = {
             success: async (res) => {
                 console.log({ res })
-
                 await AsyncStorage.setItem("userAuthDetails", JSON.stringify(res[0]));
                 await AsyncStorage.setItem("token", res[0].token);
                 await AsyncStorage.setItem("userName", userName);
                 await AsyncStorage.setItem("password", password);
                 dispatch(login({ res }))
                 setloading(false)
-
                 props.navigation.dispatch(
                     CommonActions.reset({
                         index: 0,
@@ -135,8 +131,6 @@ const Login = (props) => {
             api_key: globals.API_KEY
         };
         API.loginUser(data, cb, header);
-
-
     }
 
     const getEndPoint = () => {
@@ -170,7 +164,6 @@ const Login = (props) => {
             company_code: customerId
         };
         API.getEndPoint(data, cb, header);
-
     };
 
     return (

@@ -143,5 +143,11 @@ export default styles = StyleSheet.create({
     },
     horizontalLine: {
         marginTop: 1, height: 1.5, backgroundColor: colors.primaryColor
+    },
+    hrLine: {
+        marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor
+    },
+    headerDivider: {
+        marginTop: 20, height: 1.5, backgroundColor: colors.primaryColor
     }
 });

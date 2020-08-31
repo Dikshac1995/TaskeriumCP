@@ -32,13 +32,6 @@ import _Header from '../../../Custom/Header/_Header';
 
 const InfoCart = (props) => {
     const localize = useSelector(state => state.localize);
-    // const [taskno, settaskno] = useState("");
-    // const [userName, setuserName] = useState("");
-    // const [address, setaddress] = useState("");
-    // const [title, settitle] = useState("");
-    // const [status, setstatus] = useState("");
-    // const [taskDate, settaskDate] = useState("");
-
     const Tasks = props.tasks.item
     const date = Tasks.start_date
     const Date = date.split(' ')[0]

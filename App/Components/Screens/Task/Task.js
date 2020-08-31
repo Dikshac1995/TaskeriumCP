@@ -274,7 +274,7 @@ const Task = (props) => {
 
                 </View>
                 <Text style={styles.commentText}> {item.item.task_comment}  </Text >
-                <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />
+                <View style={styles.hrLine} />
 
             </View>)
 
@@ -295,7 +295,7 @@ const Task = (props) => {
                     onPress={() => props.navigation.navigate('ChangePassord')}
                     onPress_signout={() => signout()}
                 />
-                <View style={{ marginTop: 20, height: 1.5, backgroundColor: colors.primaryColor }} />
+                <View style={styles.headerDivider} />
                 <View style={{ paddingTop: 10 }}>
                     <InfoCart localize={localize} tasks={task} />
                 </View>
@@ -312,9 +312,7 @@ const Task = (props) => {
                             {helpers.getLocale(localize, "task", "documents")}</Text>
                     </View>
                     <View style={styles.horizontalLine} />
-                    {true ? null : <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />}
-                    {/* {docExpand && */}
-
+                    {true ? null : <View style={styles.hrLine} />}
                     {Document ?
                         <View style={{ paddingLeft: 10 }}>
                             <FlatList
@@ -329,15 +327,12 @@ const Task = (props) => {
                         <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
                         </Text>
                     }
-                    {/* } */}
-
                 </View>
 
                 <View style={{ marginTop: 20 }}>
                     <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() =>
                             setmsgExapnd(!msgExpand)
-                            // {()=>getCommentData()}
                         }>
                             <FastImage
                                 style={styles.downArrow}
@@ -348,7 +343,7 @@ const Task = (props) => {
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "messages")}</Text>
                     </View>
                     <View style={styles.horizontalLine} />
-                    {true ? null : <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />}
+                    {true ? null : <View style={styles.hrLine} />}
 
                     {/* {msgExpand && */}
                     {MsgLoader ?
@@ -363,14 +358,11 @@ const Task = (props) => {
                                 :
                                 <View style={{}}>
                                     <FlatList
-                                        // data={[" ", " ", " "]}
                                         data={getMessage}
                                         maxToRenderPerBatch={2}
                                         renderItem={commentRender}
                                         keyExtractor={_keyExtractor}
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    // maxToRenderPerBatch={3}
-
                                     />
                                 </View>
                             }</>
@@ -400,8 +392,6 @@ const Task = (props) => {
                         rating={starCount}
                         fullStarColor={colors.primaryColor}
                         starSize={35}
-                        // emptyStar={{ borderColor: 'red', borderWidth: 1 }}
-                        // {this.state.starCount}
                         selectedStar={(rating) => onStarRatingPress(rating)}
                         starStyle={{ padding: 5 }}
                     />

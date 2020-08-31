@@ -31,12 +31,8 @@ const _InputText = (props) => {
                         secureTextEntry={props.secureTextEntry ? props.secureTextEntry : null}
                         ellipsizeMode={props.ellipsizeMode ? props.ellipsizeMode : null}
                         multiline={props.multiline ? props.multiline : null}
-                    // selection={{ start: 0, }}
-                    // autoFocus={true}
                     >
                     </TextInput>
-
-
                 </View>
 
                 {props.leftIcon ?
@@ -55,10 +51,6 @@ const _InputText = (props) => {
                 }
             </View>
 
-            {/* <View>
-
-                <Text style={{ color: 'red', paddingLeft: 10, fontFamily: "MyriadPro-Regular" }}>{props.errMsg ? props.errMsg : null}</Text>
-            </View> */}
         </>
     )
 }
