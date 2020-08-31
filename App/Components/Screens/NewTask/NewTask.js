@@ -264,11 +264,11 @@ const NewTask = (props) => {
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
-
+        //    const imageName=  name.substr(name.length - 20)
 
             // uploadDoc(name, response.path, base64, " ", "Photo1")
             const item = {
-                "fileName": name,
+                "fileName": imageName,
                 "base64": base64
             }
 
@@ -299,9 +299,10 @@ const NewTask = (props) => {
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
+            const imageName=  name.substr(name.length - 10)
             // uploadDoc(name, response.path, base64, " ", "Photo1")
             const item = {
-                "fileName": name,
+                "fileName": "Image-"+imageName,
                 "base64": base64
             }
             const array = [...uploadedDoc]
@@ -498,7 +499,7 @@ const NewTask = (props) => {
                         name /> :
                         <>
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
-                                rightIcon1={images.menu1}
+                                rightIcon1={images.menu}
                                 rightcb
                                 rightIcon="ellipsis-v"
                                 onPress_signout={() => signout()}

@@ -289,7 +289,7 @@ const Task = (props) => {
                 loading={loading} />
             <ScrollView style={{ flex: 1 }}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
-                    rightIcon1={images.menu1}
+                    rightIcon1={images.menu}
                     rightIcon="ellipsis-v"
                     rightcb
                     onPress={() => props.navigation.navigate('ChangePassord')}

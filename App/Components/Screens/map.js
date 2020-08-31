@@ -1,6 +1,7 @@
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; 
 import React from "react";
-import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
+import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, 
+Platform,TextInput, Alert, ActivityIndicator } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 import Geocoder from 'react-native-geocoding';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -23,7 +24,7 @@ export default class Map extends React.Component {
     constructor(props) {
         super(props)
 
-        console.log(props, "8605")
+      
         this.state = {
 
             focusedLocation: {
@@ -224,7 +225,7 @@ export default class Map extends React.Component {
 
 const styles = StyleSheet.create({
     container: {
-        // marginTop: 20,
+     marginTop: 30,
         // height: screen.height - 140,
         display: "flex",
         height: Dimensions.get("screen").height,

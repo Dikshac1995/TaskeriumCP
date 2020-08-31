@@ -35,7 +35,8 @@ import Main from './Components/Screens/Main';
 import { colors } from './Theme';
 import AsyncStorage from '@react-native-community/async-storage';
 import { API, helpers } from './Config';
-
+import {Platform} from 'react-native';
+import {PERMISSIONS, request} from 'react-native-permissions';
 
 
 const App: () => React$Node = () => {
@@ -45,6 +46,12 @@ const App: () => React$Node = () => {
     // console.log("useEffect App.js")
     YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
     console.disableYellowBox = true;
+    // request(
+    //   Platform.select({
+    //     android: PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+    //     ios: PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+    //   }),
+    // );
     // setDefaultFontStyle()
 
     // checkApiBaseUrl()
