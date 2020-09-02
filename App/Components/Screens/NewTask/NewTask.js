@@ -301,7 +301,7 @@ const NewTask = (props) => {
             const name = response.path.split("/").pop()
             // uploadDoc(name, response.path, base64, " ", "Photo1")
             const item = {
-                "fileName": name,
+                "fileName": "Image-" + name.slice(-12, name.length),
                 "base64": base64
             }
             const array = [...uploadedDoc]

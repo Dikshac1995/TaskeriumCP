@@ -50,8 +50,10 @@ const Login = (props) => {
             if (remebervalue) {
                 const userName = await AsyncStorage.getItem("userName");
                 const password = await AsyncStorage.getItem("password");
+                const customerId = await AsyncStorage.getItem("customerId");
                 setuserName(userName)
                 setpassword(password)
+                setcustomerId(customerId)
             }
         }
     }
@@ -95,6 +97,8 @@ const Login = (props) => {
                 await AsyncStorage.setItem("token", res[0].token);
                 await AsyncStorage.setItem("userName", userName);
                 await AsyncStorage.setItem("password", password);
+                await AsyncStorage.setItem("customerId", customerId);
+
                 dispatch(login({ res }))
                 setloading(false)
 

@@ -45,7 +45,12 @@ export default class Map extends React.Component {
 
 
     componentDidMount() {
-        this.getLocationHandler()
+        if (Platform.OS === 'ios') {
+            Geolocation.requestAuthorization();
+            this.getLocationHandler();
+        } else {
+            this.getLocationHandler()
+        }
         // Geocoder.init("AIzaSyCnTVcKa7vGMLY_h73i_9771INltnOdjiQ")
         // Geocoder.init("AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
 
@@ -78,7 +83,7 @@ export default class Map extends React.Component {
 
     // Fetch location details as a JOSN from google map API
     fetchAddress = () => {
-        console.log({})
+        // console.log({})
         // this.setState({ loading: true })
         fetch("https://maps.googleapis.com/maps/api/geocode/json?address="
             + this.state.focusedLocation.latitude + "," + this.state.focusedLocation.longitude +
@@ -175,7 +180,10 @@ export default class Map extends React.Component {
             err => {
                 console.log(err);
                 alert("Fetching the Position failed, please pick one manually!");
-            })
+            },
+            // { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+        );
+
     }
     closeHandler = () => {
         this.props.onPressmap()
@@ -209,7 +217,7 @@ export default class Map extends React.Component {
                             ref={ref => this.map = ref}
                         >
                             {marker}
-                            <View style={{ alignItems: 'flex-end', paddingRight: 10 }}>
+                            <View style={{ alignItems: 'flex-end', paddingRight: 20, paddingTop: 30 }}>
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View>
                         </MapView>
