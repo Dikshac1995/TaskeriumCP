@@ -564,14 +564,14 @@ const NewTask = (props) => {
                                     style={styles.pairButton}
                                 />
                                 <View style={styles.uploadDocWrapper}>
-                                    <FlatList
+                                    {/* <FlatList
                                         data={uploadedImg}
                                         renderItem={({ item, index }) =>
                                             <Text style={styles.text}>{item.fileName}</Text>}
 
                                         keyExtractor={(item, index) => index.toString()}
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    />
+                                    /> */}
                                     <FlatList
                                         data={uploadedDoc}
                                         renderItem={({ item, index }) =>
