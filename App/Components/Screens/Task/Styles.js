@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet ,Platform} from "react-native";
 import {
     colors,
     fonts,
@@ -20,7 +20,8 @@ export default styles = StyleSheet.create({
     signUpWrapper: {
         flex: 1,
         borderWidth: 0,
-        paddingBottom: 20,
+        paddingVertical:20,
+        // paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
     },
@@ -115,7 +116,8 @@ export default styles = StyleSheet.create({
     },
     addMessageText: {
         fontSize: 25, borderWidth: 0,
-        fontFamily: "MyriadPro-Regular"
+        fontFamily: "MyriadPro-Regular",
+        paddingTop: Platform.OS === 'ios' ? 5 : 0,
     },
     addMessageIConWrapper: {
         width: "15%", ...sty.jCenter, ...sty.aCenter

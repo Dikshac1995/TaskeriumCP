@@ -10,7 +10,7 @@ const _Button = (props) => {
     return (
         <View style={{ width: "100%", }}>
             <TouchableOpacity style={{}} onPress={() => { props.callback ? props.callback() : null }}>
-                <View style={[styles.btnWrap, , style,]}>
+                <View style={[styles.btnWrap, style,]}>
                     <Text allowFontScaling={false} style={[styles.btnTextStyle, props.btnTxtStyle,]}>{props.btnTxt ? props.btnTxt : "Button"}</Text>
                     {/* <View style={{ height: 20, width: 30, backgroundColor: "red" }} /> */}
                 </View>

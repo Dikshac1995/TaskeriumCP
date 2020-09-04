@@ -15,6 +15,7 @@ export default styles = StyleSheet.create({
         borderTopColor: colors.buttonBorder,
         paddingVertical: 7.5,
         ...sty.fRow,
+       
         // paddingTop: Platform.OS === 'ios' ? 2 : 0
     },
     inputText: {
@@ -30,7 +31,10 @@ export default styles = StyleSheet.create({
     btnTextStyle: {
         fontSize: 29,
         color: "#1C7DED",
-        fontFamily: fonts.fontFamily.Regular
+        fontFamily: fonts.fontFamily.Regular,
+       paddingTop: Platform.OS === 'ios' ? 5: 0
+       
+       
 
     },
     pairButtonStyle: {
@@ -40,9 +44,9 @@ export default styles = StyleSheet.create({
     pairBtnTextStyle: {
         fontSize: 25,
         color: "#1C7DED",
-        height: 29,
-        fontFamily: fonts.fontFamily.Regular
-
+        // height: 30,
+        fontFamily: fonts.fontFamily.Regular,
+        paddingTop: Platform.OS === 'ios' ? 5: 0
     }
 
 

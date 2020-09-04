@@ -25,6 +25,7 @@ export default styles = StyleSheet.create({
     },
     signUpWrapper: {
         flex: 1,
+        // paddingVertical:10,
         paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter

@@ -123,6 +123,7 @@ const ChangePassword = (props) => {
                 loading={loading} />
             <_Header header={helpers.getLocale(localize, "changePassword", "change_password")} />
             <View style={{}}>
+                
                 <_InputText
                     style={styles.TextInput}
                     value={currentPassword}

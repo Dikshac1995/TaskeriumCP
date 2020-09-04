@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    Alert, Image, Text, FlatList, TouchableOpacity
+    Alert, Image, Text, FlatList, TouchableOpacity,KeyboardAvoidingView
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -370,8 +370,8 @@ const NewTask = (props) => {
                 },
             };
 
-            let name = dataValue.fileName.split('Image-').pop()
-            let filename= taskId+'_'+name
+            let name = dataValue.fileName.split('cp').pop()
+            let filename= taskId+'_'+'cp'+name
             let header = helpers.buildHeader();
             let data = {
                 "user_id": userAuthdetails.user_id,
@@ -381,7 +381,7 @@ const NewTask = (props) => {
                 "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
-            API.postDocument(data, cb, header);
+             API.postDocument(data, cb, header);
         } else {
             // getEndPoint()
         }
@@ -417,10 +417,13 @@ const NewTask = (props) => {
                     let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
                     filepath = basepath + "/" + res.name;
                 }
+                const docExtension =res.name.split(".").pop()
+                const date= moment().format('MM-DD-YYYY:HH:mm:ss');
+                console.log("ecte",docExtension,date)
                 RNFS.readFile(filepath, "base64").then(result => {
                     // uploadDoc(res.name, res.uri, result, "Doc1 ", " ")
                     const item = {
-                        "fileName": res.name,
+                        "fileName":"Doc-cp_"+date+"."+docExtension,
                         "base64": result
                     }
                     const array = [...uploadedDoc]
@@ -490,6 +493,7 @@ const NewTask = (props) => {
 
     return (
         <>
+        
             {(!locationExpand) ?
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
@@ -505,7 +509,9 @@ const NewTask = (props) => {
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
                             <View style={{}}>
-
+                            <KeyboardAvoidingView
+                              behavior={Platform.OS == "ios" ? "padding" : "height"}
+                             >
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -581,7 +587,7 @@ const NewTask = (props) => {
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />
                                 </View>
-
+                                </KeyboardAvoidingView>
                             </View>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
@@ -598,6 +604,7 @@ const NewTask = (props) => {
                 </View >
                 :
                 <Map onPressmap={(data) => { pressHandle(data) }} />}
+                
         </>
 
     );
