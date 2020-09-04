@@ -23,7 +23,7 @@ import AddressLocation from '../map'
 import ImagePicker1 from 'react-native-image-crop-picker';
 import { Container, Header, Button, Content, ActionSheet } from "native-base";
 import Map from "../map"
-import { localeData } from 'moment';
+import moment from 'moment';
 
 const NewTask = (props) => {
     const localize = useSelector(state => state.localize);
@@ -299,29 +299,26 @@ const NewTask = (props) => {
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
-            // uploadDoc(name, response.path, base64, " ", "Photo1")
+           const imageName= "Image-" + name.slice(-12, name.length)
+           const imgExtention= imageName.split(".").pop()
+          const date= moment().format('MM-DD-YYYY:HH:mm:ss');
             const item = {
-                "fileName": "Image-" + name.slice(-12, name.length),
-                "base64": base64
+                "fileName": "Image-cp_"+date+"."+imgExtention,
+                "base64": base64,
             }
             const array = [...uploadedDoc]
             array.push(item)
             setuploadedDoc(array)
-            // const arr = [...uploadedImg]
-            // arr.push(item)
-            // Document.push(item);
-            // setuploadedImg(arr)
         })
             .catch(err => {
                 console.log("err", err)
             })
 
     }
-    // (fileName, uri, photo, doc, image) 
+    
 
     const uploadDoc = async (dataValue, taskId, resolve, reject) => {
 
-        // setloading(true)
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         if (baseUrl && baseUrl !== undefined) {
@@ -372,12 +369,15 @@ const NewTask = (props) => {
 
                 },
             };
+
+            let name = dataValue.fileName.split('Image-').pop()
+            let filename= taskId+'_'+name
             let header = helpers.buildHeader();
             let data = {
                 "user_id": userAuthdetails.user_id,
                 "token": userAuthdetails.token,
                 "task_id": taskId,
-                "filename": dataValue.fileName,
+                "filename": filename,
                 "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
@@ -498,7 +498,7 @@ const NewTask = (props) => {
                         name /> :
                         <>
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
-                                rightIcon1={images.menu1}
+                                rightIcon1={images.menu}
                                 rightcb
                                 rightIcon="ellipsis-v"
                                 onPress_signout={() => signout()}
