@@ -51,31 +51,6 @@ export default class Map extends React.Component {
         } else {
             this.getLocationHandler()
         }
-        // Geocoder.init("AIzaSyCnTVcKa7vGMLY_h73i_9771INltnOdjiQ")
-        // Geocoder.init("AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
-
-
-        // Geolocation.getCurrentPosition((position) => {
-        //     const region = {
-        //         latitude: position.coords.latitude,
-        //         longitude: position.coords.longitude,
-        //         latitudeDelta: 0.001,
-        //         longitudeDelta: 0.001
-        //     }
-        //     console.log(position, "pos")
-        //     this.setState({
-        //         region: region,
-        //         loading: false,
-        //         error: null,
-        //         userLocation: " your location "
-        //     });
-        // })
-        // Geocoder.from("pune")
-        //     .then(json => {
-        //         var location = json.results[0].geometry.location;
-        //         console.log(location);
-        //     })
-        //     .catch(error => console.log(error, "10")),
     }
     onMapReady = () => {
         this.setState({ isMapReady: true, marginTop: 0 });
@@ -83,17 +58,18 @@ export default class Map extends React.Component {
 
     // Fetch location details as a JOSN from google map API
     fetchAddress = () => {
-        // console.log({})
-        // this.setState({ loading: true })
         fetch("https://maps.googleapis.com/maps/api/geocode/json?address="
             + this.state.focusedLocation.latitude + "," + this.state.focusedLocation.longitude +
             "&key=" + "AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
             .then((response) => response.json())
             .then((responseJson) => {
-                // console.log(responseJson, )
+                console.log("fetchAddress responseJson", responseJson)
                 if (responseJson.status === "OK") {
                     const res = responseJson.results[0].formatted_address;
                     const userLocation = responseJson.results[0].formatted_address;
+                    console.log("res :", res)
+                    console.log("userLocation :", userLocation)
+
                     this.setState({
                         userLocation: userLocation,
                         address: res,
@@ -119,7 +95,7 @@ export default class Map extends React.Component {
         console.log("add", this.state.address)
         if (this.state.address != "") {
             const address = this.state.address
-
+            console.log(" onPressHandler address :", this.state)
             Alert.alert(
                 ' Do you want to set this location  as address', this.state.address,
                 [
@@ -146,6 +122,7 @@ export default class Map extends React.Component {
 
     pickLocationHandler = event => {
         const coords = event.nativeEvent.coordinate;
+        console.log("coords :", coords)
         this.map.animateToRegion({
             ...this.state.focusedLocation,
             latitude: coords.latitude,
@@ -162,11 +139,13 @@ export default class Map extends React.Component {
                 // initialLoading: false
             };
         });
-        this.fetchAddress()
-
+        setTimeout(() => {
+            this.fetchAddress()
+        }, 100)
     };
     getLocationHandler = () => {
         Geolocation.getCurrentPosition(pos => {
+            console.log("pos :", pos)
             const coordsEvent = {
                 nativeEvent: {
                     coordinate: {

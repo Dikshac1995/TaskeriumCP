@@ -42,7 +42,7 @@ const NewTask = (props) => {
     const [loading, setloading] = useState(false);
     const [locationExpand, setlocationExpand] = useState(false)
     const Document = [];
-    var BUTTONS = ["Camera", "Galary", "Cancel"];
+    var BUTTONS = ["Camera", "Gallary", "Cancel"];
     var CANCEL_INDEX = 2;
 
 
