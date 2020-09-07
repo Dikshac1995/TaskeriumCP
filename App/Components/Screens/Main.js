@@ -22,6 +22,7 @@ class Main extends Component {
 
     async componentDidMount() {
         await this.getRememberedUser()
+       
     }
 
     getRememberedUser = async () => {

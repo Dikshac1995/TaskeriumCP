@@ -53,7 +53,7 @@ export default styles = StyleSheet.create({
     uploadDocWrapper: {
         paddingVertical: 5,
         paddingHorizontal: 15,
-        height:'30%',
+        // height:'30%',
         // flex:1,
     },
     text: {

@@ -40,7 +40,7 @@ export default styles = StyleSheet.create({
     pairBtnTextStyle: {
         fontSize: 25,
         color: "#1C7DED",
-        height: 30,
+        height: 29,
         fontFamily: fonts.fontFamily.Regular,
         paddingTop: Platform.OS === 'ios' ? 3: 0
     }

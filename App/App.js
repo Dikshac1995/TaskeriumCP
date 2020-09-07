@@ -35,7 +35,7 @@ import Main from './Components/Screens/Main';
 import { colors } from './Theme';
 import AsyncStorage from '@react-native-community/async-storage';
 import { API, helpers } from './Config';
-import {Permisssion,PERMISSION_TYPE, Permission, PERMISSIONS_TYPE}from './AppPermission'
+import { Permission, PERMISSIONS_TYPE}from './AppPermission'
 
 
 
@@ -49,7 +49,7 @@ const App: () => React$Node = () => {
     // setDefaultFontStyle()
 
     // checkApiBaseUrl()
-    Permission.checkPemission(PERMISSIONS_TYPE.camera)
+    Permission.requestMultiplePermission([PERMISSIONS_TYPE.camera,PERMISSIONS_TYPE.photo])
 
   }, []);
 
