@@ -260,7 +260,9 @@ const Tasks = (props) => {
                                 /></>}
 
                     </View>
-                    <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
+                    <View style={[styles.signUpWrapper, 
+                        { borderWidth: 0 }
+                        ]}>
                         <View style={styles.signUpView}>
                             <_Button
                                 btnTxt={helpers.getLocale(localize, "tasks", "add_task")}

@@ -22,8 +22,6 @@ export default class Map extends React.Component {
 
     constructor(props) {
         super(props)
-
-        console.log(props, "8605")
         this.state = {
 
             focusedLocation: {

@@ -509,9 +509,9 @@ const NewTask = (props) => {
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
                             <View style={{}}>
-                            <KeyboardAvoidingView
+                            {/* <KeyboardAvoidingView
                               behavior={Platform.OS == "ios" ? "padding" : "height"}
-                             >
+                             > */}
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -587,7 +587,7 @@ const NewTask = (props) => {
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />
                                 </View>
-                                </KeyboardAvoidingView>
+                                {/* </KeyboardAvoidingView> */}
                             </View>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
