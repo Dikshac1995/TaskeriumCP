@@ -509,9 +509,7 @@ const NewTask = (props) => {
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
                             <View style={{}}>
-                            {/* <KeyboardAvoidingView
-                              behavior={Platform.OS == "ios" ? "padding" : "height"}
-                             > */}
+                           
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -570,14 +568,6 @@ const NewTask = (props) => {
                                     style={styles.pairButton}
                                 />
                                 <View style={styles.uploadDocWrapper}>
-                                    {/* <FlatList
-                                        data={uploadedImg}
-                                        renderItem={({ item, index }) =>
-                                            <Text style={styles.text}>{item.fileName}</Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-                                        removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    /> */}
                                     <FlatList
                                         data={uploadedDoc}
                                         renderItem={({ item, index }) =>
@@ -587,7 +577,7 @@ const NewTask = (props) => {
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />
                                 </View>
-                                {/* </KeyboardAvoidingView> */}
+                               
                             </View>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
