@@ -42,6 +42,15 @@ target 'TaskeriumCP' do
 
   pod 'react-native-image-picker', :path => '../node_modules/react-native-image-picker'
 
+  permissions_path = '../node_modules/react-native-permissions/ios'
+
+  pod 'Permission-Camera', :path => "#{permissions_path}/Camera.podspec"
+  pod 'Permission-PhotoLibrary', :path => "#{permissions_path}/PhotoLibrary.podspec"
+  pod 'Permission-LocationAlways', :path => "#{permissions_path}/LocationAlways.podspec"
+  pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
+
+
+
   target 'TaskeriumCPTests' do
     inherit! :search_paths
     # Pods for testing
