@@ -31,17 +31,22 @@ export default styles = StyleSheet.create({
         fontSize: 29,
         color: "#1C7DED",
         fontFamily: fonts.fontFamily.Regular,
-        paddingTop: Platform.OS === 'ios' ? 7: 0
+        paddingTop: Platform.OS === 'ios' ? 7 : 0
     },
     pairButtonStyle: {
         width: "50%",
-        ...sty.aCenter
+        ...sty.aCenter,
+        ...sty.jCenter
     },
     pairBtnTextStyle: {
         fontSize: 25,
         color: "#1C7DED",
-        height: 29,
         fontFamily: fonts.fontFamily.Regular,
-        paddingTop: Platform.OS === 'ios' ? 3: 0
+        paddingTop: Platform.OS === 'ios' ? 7 : 0,
+        borderWidth: 0,
+        justifyContent: 'center',
+        alignSelf: 'center',
+        alignItems: 'center'
+
     }
 });
