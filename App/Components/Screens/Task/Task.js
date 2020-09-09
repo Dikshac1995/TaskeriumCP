@@ -255,15 +255,17 @@ const Task = (props) => {
         setstarCount(rating)
     }
 
-    const openDocument=(data)=>{
-        console.log("data",data)
-        let uri = data;
+    const openDocument=(doc_uri,doc_title)=>{
+        console.log("data",doc_uri)
+        let uri = doc_uri;
+        
         if (Platform.OS === 'ios') {
-          uri = data.replace('file://', '');
+          uri = doc_uri.replace('file://', '');
         }
-        let ext = data.split(".").pop()
+        let ext = doc_uri.split(".").pop()
         console.log("ext",ext)
-        const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
+        // const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
+        const localFile = `${RNFS.DocumentDirectoryPath}/${doc_title}`
         console.log("localFile",localFile)
         const options = {
             fromUrl:uri,
@@ -344,7 +346,7 @@ const Task = (props) => {
                             <FlatList
                                 data={docList}
                                 renderItem={({ item, index }) =>
-                                <TouchableOpacity onPress={()=>openDocument(item.file_path)}>
+                                <TouchableOpacity onPress={()=>openDocument(item.file_path,item.title)}>
                                     <Text style={styles.documentListText}>{item.title}</Text>
                                     </TouchableOpacity>
                                 }
