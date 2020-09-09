@@ -50,7 +50,6 @@ target 'TaskeriumCP' do
   pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenInUse.podspec"
 
 
-
   target 'TaskeriumCPTests' do
     inherit! :search_paths
     # Pods for testing

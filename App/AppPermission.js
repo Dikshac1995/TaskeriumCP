@@ -7,20 +7,27 @@ const PLATFORM_CAMERA_PERMISSION={
     android:PERMISSIONS.ANDROID.CAMERA,
 }
 
+const PLATFORM_LOCATION_PERMISSION={
+    ios:PERMISSIONS.IOS.LOCATION_ALWAYS,
+    ios:PERMISSIONS.IOS.LOCATION_WHEN_IN_USE,
+    android:PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION,
+}
+
 const PLATFORM_PHOTO_PERMISSION={
     ios:PERMISSIONS.IOS.PHOTO_LIBRARY,
     android:PERMISSIONS.ANDROID.WRITE_EXTERNAL_STORAGE,
 }
 
-
 const REQUEST_PERMISSION_TYPE={
     camera :PLATFORM_CAMERA_PERMISSION,
-    photo:PLATFORM_PHOTO_PERMISSION
+    photo:PLATFORM_PHOTO_PERMISSION,
+    location:PLATFORM_LOCATION_PERMISSION
 }
 
 const PERMISSIONS_TYPE={
     camera:'camera',
-    photo:'photo'
+    photo:'photo',
+    location :'location'
 }
 
 
@@ -80,5 +87,6 @@ class AppPermission{
 
 
 }
+
 const Permission = new AppPermission
 export {Permission,PERMISSIONS_TYPE}

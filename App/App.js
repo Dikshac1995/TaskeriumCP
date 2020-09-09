@@ -49,7 +49,10 @@ const App: () => React$Node = () => {
     // setDefaultFontStyle()
 
     // checkApiBaseUrl()
-    Permission.requestMultiplePermission([PERMISSIONS_TYPE.camera,PERMISSIONS_TYPE.photo])
+    Permission.requestMultiplePermission([PERMISSIONS_TYPE.camera,
+      PERMISSIONS_TYPE.photo,
+      PERMISSIONS_TYPE.location
+    ])
 
   }, []);
 

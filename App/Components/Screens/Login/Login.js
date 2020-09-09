@@ -27,8 +27,8 @@ import { StackActions, CommonActions } from "@react-navigation/native";
 
 const Login = (props) => {
     const localize = useSelector(state => state.localize);
-    const [userName, setuserName] = useState(!globals.live ? "jack2@yopmail.com" : "");
-    const [password, setpassword] = useState(!globals.live ? "foisso3p" : "");
+    const [userName, setuserName] = useState(!globals.live ? "jack03@yopmail.com" : "");
+    const [password, setpassword] = useState(!globals.live ? "dLw9qB2J" : "");
     const [customerId, setcustomerId] = useState("");
     const [checked, setchecked] = useState(false);
     const [loading, setloading] = useState(false);
