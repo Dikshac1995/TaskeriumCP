@@ -258,7 +258,6 @@ const Task = (props) => {
     const openDocument=(doc_uri,doc_title)=>{
         console.log("data",doc_uri)
         let uri = doc_uri;
-        
         if (Platform.OS === 'ios') {
           uri = doc_uri.replace('file://', '');
         }
