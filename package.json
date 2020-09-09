@@ -22,6 +22,7 @@
     "react-native": "0.61.5",
     "react-native-document-picker": "^3.5.4",
     "react-native-fast-image": "^8.3.2",
+    "react-native-file-viewer": "^2.1.1",
     "react-native-fs": "^2.16.6",
     "react-native-geocoding": "^0.4.0",
     "react-native-gesture-handler": "^1.7.0",

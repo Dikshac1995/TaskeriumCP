@@ -32,7 +32,8 @@ import { startClock } from 'react-native-reanimated';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
 import { SET_SINGLE_USER_STORY } from '../../../Redux/Actions/Constants';
-
+import FileViewer from 'react-native-file-viewer';
+import RNFS from 'react-native-fs';
 
 
 
@@ -253,6 +254,42 @@ const Task = (props) => {
     const onStarRatingPress = (rating) => {
         setstarCount(rating)
     }
+
+    const openDocument=(data)=>{
+        console.log("data",data)
+        let uri = data;
+        if (Platform.OS === 'ios') {
+          uri = data.replace('file://', '');
+        }
+        let ext = data.split(".").pop()
+        console.log("ext",ext)
+        // console.log('URI : ' + uri);
+        // FileViewer.open(uri)
+        //   .then(() => {
+        //     console.log('Success');
+        //   })
+        //   .catch(err => {
+        //     console.log(err);
+        //   });
+      
+        const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
+        console.log("localFile",localFile)
+        const options = {
+            fromUrl:uri,
+            toFile: localFile
+          };
+          RNFS.downloadFile(options).promise
+           .then(() => FileViewer.open(localFile))
+        .then(() => {
+    console.log("success")
+    
+})
+.catch(error => {
+    // error
+});
+        // FileViewer.open(data);
+        // Alert.alert("hello",data)
+    }
     const commentRender = (item) => {
         const date = moment(item.item.timestamp).format('YYYY-MM-DD')
         const time = moment(item.item.timestamp).format("HH:mm")
@@ -314,14 +351,18 @@ const Task = (props) => {
 
                     {Document ?
                         <View style={styles.documentWrapper}>
+                           
                             <FlatList
                                 data={docList}
                                 renderItem={({ item, index }) =>
+                                <TouchableOpacity onPress={()=>openDocument(item.file_path)}>
                                     <Text style={styles.documentListText}>{item.title}</Text>
+                                    </TouchableOpacity>
                                 }
                                 keyExtractor={_keyExtractor}
                                 removeClippedSubviews={Platform.OS == "android" ? true : false}
                             />
+                            
                         </View> :
                         <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
                         </Text>
