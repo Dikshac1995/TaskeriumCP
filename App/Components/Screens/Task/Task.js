@@ -263,15 +263,6 @@ const Task = (props) => {
         }
         let ext = data.split(".").pop()
         console.log("ext",ext)
-        // console.log('URI : ' + uri);
-        // FileViewer.open(uri)
-        //   .then(() => {
-        //     console.log('Success');
-        //   })
-        //   .catch(err => {
-        //     console.log(err);
-        //   });
-      
         const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
         console.log("localFile",localFile)
         const options = {
@@ -287,8 +278,6 @@ const Task = (props) => {
 .catch(error => {
     // error
 });
-        // FileViewer.open(data);
-        // Alert.alert("hello",data)
     }
     const commentRender = (item) => {
         const date = moment(item.item.timestamp).format('YYYY-MM-DD')
