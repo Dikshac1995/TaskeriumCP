@@ -15,14 +15,13 @@ import _Header from '../../Custom/Header/_Header';
 import _PairButton from '../../Custom/Button/_PairButton';
 import AsyncStorage from '@react-native-community/async-storage';
 import Loader from '../../Custom/Loader/Loader'
-// import ImagePicker from 'react-native-image-picker';
 import DocumentPicker from 'react-native-document-picker';
 import { StackActions, CommonActions } from "@react-navigation/native";
 import RNFS from 'react-native-fs'
-import AddressLocation from '../map'
+import AddressLocation from '../Map/map'
 import ImagePicker1 from 'react-native-image-crop-picker';
 import { Container, Header, Button, Content, ActionSheet } from "native-base";
-import Map from "../map"
+import Map from "../Map/map"
 import moment from 'moment';
 
 const NewTask = (props) => {
@@ -52,7 +51,7 @@ const NewTask = (props) => {
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         if (baseUrl && baseUrl !== undefined) {
-            let cb = {
+           let cb = {
                 success: async (res) => {
                     console.log({ res })
                     let customer_data = res[0].objects
