@@ -26,9 +26,6 @@ import AsyncStorage from '@react-native-community/async-storage';
 import Loader from '../../Custom/Loader/Loader';
 
 
-
-
-
 const ChangePassword = (props) => {
     const localize = useSelector(state => state.localize);
     const [currentPassword, setcurrentPassword] = useState("");
@@ -44,14 +41,12 @@ const ChangePassword = (props) => {
         setloading(true)
         let token = await AsyncStorage.getItem('token');
         let userAuthdetails = await helpers.userAuthdetails();
-
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         const userName = await AsyncStorage.getItem("userName");
 
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    // console.log("success res:", res)
                     setloading(false)
                     setTimeout(() => {
                         Alert.alert(

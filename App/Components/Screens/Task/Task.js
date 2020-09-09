@@ -31,6 +31,7 @@ import StarRating from 'react-native-star-rating';
 import { startClock } from 'react-native-reanimated';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
+import { SET_SINGLE_USER_STORY } from '../../../Redux/Actions/Constants';
 
 
 
@@ -49,8 +50,7 @@ const Task = (props) => {
     const [getMessage, setgetMessage] = useState([]);
     const [MsgLoader, setMsgLoader] = useState(false);
     const [loading, setloading] = useState(false);
-    const [msgemptyErr, setmsgemptyErr] = useState(false);
-    const [docCount1, setdocCount1] = useState([]);
+    
     var DocumentCount = []
 
     if (Document && Document != undefined) {
@@ -168,7 +168,7 @@ const Task = (props) => {
                     setloading(false)
                     AsyncStorage.removeItem('userAuthDetails');
                     AsyncStorage.removeItem('token');
-                    // AsyncStorage.removeItem('userName');
+                    
                     props.navigation.dispatch(
                         CommonActions.reset({
                             index: 0,
@@ -208,7 +208,6 @@ const Task = (props) => {
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    // console.log({ res })
                     setloading(false)
                     setTimeout(() => {
                         Alert.alert('Success', 'Save Successfully ');
@@ -223,7 +222,6 @@ const Task = (props) => {
                 complete: () => { },
             };
             let header = helpers.buildHeader();
-            // console.log("task_id", task.item.id, task.item.task_type)
             setloading(true)
             let data = {
                 "user_id": userAuthdetails.user_id,
@@ -233,7 +231,7 @@ const Task = (props) => {
                 "task_evaluation": starCount,
                 "api_key": globals.API_KEY,
             };
-            // console.log("data", data)
+           
             API.saveEvalutionData(data, cb, header);
         } else {
 
@@ -274,10 +272,8 @@ const Task = (props) => {
 
                 </View>
                 <Text style={styles.commentText}> {item.item.task_comment}  </Text >
-                <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />
-
+                <View style={styles.seperator} />
             </View>)
-
     }
     const _keyExtractor = (item, index) => "tasks" + index.toString();
 
@@ -287,7 +283,7 @@ const Task = (props) => {
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
-            <ScrollView style={{ flex: 1 }}>
+            <ScrollView style={styles.scrollView}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
                     rightIcon1={images.menu}
                     rightIcon="ellipsis-v"
@@ -295,11 +291,12 @@ const Task = (props) => {
                     onPress={() => props.navigation.navigate('ChangePassord')}
                     onPress_signout={() => signout()}
                 />
-                <View style={{ marginTop: 20, height: 1.5, backgroundColor: colors.primaryColor }} />
-                <View style={{ paddingTop: 10 }}>
+                <View style={styles.headerSeperator} />
+
+                <View style={styles.infoCartContainer}>
                     <InfoCart localize={localize} tasks={task} />
                 </View>
-                <View style={{ marginTop: 10, }}>
+                <View style={ styles.section2}>
                     <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
                             <FastImage
@@ -312,11 +309,11 @@ const Task = (props) => {
                             {helpers.getLocale(localize, "task", "documents")}</Text>
                     </View>
                     <View style={styles.horizontalLine} />
-                    {true ? null : <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />}
-                    {/* {docExpand && */}
+                    {true ? null : <View style={styles.seperator} />}
+                    
 
                     {Document ?
-                        <View style={{ paddingLeft: 10 }}>
+                        <View style={styles.documentWrapper}>
                             <FlatList
                                 data={docList}
                                 renderItem={({ item, index }) =>
@@ -329,15 +326,14 @@ const Task = (props) => {
                         <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
                         </Text>
                     }
-                    {/* } */}
+                    
 
                 </View>
 
-                <View style={{ marginTop: 20 }}>
+                <View style={styles.section2}>
                     <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() =>
                             setmsgExapnd(!msgExpand)
-                            // {()=>getCommentData()}
                         }>
                             <FastImage
                                 style={styles.downArrow}
@@ -348,9 +344,9 @@ const Task = (props) => {
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "messages")}</Text>
                     </View>
                     <View style={styles.horizontalLine} />
-                    {true ? null : <View style={{ marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor }} />}
+                    {true ? null : <View style={styles.seperator} />}
 
-                    {/* {msgExpand && */}
+                    
                     {MsgLoader ?
                         <View>
                             <ActivityIndicator animating={true} color="blue" />
@@ -363,14 +359,11 @@ const Task = (props) => {
                                 :
                                 <View style={{}}>
                                     <FlatList
-                                        // data={[" ", " ", " "]}
                                         data={getMessage}
                                         maxToRenderPerBatch={2}
                                         renderItem={commentRender}
                                         keyExtractor={_keyExtractor}
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    // maxToRenderPerBatch={3}
-
                                     />
                                 </View>
                             }</>
@@ -393,15 +386,12 @@ const Task = (props) => {
                 </View>
 
                 <View style={styles.startRateWrapper}>
-                    {/* <FastImage style={styles.starImgStyle} source={images.emptyStar} resizeMode={"contain"} /> */}
                     <StarRating
                         disabled={false}
                         maxStars={5}
                         rating={starCount}
                         fullStarColor={colors.primaryColor}
                         starSize={35}
-                        // emptyStar={{ borderColor: 'red', borderWidth: 1 }}
-                        // {this.state.starCount}
                         selectedStar={(rating) => onStarRatingPress(rating)}
                         starStyle={{ padding: 5 }}
                     />
@@ -419,7 +409,7 @@ const Task = (props) => {
                         />
                     </View>
                 </View>
-                {/* </View> */}
+               
             </ScrollView>
             <Modal animationType={"none"} transparent={true}
                 visible={modalVisible}

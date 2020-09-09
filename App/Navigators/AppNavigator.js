@@ -9,12 +9,9 @@ import Tasks from "../Components/Screens/Task/Tasks";
 import Task from "../Components/Screens/Task/Task";
 import NewTask from "../Components/Screens/NewTask/NewTask";
 import AsyncStorage from '@react-native-community/async-storage';
-import AddressLocation from '../Components/Screens/map'
+
 
 function AppNavigator() {
-  // console.log("props", props)
-  // const intialRout = getRememberedUser
-
   const [intialRout, setintialRout] = useState('LogIn');
 
   useEffect(() => {
@@ -23,17 +20,16 @@ function AppNavigator() {
   }, [])
 
   const getRememberedUser = async () => {
-    // console.log("AppNavigator useEffect")
     const remeber = await AsyncStorage.getItem('RemeberMe');
 
     if (remeber != null) {
       const remebervalue = JSON.parse(remeber)
-      // console.log("AppNavigator remebervalue", remebervalue)
+    
       if (remebervalue)
         setintialRout('Tasks')
       else
         setintialRout('LogIn')
-      // return 'Tasks'
+     
     }
     else {
       // return 'LogIn'
@@ -43,26 +39,20 @@ function AppNavigator() {
   const StackNavigator = createStackNavigator()
   return (
     <NavigationContainer>
-      {/* <StackNavigator.Navigator initialRouteName={intialRout} screenOptions={{ headerShown: false }}> */}
+      
       <StackNavigator.Navigator initialRouteName={'LogIn'} screenOptions={{ headerShown: false }}
       >
-
         <StackNavigator.Screen name="Tasks" component={Tasks}
           navigationOption={{ headerLeft: null }}
-        // options={{ headerLeft: () => null }}
         />
         <StackNavigator.Screen name="LogIn" component={LoginIn}
-          // navigationOption={{ headerLeft: null }}
           options={{ headerLeft: () => null }}
         />
-
         <StackNavigator.Screen name="SignUp" component={SignUp} />
         <StackNavigator.Screen name="ChangePassord" component={ChangePassord} />
         <StackNavigator.Screen name="ForgetPassword" component={ForgetPassword} />
         <StackNavigator.Screen name="Task" component={Task} />
         <StackNavigator.Screen name="NewTask" component={NewTask} />
-        <StackNavigator.Screen name="AddressLocation" component={AddressLocation} />
-
       </StackNavigator.Navigator>
     </NavigationContainer>
   );

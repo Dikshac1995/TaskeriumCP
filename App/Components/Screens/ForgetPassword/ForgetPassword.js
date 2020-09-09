@@ -79,7 +79,6 @@ const ForgetPassword = (props) => {
 
         let header = helpers.buildHeader({});
         let data = {
-            // company_code: "app"
             company_code: customerId
 
         };
@@ -88,8 +87,7 @@ const ForgetPassword = (props) => {
 
 
     const forgetPassword = async () => {
-        // const baseUrl = await AsyncStorage.getItem("baseUrl");
-        // if (baseUrl && baseUrl !== undefined) {
+        
         let cb = {
             success: async (res) => {
                 setloading(false)
@@ -124,13 +122,6 @@ const ForgetPassword = (props) => {
         API.forgetPassword(data, cb, header);
 
     }
-    //     else {
-    //         // getEndPoint()
-    //     }
-    // }
-
-
-
 
     return (
         <View style={[mainStyle.rootView, styles.container]}>

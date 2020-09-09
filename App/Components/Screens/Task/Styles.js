@@ -126,6 +126,9 @@ export default styles = StyleSheet.create({
     addMessageICon: {
         height: 20, width: 20, paddingLeft: 0
     },
+    section2:{
+        marginTop:10
+    },
 
     section2Wapper: {
         ...sty.fRow, paddingLeft: 10,
@@ -145,5 +148,20 @@ export default styles = StyleSheet.create({
     },
     horizontalLine: {
         marginTop: 1, height: 1.5, backgroundColor: colors.primaryColor
+    },
+    seperator:{
+        marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor 
+    },
+    headerSeperator:{
+        marginTop: 20, height: 1.5, backgroundColor: colors.primaryColor 
+    },
+    infoCartContainer:{
+        paddingTop: 10 
+    },
+    documentWrapper:{
+        paddingLeft: 10  
+    },
+    scrollView:{
+        flex:1
     }
 });

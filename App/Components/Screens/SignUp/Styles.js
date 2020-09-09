@@ -45,6 +45,12 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular
 
     },
+    formField:{
+       marginTop:10
+    },
+    buttonWrapper:{
+        marginTop: 50 
+    }
 
 
 });

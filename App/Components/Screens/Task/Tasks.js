@@ -160,20 +160,6 @@ const Tasks = (props) => {
         )
     }
     const searchFilterFunction = text => {
-        // const newData = arrayholder.filter(function (item) {
-        //     //applying filter for the inserted text in search bar
-        //     console.log("item :", item)
-        //     const itemData = item.object ? item.object.toUpperCase() : ''.toUpperCase();
-        //     const textData = text.toUpperCase();
-        //     return itemData.indexOf(textData) > -1;
-
-        // });
-        // if (newData.length == 0) {
-        //     // Alert.alert('search not found')
-        // }
-        // else {
-        //     settask(newData)
-        // }
 
         if (text !== "") {
             var pattern = RegExp(text, "gi")
@@ -185,8 +171,6 @@ const Tasks = (props) => {
                             for (const prop in docitem) {
 
                                 if (docitem[prop].title.toLowerCase().indexOf(text.toLowerCase()) != -1) {
-                                    // if (docitem[prop].title.search(pattern) != -1) {
-
                                     fileFound = true
                                     return true
                                 }
@@ -197,8 +181,6 @@ const Tasks = (props) => {
                         }
                     } else {
                         if (item[key].toString().toLowerCase().indexOf(text.toLowerCase()) != -1) {
-                            // if (item[key].toString().indexOf(pattern) != -1) {
-
                             return true
                         }
                     }
@@ -236,7 +218,6 @@ const Tasks = (props) => {
                         <_InputText
                             style={styles.TextInput}
                             placeholder={helpers.getLocale(localize, "tasks", "search")}
-                            // editable={false}
                             onChangeText={value => {
                                 setsearch(value)
                                 searchFilterFunction(value)

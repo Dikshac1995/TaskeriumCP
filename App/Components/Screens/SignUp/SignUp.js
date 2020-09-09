@@ -16,10 +16,7 @@ import {
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { Input, Item } from 'native-base';
 import { globals, helpers, validators, API, } from '../../../Config';
-// import { _ErrorModal, _GradiantView, _Lang, _ListBox, _Loading, _Spacer, _Icon, _Button, _B, _Layout, _ListView, _ContentType, _InlineLoader } from '../../../../../custom';
-// import { mainLayoutHoc } from '../../../../../hoc';
 import { mainStyle, images, sty } from '../../../Theme';
 import FastImage from 'react-native-fast-image'
 import _InputText from '../../Custom/InputText/_InputText'
@@ -31,14 +28,11 @@ import _Button from '../../Custom/Button/_Button';
 import _Header from '../../Custom/Header/_Header';
 import Loader from '../../Custom/Loader/Loader'
 import { validation } from '../../../Config/Libs/helpers';
-
-
-
 import AsyncStorage from '@react-native-community/async-storage';
 
 
 const SignUp = (props) => {
-    // const campaigns = useSelector(state => state.campaigns);
+    
     const localize = useSelector(state => state.localize);
     const [userName, setuserName] = useState("");
     const [lastName, setlastName] = useState("");
@@ -49,16 +43,6 @@ const SignUp = (props) => {
     const [address, setaddress] = useState("");
     const [city, setcity] = useState("");
     const [loading, setloading] = useState(false);
-    const [fNameValid, setfNameValid] = useState("");
-    const [lNameValid, setlNameValid] = useState("");
-    const [phoneNoValid, setphoneNoValid] = useState("");
-    const [emailValid, setemailValid] = useState("");
-    const [addressValid, setaddressValid] = useState("");
-    const [cityValid, setcityValid] = useState("");
-    const [comapanyValid, setcompanyValid] = useState("");
-
-
-
 
     useEffect(() => {
 
@@ -101,10 +85,7 @@ const SignUp = (props) => {
             },
             error: (err) => {
                 setloading(false)
-                // setTimeout(() => {
                 Alert.alert("Error", err.message)
-                // }, 100)
-
             },
             complete: () => {
                 setloading(false)
@@ -119,7 +100,6 @@ const SignUp = (props) => {
             email: email,
             street: address,
             city: city,
-            // post_code: "LT-12345",
             api_key: globals.API_KEY
         };
         API.registerUser(data, cb, header);
@@ -148,9 +128,7 @@ const SignUp = (props) => {
             },
             error: (err) => {
                 setloading(false)
-                // setTimeout(() => {
                 Alert.alert("Error", err.message)
-                // }, 100)
             },
             complete: () => {
                 setloading(false)
@@ -169,8 +147,8 @@ const SignUp = (props) => {
             <Loader
                 loading={loading} />
             <_Header header={helpers.getLocale(localize, "signIn", "signUp")} />
-            <ScrollView style={{}}>
-                <View style={{ paddingTop: 20 }}>
+            <ScrollView style={styles.formField}>
+                <View style={{}}>
                     <_InputText
                         style={styles.TextInput}
                         placeholder={helpers.getLocale(localize, "signIn", "first_name")}
@@ -223,7 +201,7 @@ const SignUp = (props) => {
                     />
 
                 </View>
-                <View style={{ marginTop: 50 }}>
+                <View style={styles.buttonWrapper}>
                     <_Button
                         btnTxt={helpers.getLocale(localize, "signIn", "signUp")}
                         callback={signinHandler} />

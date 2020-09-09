@@ -34,7 +34,7 @@ const Login = (props) => {
     const [loading, setloading] = useState(false);
     const [emailValid, setemailValid] = useState("");
     const [passwordValid, setpasswordValid] = useState("");
-    // const loginData = useSelector(state => state.loginData);
+    
 
     const dispatch = useDispatch();
 
@@ -160,7 +160,6 @@ const Login = (props) => {
                 }
             },
             error: (err) => {
-                // console.log("err", err)
                 setloading(false)
                 setTimeout(() => {
                     Alert.alert("Error", err.message)

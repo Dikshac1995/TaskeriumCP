@@ -15,10 +15,7 @@ import {
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { Input, Item } from 'native-base';
 import { globals, helpers, validators, } from '../../../../Config';
-// import { _ErrorModal, _GradiantView, _Lang, _ListBox, _Loading, _Spacer, _Icon, _Button, _B, _Layout, _ListView, _ContentType, _InlineLoader } from '../../../../../custom';
-// import { mainLayoutHoc } from '../../../../../hoc';
 import { mainStyle, images, sty } from '../../../../Theme';
 import FastImage from 'react-native-fast-image'
 import _InputText from '../../../Custom/InputText/_InputText'
@@ -32,13 +29,6 @@ import _Header from '../../../Custom/Header/_Header';
 
 const InfoCart = (props) => {
     const localize = useSelector(state => state.localize);
-    // const [taskno, settaskno] = useState("");
-    // const [userName, setuserName] = useState("");
-    // const [address, setaddress] = useState("");
-    // const [title, settitle] = useState("");
-    // const [status, setstatus] = useState("");
-    // const [taskDate, settaskDate] = useState("");
-
     const Tasks = props.tasks.item
     const date = Tasks.start_date
     const Date = date.split(' ')[0]
@@ -77,8 +67,6 @@ const InfoCart = (props) => {
             {infoRow("title", title)}
             {infoRow("status", status, { color: "blue" })}
             {infoRow("task_date", taskDate)}
-            {/* {infoRow("description", "Test")} */}
-
         </View >
 
     );

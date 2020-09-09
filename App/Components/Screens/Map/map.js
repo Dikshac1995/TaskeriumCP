@@ -1,15 +1,12 @@
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // remove PROVIDER_GOOGLE import if not using Google Maps
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // removef not using Google Maps
 import React from "react";
 import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
-import Geocoder from 'react-native-geocoding';
 import Icon from 'react-native-vector-icons/FontAwesome';
-
-
+import {styles} from './Styles'
 
 
 const screen = Dimensions.get('window');
-
 const ASPECT_RATIO = screen.width / screen.height;
 const LATITUDE_DELTA = 0.0922;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
@@ -18,12 +15,9 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 export default class Map extends React.Component {
 
-
-
     constructor(props) {
         super(props)
         this.state = {
-
             focusedLocation: {
                 latitude: 37.7900352,
                 longitude: -122.4013726,
@@ -37,7 +31,6 @@ export default class Map extends React.Component {
             address: "",
             userLocation: "Your current location",
             loading: false,
-            // initialLoading: true
         }
     }
 
@@ -100,8 +93,7 @@ export default class Map extends React.Component {
                     {
                         text: 'YES', onPress: () => {
                             this.props.onPressmap(address)
-                            // return (this.state.address)
-                            // this.props.navigation.navigate('NewTask', { addressfromMap: this.state.address })
+                           
                         }
                     },
                     {
@@ -134,7 +126,6 @@ export default class Map extends React.Component {
                     longitude: coords.longitude
                 },
                 locationChosen: true,
-                // initialLoading: false
             };
         });
         setTimeout(() => {
@@ -143,7 +134,6 @@ export default class Map extends React.Component {
     };
     getLocationHandler = () => {
         Geolocation.getCurrentPosition(pos => {
-            console.log("pos :", pos)
             const coordsEvent = {
                 nativeEvent: {
                     coordinate: {
@@ -183,8 +173,6 @@ export default class Map extends React.Component {
                 }
             >
                 {this.state.loading ? <ActivityIndicator color="red" /> :
-
-
                     <View style={styles.container}>
                         <MapView
                             initialRegion={this.state.focusedLocation}
@@ -194,7 +182,7 @@ export default class Map extends React.Component {
                             ref={ref => this.map = ref}
                         >
                             {marker}
-                            <View style={{ alignItems: 'flex-end', paddingRight: 20, paddingTop: 30 }}>
+                            <View style={styles.windowClosedIcon}>
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View>
                         </MapView>
@@ -207,23 +195,6 @@ export default class Map extends React.Component {
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-        // marginTop: 20,
-        // height: screen.height - 140,
-        display: "flex",
-        height: Dimensions.get("screen").height,
-        width: Dimensions.get("screen").width,
-        // position: "relative"
 
-    },
-    map: {
-        // ...StyleSheet.absoluteFillObject,
-        flex: 1,
-        // position: "relative"
-        // height: 600
-    },
-
-});
 
 

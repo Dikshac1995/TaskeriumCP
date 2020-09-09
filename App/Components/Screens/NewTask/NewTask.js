@@ -33,8 +33,6 @@ const NewTask = (props) => {
     const [description, setdescription] = useState("");
     const [customer_id, setcustomer_id] = useState("");
     const [edit, setedit] = useState(false);
-    const [picture, setpicture] = useState("");
-    const [document, setdocument] = useState(" ");
     const [task_id, settask_id] = useState("");
     const [uploadedDoc, setuploadedDoc] = useState([]);
     const [uploadedImg, setuploadedImg] = useState([]);
@@ -44,8 +42,6 @@ const NewTask = (props) => {
     const Document = [];
     var BUTTONS = ["Camera", "Gallary", "Cancel"];
     var CANCEL_INDEX = 2;
-
-
 
     useEffect(() => {
         get_customer_data()
@@ -123,49 +119,6 @@ const NewTask = (props) => {
                             }, 100)
                         });
 
-
-
-                    // if (uploadedDoc.length > 0) {
-                    //     var mape = uploadedDoc.map((element) => {
-                    //         // console.log(element)
-                    //         uploadDoc(element, res.record_id)
-                    //         return element
-
-
-                    //     })
-                    //     for (let i = 0; i < uploadedDoc.length; i++) {
-
-                    //         // const abc = await uploadDoc()
-                    //     }
-                    //     // console.log("123", mape)
-
-                    //     Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
-                    //         [
-                    //             {
-                    //                 text: 'OK', onPress: () => {
-                    //                     props.navigation.navigate('Tasks')
-                    //                 }
-                    //             },
-                    //         ])
-                    // }
-
-
-
-                    // else {
-                    //     // setTimeout(
-                    //     //     () => {
-                    //     setloading(false),
-                    //         Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"),
-                    //             [
-                    //                 {
-                    //                     text: 'OK', onPress: () => {
-                    //                         props.navigation.navigate('Tasks')
-                    //                     }
-                    //                 },
-                    //             ])
-                    // }
-                    // //     }, 2000
-                    // // )
                 },
                 error: (err) => {
                     setloading(false)
@@ -200,39 +153,10 @@ const NewTask = (props) => {
                 "portal_user": userAuthdetails.portal_user,
                 "api_key": globals.API_KEY
             };
-
-
             API.sync_data(data, cb, header);
         }
     }
-    // const addPicture = () => {
-    //     if (!task_id) {
-    //         Alert.alert(helpers.getLocale(localize, "newTask", "taskid_not_availabel"))
-
-    //     }
-    //     else {
-    //         const options = {
-    //             title: 'Select Photo',
-    //             storageOptions: {
-    //                 skipBackup: true,
-    //                 path: 'images',
-    //             },
-    //         };
-    //         ImagePicker.showImagePicker(options, (response) => {
-    //             const base64Value = response.data;
-    //             if (response.didCancel) {
-    //                 console.log('User cancelled image picker');
-    //             } else if (response.error) {
-    //                 console.log('ImagePicker Error: ', response.error);
-    //             } else if (response.customButton) {
-    //                 console.log('User tapped custom button: ', response.customButton);
-    //             } else {
-    //                 console.log('picker resp', response)
-    //                 uploadDoc(response.fileName, response.uri, base64Value, " ", "Photo1")
-    //             }
-    //         });
-    //     }
-    // }
+   
     const imagePicker = () => {
         ActionSheet.show(
             {
@@ -259,28 +183,17 @@ const NewTask = (props) => {
             includeBase64: true,
             cropping: false,
             mediaType: 'photo',
-
             smartAlbums: ['PhotoStream', 'Generic', 'Panoramas', 'Videos', 'Favorites', 'Timelapses', 'AllHidden', 'RecentlyAdded', 'Bursts', 'SlomoVideos', 'UserLibrary', 'SelfPortraits', 'Screenshots', 'DepthEffect', 'LivePhotos', 'Animated', 'LongExposure']
         }).then(response => {
             const base64 = response.data
             const name = response.path.split("/").pop()
-
-
-            // uploadDoc(name, response.path, base64, " ", "Photo1")
             const item = {
                 "fileName": name,
                 "base64": base64
             }
-
-            // const arr = [...uploadedImg]
-            // arr.push(item)
-            // Document.push(item);
-            // setuploadedImg(arr)
             const array = [...uploadedDoc]
             array.push(item)
             setuploadedDoc(array)
-
-
         })
             .catch(err => {
                 console.log("err", err)
@@ -324,44 +237,9 @@ const NewTask = (props) => {
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    // console.log({ res })
-                    // return (true)
-                    // Alert.alert(
-                    //     'Success',
-                    //     helpers.getLocale(localize, "newTask", "upload_success"),
-                    //     [
-                    //         {
-                    //             text: 'OK', onPress: () => {
-                    //                 // const source = { uri: uri };
-                    //                 // if (image != " ") {
-                    //                 // const item = { "fileName": fileName }
-                    //                 // const arr = [...uploadedImg]
-                    //                 // arr.push(item)
-                    //                 // const img = { source }
-                    //                 // Document.push(item);
-                    //                 // setuploadedImg(arr)
-                    //                 // }
-                    //                 // else {
-                    //                 // const item = { "fileName": fileName }
-                    //                 // const array = [...uploadedDoc]
-                    //                 // array.push(item)
-                    //                 // setuploadedDoc(array)
-                    //                 // }
-
-                    //                 return true
-                    //             }
-                    //         },
-                    //     ]
-                    // );
-                    // setTimeout(() => { setloading(false) }, 300)
-                    // reject({ message: "not found" })
-
                     resolve(res)
                 },
                 error: (err) => {
-                    // console.log({ err })
-                    // setloading(false)
-                    // Alert.alert(err.message)
                     reject(err)
                 },
                 complete: () => {
@@ -421,7 +299,6 @@ const NewTask = (props) => {
                 const date= moment().format('MM-DD-YYYY:HH:mm:ss');
                 console.log("ecte",docExtension,date)
                 RNFS.readFile(filepath, "base64").then(result => {
-                    // uploadDoc(res.name, res.uri, result, "Doc1 ", " ")
                     const item = {
                         "fileName":"Doc-cp_"+date+"."+docExtension,
                         "base64": result
@@ -447,8 +324,6 @@ const NewTask = (props) => {
                     setloading(false)
                     AsyncStorage.removeItem('userAuthDetails');
                     AsyncStorage.removeItem('token');
-                    // AsyncStorage.removeItem('userName');
-                    // props.navigation.navigate('LogIn')
                     props.navigation.dispatch(
                         CommonActions.reset({
                             index: 0,
@@ -509,9 +384,6 @@ const NewTask = (props) => {
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
                             <View style={{}}>
-                            {/* <KeyboardAvoidingView
-                              behavior={Platform.OS == "ios" ? "padding" : "height"}
-                             > */}
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -539,14 +411,10 @@ const NewTask = (props) => {
                                         setaddress(value), onEdit()
                                     }}
                                     multiline={true}
-
                                     callback={() =>
                                         setlocationExpand(true)
-                                        // props.navigation.navigate("AddressLocation", { address: address })
-                                        // { AddressLocation() }
-                                        // Alert.alert("hi")}
                                     }
-                                // ellipsizeMode="tail"
+                               
                                 />
                                 <_InputText
                                     style={styles.TextInput1}
@@ -563,21 +431,12 @@ const NewTask = (props) => {
                                     icon1Style={styles.pairButtonIcon}
                                     txtStyle1={{ color: "red" }}
                                     callback1={() => {
-                                        // addPicture()
                                         imagePicker()
                                     }}
                                     callback2={() => { addDocument() }}
                                     style={styles.pairButton}
                                 />
                                 <View style={styles.uploadDocWrapper}>
-                                    {/* <FlatList
-                                        data={uploadedImg}
-                                        renderItem={({ item, index }) =>
-                                            <Text style={styles.text}>{item.fileName}</Text>}
-
-                                        keyExtractor={(item, index) => index.toString()}
-                                        removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    /> */}
                                     <FlatList
                                         data={uploadedDoc}
                                         renderItem={({ item, index }) =>
@@ -587,7 +446,7 @@ const NewTask = (props) => {
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />
                                 </View>
-                                {/* </KeyboardAvoidingView> */}
+                               
                             </View>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
