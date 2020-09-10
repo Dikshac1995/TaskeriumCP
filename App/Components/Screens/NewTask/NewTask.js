@@ -375,6 +375,8 @@ const NewTask = (props) => {
                     {initialLoading ? < Loader
                         name /> :
                         <>
+                         <View style={{flex:5}}>
+
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
                                 rightIcon1={images.menu}
                                 rightcb
@@ -382,7 +384,7 @@ const NewTask = (props) => {
                                 onPress_signout={() => signout()}
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
-                            <View style={{}}>
+                           
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -435,6 +437,7 @@ const NewTask = (props) => {
                                     callback2={() => { addDocument() }}
                                     style={styles.pairButton}
                                 />
+                                <View style={{flex:4,}}>
                                 <View style={styles.uploadDocWrapper}>
                                     <FlatList
                                         data={uploadedDoc}
@@ -445,8 +448,9 @@ const NewTask = (props) => {
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />
                                 </View>
-                               
+                                </View>
                             </View>
+                            <View style={{flex:1}}>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
                                     <_PairButton
@@ -457,6 +461,7 @@ const NewTask = (props) => {
                                         callback2={() => { saveButtonHandler() }}
                                     />
                                 </View>
+                            </View>
                             </View>
                         </>}
                 </View >
