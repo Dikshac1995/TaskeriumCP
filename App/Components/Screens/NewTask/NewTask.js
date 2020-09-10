@@ -23,6 +23,7 @@ import ImagePicker1 from 'react-native-image-crop-picker';
 import { Container, Header, Button, Content, ActionSheet } from "native-base";
 import Map from "../Map/map"
 import moment from 'moment';
+import FileViewer from "react-native-file-viewer"
 
 const NewTask = (props) => {
     const localize = useSelector(state => state.localize);
@@ -184,11 +185,13 @@ const NewTask = (props) => {
             mediaType: 'photo',
             smartAlbums: ['PhotoStream', 'Generic', 'Panoramas', 'Videos', 'Favorites', 'Timelapses', 'AllHidden', 'RecentlyAdded', 'Bursts', 'SlomoVideos', 'UserLibrary', 'SelfPortraits', 'Screenshots', 'DepthEffect', 'LivePhotos', 'Animated', 'LongExposure']
         }).then(response => {
+            console.log("uri from galary",response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
             const item = {
                 "fileName": name,
-                "base64": base64
+                "base64": base64,
+                "path":response.path
             }
             const array = [...uploadedDoc]
             array.push(item)
@@ -209,6 +212,7 @@ const NewTask = (props) => {
             includeBase64: true,
             mediaType: 'photo',
         }).then(response => {
+            console.log("uri from camera",response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
            const imageName= "Image-" + name.slice(-12, name.length)
@@ -217,6 +221,7 @@ const NewTask = (props) => {
             const item = {
                 "fileName": "Image-cp_"+date+"."+imgExtention,
                 "base64": base64,
+                "path":response.path
             }
             const array = [...uploadedDoc]
             array.push(item)
@@ -294,13 +299,16 @@ const NewTask = (props) => {
                     let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
                     filepath = basepath + "/" + res.name;
                 }
+                console.log("filepathame",filepath)
                 const docExtension =res.name.split(".").pop()
                 const date= moment().format('MM-DD-YYYY:HH:mm:ss');
                 console.log("ecte",docExtension,date)
+                
                 RNFS.readFile(filepath, "base64").then(result => {
                     const item = {
                         "fileName":"Doc-cp_"+date+"."+docExtension,
-                        "base64": result
+                        "base64": result,
+                        "path":filepath
                     }
                     const array = [...uploadedDoc]
                     array.push(item)
@@ -363,6 +371,21 @@ const NewTask = (props) => {
         setlocationExpand(false)
         setedit(true)
     }
+    const onPressDocument=(fileUri)=>{
+        let uri=fileUri
+      
+        if (Platform.OS === 'ios') {
+            uri = fileUri.replace('file://', '');
+          }
+          console.log("uri",uri)
+          FileViewer.open(uri, { showOpenWithDialog: true })
+          .then(() => {
+           console.log("success")
+        })
+         .catch(error => {
+         console.log("error",error)
+                 });
+    }
 
 
     return (
@@ -375,8 +398,7 @@ const NewTask = (props) => {
                     {initialLoading ? < Loader
                         name /> :
                         <>
-                         <View style={{flex:5}}>
-
+                          
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
                                 rightIcon1={images.menu}
                                 rightcb
@@ -384,7 +406,8 @@ const NewTask = (props) => {
                                 onPress_signout={() => signout()}
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
-                           
+                             
+                             <View style={{flex:5}}>
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -442,8 +465,11 @@ const NewTask = (props) => {
                                     <FlatList
                                         data={uploadedDoc}
                                         renderItem={({ item, index }) =>
-                                            <Text style={styles.text}>{item.fileName}</Text>}
-
+                                            <TouchableOpacity
+                                             onPress={()=>onPressDocument(item.path)}
+                                            >
+                                                <Text style={styles.text}>{item.fileName}</Text>
+                                             </TouchableOpacity>}
                                         keyExtractor={(item, index) => index.toString()}
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />

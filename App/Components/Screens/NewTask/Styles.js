@@ -33,9 +33,8 @@ export default styles = StyleSheet.create({
     },
     signUpView: {
         borderWidth: 0,
-        marginTop: 20,
+        // marginTop: 20,
         width: "100%",
-       
     },
     signUp: {
         ...sty.fRow,

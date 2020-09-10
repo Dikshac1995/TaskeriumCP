@@ -20,8 +20,8 @@ export default styles = StyleSheet.create({
     signUpWrapper: {
         flex: 1,
         borderWidth: 0,
-        paddingVertical:20,
-        // paddingBottom: 20,
+        //  paddingVertical:20,
+         paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
     },
@@ -70,7 +70,9 @@ export default styles = StyleSheet.create({
 
     },
     tasksListWrapper: {
-        paddingTop: 2, height: '60%'
+        paddingVertical: 5,
+        flex:6
+        // height:'60%'
     },
     CommentWrapper: {
         paddingHorizontal: 10

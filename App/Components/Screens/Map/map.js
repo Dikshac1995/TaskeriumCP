@@ -148,7 +148,10 @@ export default class Map extends React.Component {
                 console.log(err);
                 alert("Fetching the Position failed, please pick one manually!");
             },
-            // { enableHighAccuracy: true, timeout: 200000, maximumAge: 1000 },
+            // { enableHighAccuracy: true, timeout: 200000, 
+            //     // maximumAge: 1000 
+            // },
+            { enableHighAccuracy: false, timeout: 20000 }
         );
 
     }

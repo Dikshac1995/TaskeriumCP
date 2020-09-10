@@ -207,6 +207,7 @@ const Tasks = (props) => {
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
                         loading={loading} />
+                       
                     <_Header header={helpers.getLocale(localize, "tasks", "tasks")}
                         rightIcon1={images.menu}
                         rightcb
@@ -224,6 +225,7 @@ const Tasks = (props) => {
                             }
                             }
                         />
+                   
                     </View>
                     <View style={styles.tasksListWrapper}>
                         {TaskLoader ?

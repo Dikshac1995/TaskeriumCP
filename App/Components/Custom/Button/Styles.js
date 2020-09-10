@@ -42,6 +42,6 @@ export default styles = StyleSheet.create({
         color: "#1C7DED",
         // height: 29,
         fontFamily: fonts.fontFamily.Regular,
-        paddingTop: Platform.OS === 'ios' ? 3: 0
+        paddingTop: Platform.OS === 'ios' ? 5: 0
     }
 });

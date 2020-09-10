@@ -256,27 +256,32 @@ const Task = (props) => {
     }
 
     const openDocument=(doc_uri,doc_title)=>{
-        console.log("data",doc_uri)
+        // setloading(true)
+       
         let uri = doc_uri;
         if (Platform.OS === 'ios') {
           uri = doc_uri.replace('file://', '');
         }
         let ext = doc_uri.split(".").pop()
-        console.log("ext",ext)
         // const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
         const localFile = `${RNFS.DocumentDirectoryPath}/${doc_title}`
-        console.log("localFile",localFile)
+        
+        
         const options = {
             fromUrl:uri,
             toFile: localFile
           };
           RNFS.downloadFile(options).promise
-           .then(() => FileViewer.open(localFile))
+           .then(() =>
+        //    setloading(false),
+            FileViewer.open(localFile))
         .then(() => {
     console.log("success")
     
 })
 .catch(error => {
+    setloading(false)
+    console.log("error",error)
     // error
 });
     }
