@@ -121,7 +121,18 @@ const Tasks = (props) => {
                                 {
                                     text: 'OK', onPress: () => {
                                         // signout()
-                                        props.navigation.navigate('LogIn')
+                                        // props.navigation.navigate('LogIn')
+
+                                        AsyncStorage.removeItem('userAuthDetails');
+                                        AsyncStorage.removeItem('token');
+                                        props.navigation.dispatch(
+                                            CommonActions.reset({
+                                                index: 0,
+                                                routes: [
+                                                    { name: 'LogIn' },
+                                                ],
+                                            })
+                                        );
                                     }
                                 },
                             ])
@@ -207,7 +218,7 @@ const Tasks = (props) => {
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
                         loading={loading} />
-                       
+
                     <_Header header={helpers.getLocale(localize, "tasks", "tasks")}
                         rightIcon1={images.menu}
                         rightcb
@@ -225,7 +236,7 @@ const Tasks = (props) => {
                             }
                             }
                         />
-                   
+
                     </View>
                     <View style={styles.tasksListWrapper}>
                         {TaskLoader ?
@@ -243,9 +254,9 @@ const Tasks = (props) => {
                                 /></>}
 
                     </View>
-                    <View style={[styles.signUpWrapper, 
-                        { borderWidth: 0 }
-                        ]}>
+                    <View style={[styles.signUpWrapper,
+                    { borderWidth: 0 }
+                    ]}>
                         <View style={styles.signUpView}>
                             <_Button
                                 btnTxt={helpers.getLocale(localize, "tasks", "add_task")}
