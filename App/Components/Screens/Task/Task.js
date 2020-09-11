@@ -51,7 +51,7 @@ const Task = (props) => {
     const [getMessage, setgetMessage] = useState([]);
     const [MsgLoader, setMsgLoader] = useState(false);
     const [loading, setloading] = useState(false);
-    
+
     var DocumentCount = []
 
     if (Document && Document != undefined) {
@@ -169,7 +169,7 @@ const Task = (props) => {
                     setloading(false)
                     AsyncStorage.removeItem('userAuthDetails');
                     AsyncStorage.removeItem('token');
-                    
+
                     props.navigation.dispatch(
                         CommonActions.reset({
                             index: 0,
@@ -232,7 +232,7 @@ const Task = (props) => {
                 "task_evaluation": starCount,
                 "api_key": globals.API_KEY,
             };
-           
+
             API.saveEvalutionData(data, cb, header);
         } else {
 
@@ -255,35 +255,35 @@ const Task = (props) => {
         setstarCount(rating)
     }
 
-    const openDocument=(doc_uri,doc_title)=>{
+    const openDocument = (doc_uri, doc_title) => {
         // setloading(true)
-       
+
         let uri = doc_uri;
         if (Platform.OS === 'ios') {
-          uri = doc_uri.replace('file://', '');
+            uri = doc_uri.replace('file://', '');
         }
         let ext = doc_uri.split(".").pop()
         // const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
         const localFile = `${RNFS.DocumentDirectoryPath}/${doc_title}`
-        
-        
+
+
         const options = {
-            fromUrl:uri,
+            fromUrl: uri,
             toFile: localFile
-          };
-          RNFS.downloadFile(options).promise
-           .then(() =>
-        //    setloading(false),
-            FileViewer.open(localFile))
-        .then(() => {
-    console.log("success")
-    
-})
-.catch(error => {
-    setloading(false)
-    console.log("error",error)
-    // error
-});
+        };
+        RNFS.downloadFile(options).promise
+            .then(() =>
+                //    setloading(false),
+                FileViewer.open(localFile))
+            .then(() => {
+                console.log("success")
+
+            })
+            .catch(error => {
+                setloading(false)
+                console.log("error", error)
+                // error
+            });
     }
     const commentRender = (item) => {
         const date = moment(item.item.timestamp).format('YYYY-MM-DD')
@@ -315,7 +315,7 @@ const Task = (props) => {
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
-            <ScrollView style={styles.scrollView}>
+            <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
                     rightIcon1={images.menu}
                     rightIcon="ellipsis-v"
@@ -328,7 +328,7 @@ const Task = (props) => {
                 <View style={styles.infoCartContainer}>
                     <InfoCart localize={localize} tasks={task} />
                 </View>
-                <View style={ styles.section2}>
+                <View style={styles.section2}>
                     <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
                             <FastImage
@@ -342,29 +342,29 @@ const Task = (props) => {
                     </View>
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
-                    
-{docExpand &&<>  
-                {Document ?
-                        <View style={styles.documentWrapper}>
-                           
-                            <FlatList
-                                data={docList}
-                                renderItem={({ item, index }) =>
-                                <TouchableOpacity onPress={()=>openDocument(item.file_path,item.title)}>
-                                    <Text style={styles.documentListText}>{item.title}</Text>
-                                    </TouchableOpacity>
-                                }
-                                keyExtractor={_keyExtractor}
-                                removeClippedSubviews={Platform.OS == "android" ? true : false}
-                            />
-                            
-                        </View> :
-                        <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
-                        </Text>
-                    }
+
+                    {docExpand && <>
+                        {Document ?
+                            <View style={styles.documentWrapper}>
+
+                                <FlatList
+                                    data={docList}
+                                    renderItem={({ item, index }) =>
+                                        <TouchableOpacity onPress={() => openDocument(item.file_path, item.title)}>
+                                            <Text style={styles.documentListText}>{item.title}</Text>
+                                        </TouchableOpacity>
+                                    }
+                                    keyExtractor={_keyExtractor}
+                                    removeClippedSubviews={Platform.OS == "android" ? true : false}
+                                />
+
+                            </View> :
+                            <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
+                            </Text>
+                        }
                     </>
-                    
-}
+
+                    }
                 </View>
 
                 <View style={styles.section2}>
@@ -383,47 +383,47 @@ const Task = (props) => {
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
 
-                    {msgExpand &&<>
-                    {MsgLoader ?
-                        <View>
-                            <ActivityIndicator animating={true} color="blue" />
-                        </View> :
-                        <>
-                            {getMessage.length == 0 ?
-                                <Text style={styles.emptyDataText}>
-                                    {helpers.getLocale(localize, "task", "empty_message")}
-                                </Text>
-                                :
-                                <View style={{}}>
-                                    <FlatList
-                                        data={getMessage}
-                                        maxToRenderPerBatch={2}
-                                        renderItem={commentRender}
-                                        keyExtractor={_keyExtractor}
-                                        removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    />
-                                </View>
-                            }</>
-                    }</>}
+                    {msgExpand && <>
+                        {MsgLoader ?
+                            <View>
+                                <ActivityIndicator animating={true} color="blue" />
+                            </View> :
+                            <>
+                                {getMessage.length == 0 ?
+                                    <Text style={styles.emptyDataText}>
+                                        {helpers.getLocale(localize, "task", "empty_message")}
+                                    </Text>
+                                    :
+                                    <View style={{}}>
+                                        <FlatList
+                                            data={getMessage}
+                                            maxToRenderPerBatch={2}
+                                            renderItem={commentRender}
+                                            keyExtractor={_keyExtractor}
+                                            removeClippedSubviews={Platform.OS == "android" ? true : false}
+                                        />
+                                    </View>
+                                }</>
+                        }</>}
                     <View style={styles.addMessage}>
                         <View style={{ ...sty.fRow }} >
                             <View style={styles.addMessageTextWrapper}>
-                                <TextInput  placeholder={helpers.getLocale(localize, "task", "add_message")}
-                                 value={message}
-                                 onChangeText={value => { setmessage(value) }}
-                                style={{fontSize:20}} placeholderTextColor='black'
-                                multiline={true}/>
-                              
+                                <TextInput placeholder={helpers.getLocale(localize, "task", "add_message")}
+                                    value={message}
+                                    onChangeText={value => { setmessage(value) }}
+                                    style={{ fontSize: 20 }} placeholderTextColor='black'
+                                    multiline={true} />
+
                                 {/* <Text allowFontScaling={false} style={styles.addMessageText}>
                                     {helpers.getLocale(localize, "task", "add_message")}</Text> */}
                             </View>
                             <View style={styles.addMessageIConWrapper}>
                                 <TouchableOpacity onPress={() => addCommentData()}>
-                                <FastImage
-                                    style={styles.addMessageICon}
-                                    source={images.upArrow}
-                                    resizeMode={"contain"}
-                                />
+                                    <FastImage
+                                        style={styles.addMessageICon}
+                                        source={images.upArrow}
+                                        resizeMode={"contain"}
+                                    />
                                 </TouchableOpacity>
                             </View>
                         </View>
@@ -443,7 +443,7 @@ const Task = (props) => {
                     />
 
                 </View>
-               
+
                 <View style={[styles.signUpWrapper]}>
 
                     <View style={styles.signUpView}>
@@ -456,8 +456,8 @@ const Task = (props) => {
                         />
                     </View>
                 </View>
-                </ScrollView>
-           
+            </ScrollView>
+
             <Modal animationType={"none"} transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => toggleModal(false)}>

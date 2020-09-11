@@ -1,7 +1,7 @@
 import { Dimensions, Platform } from "react-native";
 // import DeviceInfo from "react-native-device-info";
 
-export const live = false;
+export const live = true;
 // export const BASE_URL = 'http://184.72.194.163/';
 // export const BASE_URL = "https://api.picstagraph.com/";
 // export const BASE_URL = "http://stagingapi.picstagraph.com/";

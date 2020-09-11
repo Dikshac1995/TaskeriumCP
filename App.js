@@ -22,7 +22,7 @@ import DocumentPicker from 'react-native-document-picker';
 import RNFS from 'react-native-fs'
 import RNFetchBlob from 'rn-fetch-blob'
 import Geolocation from '@react-native-community/geolocation';
-import { Title, Button, Left, Right,  } from 'native-base'
+import { Title, Button, Left, Right, } from 'native-base'
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import FastImage from 'react-native-fast-image'
 import {
@@ -51,19 +51,21 @@ const App: () => React$Node = () => {
       <SafeAreaView>
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
+          style={styles.scrollView}
+          showsVerticalScrollIndicator={false}
+        >
           <Header />
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
             </View>
           )}
-           <StarRating
-        disabled={false}
-        maxStars={5}
-        rating={3}
-        // selectedStar={(rating) => this.onStarRatingPress(rating)}
-      />
+          <StarRating
+            disabled={false}
+            maxStars={5}
+            rating={3}
+          // selectedStar={(rating) => this.onStarRatingPress(rating)}
+          />
           <View style={styles.body}>
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>

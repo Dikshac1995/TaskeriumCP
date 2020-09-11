@@ -32,7 +32,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 const SignUp = (props) => {
-    
+
     const localize = useSelector(state => state.localize);
     const [userName, setuserName] = useState("");
     const [lastName, setlastName] = useState("");
@@ -147,7 +147,7 @@ const SignUp = (props) => {
             <Loader
                 loading={loading} />
             <_Header header={helpers.getLocale(localize, "signIn", "signUp")} />
-            <ScrollView style={styles.formField}>
+            <ScrollView style={styles.formField} showsVerticalScrollIndicator={false}>
                 <View style={{}}>
                     <_InputText
                         style={styles.TextInput}
