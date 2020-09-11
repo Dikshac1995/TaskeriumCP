@@ -7,7 +7,7 @@ import {
 
  export const styles = StyleSheet.create({
     container: {
-        
+        flex:1,
         display: "flex",
         height: Dimensions.get("screen").height,
         width: Dimensions.get("screen").width,

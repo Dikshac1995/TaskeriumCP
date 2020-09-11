@@ -408,14 +408,23 @@ const Task = (props) => {
                     <View style={styles.addMessage}>
                         <TouchableOpacity style={{ ...sty.fRow }} onPress={() => toggleModal(true)}>
                             <View style={styles.addMessageTextWrapper}>
-                                <Text allowFontScaling={false} style={styles.addMessageText}>{helpers.getLocale(localize, "task", "add_message")}</Text>
+                                <TextInput  placeholder={helpers.getLocale(localize, "task", "add_message")}
+                                 value={message}
+                                 onChangeText={value => { setmessage(value) }}
+                                style={{fontSize:20}} placeholderTextColor='black'
+                                multiline={true}/>
+                              
+                                {/* <Text allowFontScaling={false} style={styles.addMessageText}>
+                                    {helpers.getLocale(localize, "task", "add_message")}</Text> */}
                             </View>
                             <View style={styles.addMessageIConWrapper}>
+                                <TouchableOpacity onPress={() => addCommentData()}>
                                 <FastImage
                                     style={styles.addMessageICon}
                                     source={images.upArrow}
                                     resizeMode={"contain"}
                                 />
+                                </TouchableOpacity>
                             </View>
                         </TouchableOpacity>
                     </View>
