@@ -443,6 +443,7 @@ const Task = (props) => {
                     />
 
                 </View>
+               
                 <View style={[styles.signUpWrapper]}>
 
                     <View style={styles.signUpView}>
@@ -455,8 +456,8 @@ const Task = (props) => {
                         />
                     </View>
                 </View>
-               
-            </ScrollView>
+                </ScrollView>
+           
             <Modal animationType={"none"} transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => toggleModal(false)}>

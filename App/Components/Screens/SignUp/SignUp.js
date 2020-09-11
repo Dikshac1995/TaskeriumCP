@@ -98,7 +98,7 @@ const SignUp = (props) => {
             lastname: lastName,
             phone: phoneNo,
             email: email,
-            street: address,
+            street: address.trim(),
             city: city,
             api_key: globals.API_KEY
         };
@@ -192,6 +192,7 @@ const SignUp = (props) => {
                         placeholder={helpers.getLocale(localize, "signIn", "address")}
                         onChangeText={value => setaddress(value)}
                         value={address}
+                        multiline={true}
                     />
                     <_InputText
                         style={styles.TextInput}
