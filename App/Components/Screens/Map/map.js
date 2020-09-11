@@ -180,6 +180,7 @@ export default class Map extends React.Component {
             >
                 {this.state.loading ? <ActivityIndicator color="red" /> :
                     <View style={styles.container}>
+                        
                         <MapView
                             initialRegion={this.state.focusedLocation}
                             region={!this.state.locationChosen ? this.state.focusedLocation : null}
@@ -192,7 +193,8 @@ export default class Map extends React.Component {
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View>
                         </MapView>
-                        <View style={{flex:0.3,paddingBottom:20}}>
+                       
+                        <View style={{flex:0.15,paddingBottom:10}}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
                         ]}>

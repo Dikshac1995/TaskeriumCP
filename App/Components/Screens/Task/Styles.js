@@ -114,7 +114,7 @@ export default styles = StyleSheet.create({
         marginTop: 20, borderWidth: 2, borderColor: "#969696"
     },
     addMessageTextWrapper: {
-        width: "85%", ...sty.jCenter, padding: 5, paddingLeft: 40
+        width: "85%", ...sty.jCenter, paddingLeft: 40
     },
     addMessageText: {
         fontSize: 25, borderWidth: 0,
