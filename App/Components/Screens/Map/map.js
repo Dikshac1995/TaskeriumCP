@@ -189,9 +189,9 @@ export default class Map extends React.Component {
                             ref={ref => this.map = ref}
                         >
                             {marker}
-                            <View style={styles.windowClosedIcon}>
+                            {/* <View style={styles.windowClosedIcon}>
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
-                            </View>
+                            </View> */}
                         </MapView>
                        
                         <View style={{flex:0.15,paddingBottom:10}}>
@@ -199,13 +199,6 @@ export default class Map extends React.Component {
                         { borderWidth: 0 }
                         ]}>
                         <View style={styles.signUpView}>
-                            {/* <_Button
-                                // btnTxt={helpers.getLocale(localize, "tasks", "add_task")}
-                                btnTxt="SET ADDRESS"
-                                callback={() => 
-                                    this.props.onPressmap(this.state.address)
-                                // props.navigation.navigate('NewTask')
-                                } /> */}
                                  <_PairButton
                                         btnTxt1= "CANCLE"
                                         btnTxt2= "SET ADDRESS"

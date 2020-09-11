@@ -24,6 +24,7 @@ export default styles = StyleSheet.create({
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
+        // backgroundColor:'yellow'
     },
     signUpView: {
         borderWidth: 0,
