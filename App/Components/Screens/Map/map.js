@@ -89,22 +89,22 @@ export default class Map extends React.Component {
         if (this.state.address != "") {
             const address = this.state.address
             console.log(" onPressHandler address :", this.state)
-            Alert.alert(
-                ' Do you want to set this location  as address', this.state.address,
-                [
-                    {
-                        text: 'YES', onPress: () => {
-                            this.props.onPressmap(address)
+            // Alert.alert(
+            //     ' Do you want to set this location  as address', this.state.address,
+            //     [
+            //         {
+            //             text: 'YES', onPress: () => {
+            //                 this.props.onPressmap(address)
                            
-                        }
-                    },
-                    {
-                        text: 'No', onPress: () => {
-                            console.log("no")
-                        }
-                    },
-                ]
-            );
+            //             }
+            //         },
+            //         {
+            //             text: 'No', onPress: () => {
+            //                 console.log("no")
+            //             }
+            //         },
+            //     ]
+            // );
         }
 
     }
@@ -199,7 +199,10 @@ export default class Map extends React.Component {
                             <_Button
                                 // btnTxt={helpers.getLocale(localize, "tasks", "add_task")}
                                 btnTxt="SET ADDRESS"
-                                callback={() => props.navigation.navigate('NewTask')} />
+                                callback={() => 
+                                    this.props.onPressmap(this.state.address)
+                                // props.navigation.navigate('NewTask')
+                                } />
                         </View>
                     </View>
                  </View>
