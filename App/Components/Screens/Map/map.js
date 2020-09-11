@@ -191,7 +191,7 @@ export default class Map extends React.Component {
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View>
                         </MapView>
-                        <View style={{flex:0.3}}>
+                        <View style={{flex:0.3,marginTop:10}}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
                         ]}>
