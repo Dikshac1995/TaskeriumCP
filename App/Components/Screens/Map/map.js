@@ -5,6 +5,7 @@ import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {styles} from './Styles'
 import _Button from '../../Custom/Button/_Button';
+import _PairButton from '../../Custom/Button/_PairButton';
 import { globals, helpers, validators, API } from '../../../Config';
 
 
@@ -191,18 +192,25 @@ export default class Map extends React.Component {
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View>
                         </MapView>
-                        <View style={{flex:0.3,marginTop:10}}>
+                        <View style={{flex:0.3,paddingBottom:20}}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
                         ]}>
                         <View style={styles.signUpView}>
-                            <_Button
+                            {/* <_Button
                                 // btnTxt={helpers.getLocale(localize, "tasks", "add_task")}
                                 btnTxt="SET ADDRESS"
                                 callback={() => 
                                     this.props.onPressmap(this.state.address)
                                 // props.navigation.navigate('NewTask')
-                                } />
+                                } /> */}
+                                 <_PairButton
+                                        btnTxt1= "CANCLE"
+                                        btnTxt2= "SET ADDRESS"
+                                        txtStyle1={{ color: "red", }}
+                                        callback1={() => { this.closeHandler() }}
+                                        callback2={() => {  this.props.onPressmap(this.state.address) }}
+                                    />
                         </View>
                     </View>
                  </View>

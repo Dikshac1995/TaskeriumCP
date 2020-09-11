@@ -1,4 +1,9 @@
 import { StyleSheet ,Dimensions} from "react-native";
+import {
+    colors,
+    fonts,
+    sty,
+} from "../../../Theme";
 
  export const styles = StyleSheet.create({
     container: {
@@ -18,9 +23,8 @@ windowClosedIcon:{
         flex: 1,
         borderWidth: 0,
         //  paddingVertical:20,
-         paddingBottom: 20,
-        ...sty.jEnd,
-        ...sty.aCenter,
+        
+        
     },
     signUpView: {
         borderWidth: 0,
