@@ -133,17 +133,17 @@ const NewTask = (props) => {
             let newdata = [
                 edit ?
                     {
-                        "object": name,
-                        "address": address,
-                        "description": description,
-                        "title": title,
+                        "object": name.trim(),
+                        "address": address.trim(),
+                        "description": description.trim(),
+                        "title": title.trim(),
                     } :
                     {
                         "customer_id": customer_id,
-                        "object": name,
-                        "address": address,
-                        "description": description,
-                        "title": title,
+                        "object": name.trim(),
+                        "address": address.trim(),
+                        "description": description.trim(),
+                        "title": title.trim(),
                     }
             ]
             let data = {
@@ -414,6 +414,7 @@ const NewTask = (props) => {
                                     onChangeText={value => {
                                         settitle(value)
                                     }}
+                                    multiline={true}
                                 />
                                 <_InputText
                                     style={styles.TextInput1}
@@ -424,6 +425,7 @@ const NewTask = (props) => {
                                         onEdit()
                                     }
                                     }
+                                    multiline={true}
                                 />
                                 <_InputText
                                     style={styles.TextInput1}
@@ -445,6 +447,7 @@ const NewTask = (props) => {
                                     placeholder={helpers.getLocale(localize, "newTask", "description")}
                                     onChangeText={value => { setdescription(value) }
                                     }
+                                    multiline={true}
                                 />
 
 
@@ -464,11 +467,12 @@ const NewTask = (props) => {
                                     <FlatList
                                         data={uploadedDoc}
                                         renderItem={({ item, index }) =>
-                                            <TouchableOpacity
-                                             onPress={()=>onPressDocument(item.path)}
-                                            >
+                                            // <TouchableOpacity
+                                            //  onPress={()=>onPressDocument(item.path)}
+                                            // >
                                                 <Text style={styles.text}>{item.fileName}</Text>
-                                             </TouchableOpacity>}
+                                            //  </TouchableOpacity>
+                                            }
                                         keyExtractor={(item, index) => index.toString()}
                                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     />

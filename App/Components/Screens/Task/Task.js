@@ -143,7 +143,7 @@ const Task = (props) => {
                 let data = {
                     "user_id": userAuthdetails.user_id,
                     "token": userAuthdetails.token,
-                    "task_comment": message,
+                    "task_comment": message.trim(),
                     "task_id": task.item.id,
                     "task_type": task.item.task_type,
                     "api_key": globals.API_KEY,
@@ -406,7 +406,7 @@ const Task = (props) => {
                             }</>
                     }</>}
                     <View style={styles.addMessage}>
-                        <TouchableOpacity style={{ ...sty.fRow }} onPress={() => toggleModal(true)}>
+                        <View style={{ ...sty.fRow }} >
                             <View style={styles.addMessageTextWrapper}>
                                 <TextInput  placeholder={helpers.getLocale(localize, "task", "add_message")}
                                  value={message}
@@ -426,7 +426,7 @@ const Task = (props) => {
                                 />
                                 </TouchableOpacity>
                             </View>
-                        </TouchableOpacity>
+                        </View>
                     </View>
 
                 </View>
