@@ -83,14 +83,13 @@ const _Header = (props) => {
 }
 const triggerStyles = {
     triggerText: {
-        // color: 'pink',
+        
     },
     triggerWrapper: {
         padding: 5,
-        // backgroundColor: 'blue',
+        
     },
     triggerTouchable: {
-        // underlayColor: 'darkblue',
         // activeOpacity: 70,
     },
     TriggerTouchableComponent: TouchableHighlight,

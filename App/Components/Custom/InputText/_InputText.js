@@ -10,7 +10,7 @@ const _InputText = (props) => {
     const style = props.style || {};
     return (
         <>
-            <View style={{ borderBottomWidth: 1.5, borderBottomColor: "#1C7DED", paddingLeft: 10, ...sty.fRow }}>
+            <View style={styles.textInputContainer}>
                 <View style={{ borderWidth: 0, width: props.leftIcon ? "80%" : "100%" }}>
                     <TextInput
                         style={[styles.inputText, style]}
@@ -40,12 +40,12 @@ const _InputText = (props) => {
                 </View>
 
                 {props.leftIcon ?
-                    <View style={{ width: "20%", flex: 1 }}>
+                    <View style={styles.leftIconContainer}>
                         <TouchableOpacity
-                            style={{ flex: 1, ...sty.aCenter, ...sty.jEnd, paddingBottom: 5 }}
+                            style={styles.leftIconWrapper}
                             onPress={() => { props.callback ? props.callback() : null }}>
                             <FastImage
-                                style={{ height: 30, width: 30, paddingLeft: 0 }}
+                                style={styles.leftIconStyle}
                                 source={props.leftIcon}
                                 resizeMode={"contain"}
                             />
@@ -55,10 +55,6 @@ const _InputText = (props) => {
                 }
             </View>
 
-            {/* <View>
-
-                <Text style={{ color: 'red', paddingLeft: 10, fontFamily: "MyriadPro-Regular" }}>{props.errMsg ? props.errMsg : null}</Text>
-            </View> */}
         </>
     )
 }

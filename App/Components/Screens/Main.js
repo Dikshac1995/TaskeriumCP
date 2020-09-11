@@ -86,7 +86,7 @@ class Main extends Component {
                             NavigationService.setTopLevelNavigator(navigatorRef)
                         }}
                     />)
-            // <Text style={{ fontSize: 20 }}>Amit</Text>
+            
         );
     }
 }

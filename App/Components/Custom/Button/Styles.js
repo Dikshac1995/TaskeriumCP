@@ -43,5 +43,8 @@ export default styles = StyleSheet.create({
         // height: 29,
         fontFamily: fonts.fontFamily.Regular,
         paddingTop: Platform.OS === 'ios' ? 5: 0
+    },
+    pairBtnIconStyles:{
+        height: 30, width: 30, marginRight: 5 
     }
 });

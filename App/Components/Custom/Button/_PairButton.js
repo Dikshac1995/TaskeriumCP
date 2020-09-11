@@ -15,7 +15,7 @@ const _PairButton = (props) => {
                     <TouchableOpacity style={{ ...sty.fRow }} onPress={() => { props.callback1 ? props.callback1() : null }}>
                         {props.icon1 ?
                             <FastImage
-                                style={[{ height: 30, width: 30, marginRight: 5 }, props.icon1Style]}
+                                style={[styles.pairBtnIconStyles, props.icon1Style]}
                                 source={props.icon1}
                                 resizeMode={"contain"}
                             />
