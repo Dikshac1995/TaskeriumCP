@@ -15,12 +15,14 @@ export default styles = StyleSheet.create({
     },
     TextInput: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
-        fontFamily: fonts.fontFamily.Regular
+        fontFamily: fonts.fontFamily.Regular,
+    //   backgroundColor:'yellow',
+      
     },
     TextInput1: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
         fontFamily: fonts.fontFamily.Regular,
-
+        
 
     },
     signUpWrapper: {

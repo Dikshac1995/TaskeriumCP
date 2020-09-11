@@ -40,7 +40,7 @@ const NewTask = (props) => {
     const [loading, setloading] = useState(false);
     const [locationExpand, setlocationExpand] = useState(false)
     const Document = [];
-    var BUTTONS = ["Camera", "Gallary", "Cancel"];
+    var BUTTONS = ["Camera", "Gallery", "Cancel"];
     var CANCEL_INDEX = 2;
 
     useEffect(() => {
@@ -386,7 +386,6 @@ const NewTask = (props) => {
          console.log("error",error)
                  });
     }
-
 
     return (
         <>

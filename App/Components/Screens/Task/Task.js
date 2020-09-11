@@ -343,8 +343,8 @@ const Task = (props) => {
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
                     
-
-                    {Document ?
+{docExpand &&<>  
+                {Document ?
                         <View style={styles.documentWrapper}>
                            
                             <FlatList
@@ -362,8 +362,9 @@ const Task = (props) => {
                         <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
                         </Text>
                     }
+                    </>
                     
-
+}
                 </View>
 
                 <View style={styles.section2}>
@@ -382,7 +383,7 @@ const Task = (props) => {
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
 
-                    
+                    {msgExpand &&<>
                     {MsgLoader ?
                         <View>
                             <ActivityIndicator animating={true} color="blue" />
@@ -403,7 +404,7 @@ const Task = (props) => {
                                     />
                                 </View>
                             }</>
-                    }
+                    }</>}
                     <View style={styles.addMessage}>
                         <TouchableOpacity style={{ ...sty.fRow }} onPress={() => toggleModal(true)}>
                             <View style={styles.addMessageTextWrapper}>
