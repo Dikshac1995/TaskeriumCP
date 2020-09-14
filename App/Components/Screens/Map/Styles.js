@@ -19,12 +19,13 @@ import {
 windowClosedIcon:{
         alignItems: 'flex-end', paddingRight: 20, paddingTop: 30 
     },
+    footer:{
+        flex:0.15,paddingBottom:10
+    },
     signUpWrapper: {
         flex: 1,
         borderWidth: 0,
         //  paddingVertical:20,
-        
-        
     },
     signUpView: {
         borderWidth: 0,

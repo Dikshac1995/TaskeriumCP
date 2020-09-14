@@ -194,7 +194,7 @@ export default class Map extends React.Component {
                             </View> */}
                         </MapView>
                        
-                        <View style={{flex:0.15,paddingBottom:10}}>
+                        <View style={styles.footer}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
                         ]}>
@@ -209,7 +209,7 @@ export default class Map extends React.Component {
                         </View>
                     </View>
                  </View>
-                    </View>
+            </View>
                     
                  }
                    
