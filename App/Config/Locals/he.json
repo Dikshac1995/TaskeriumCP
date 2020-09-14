@@ -22,7 +22,6 @@
     "onSubmit": "Please fill  all required details",
     "onSubmitSuccess": "Registerd successfully",
     "phoneNo_err": "You have entered an invalid  phone-no! "
-
   },
   "forgetPassword": {
     "userName": "Username/Email-id",
@@ -45,7 +44,7 @@
   },
   "tasks": {
     "add_task": "ADD TASK",
-    "search": "Search",
+    "search": "Searchs",
     "change_password": "Change Password",
     "language": "Language",
     "sign_out": "Sign Out",
@@ -72,8 +71,8 @@
     "status": "Status",
     "task_date": "Task date",
     "description": "Description",
-    "documents": "DOCUMENTS",
-    "messages": "MESSAGES",
+    "documents": "DOCUMENTS1",
+    "messages": "MESSAGES1",
     "add_message": "ADD MESSAGE",
     "cancel": "CANCEL",
     "save": "SAVE",
@@ -82,7 +81,7 @@
     "document_name": " Doc"
   },
   "newTask": {
-    "new_task": "NEW TASK",
+    "new_task": "NEW TASK1",
     "title": "Title",
     "name": "Name",
     "address": "Address",

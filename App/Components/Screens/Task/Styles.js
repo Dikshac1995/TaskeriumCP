@@ -104,11 +104,11 @@ export default styles = StyleSheet.create({
     },
     modalWrapper: {
         backgroundColor: '#FFFFFF',
-        height: 200,
-        width: "80%",
+        height: 150,
+        width: "60%",
         borderRadius: 10,
         display: 'flex',
-        alignItems: 'center',
+        // alignItems: 'center',
         padding: 10
     },
     addMessage: {
@@ -166,5 +166,20 @@ export default styles = StyleSheet.create({
     },
     scrollView:{
         flex:1
+    },
+    modalHeading:{
+        borderBottomWidth:2,
+        borderBottomColor:colors.primaryColor ,
+        alignItems:'center',padding:10
+    },
+    modalheadText:{
+        fontSize:20
+    },
+    langOpt:{
+        paddingBottom:10,display:'flex',flexDirection:'row' 
+    },
+    langOptWrap:{
+        padding:10
     }
+
 });

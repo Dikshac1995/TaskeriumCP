@@ -8,7 +8,7 @@ import {
     ActivityIndicator,
     FlatList,
     Linking,
-    StyleSheet, Alert
+    StyleSheet, Alert,Modal
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API, } from '../../../Config';
@@ -27,6 +27,10 @@ import { setTasks } from "../../../Redux/Actions/TaskAction"
 import { large } from '../../../Theme/FontSizes';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
+import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
+import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
+import { color } from 'react-native-reanimated';
+
 
 
 
@@ -39,10 +43,46 @@ const Tasks = (props) => {
     const [loading, setloading] = useState(false)
     const [TaskLoader, setTaskLoader] = useState(true)
     const [search, setsearch] = useState(false)
+    const [modalVisible, setmodalVisible] = useState(false)
+    const [check,setCheck]= useState(false);
 
     const signoutHandler = () => {
         signout()
     }
+    const toggleModal = (visible) => {
+        setmodalVisible(visible);
+    }
+
+    const changeLang = () => {
+        // console.log("active",localize.activeLanguage)
+        if (localize.activeLanguage === "en")
+        {
+              setCheck("en")
+        }
+        else{
+               setCheck("he")
+        }
+
+        toggleModal(true)
+        // if (localize.activeLanguage === "en")
+        //     dispatch(setTranslation("he"))
+        // else
+        //     dispatch(setTranslation("en"))
+            
+    }
+    const selectLanguage = ( value)=>{
+        setCheck(value)
+        if (value === 'en'){
+            dispatch(setTranslation("en"))
+        }
+        else
+        {
+            dispatch(setTranslation("he"))
+        }
+            toggleModal(false)   
+    }
+
+    
 
     const signout = async () => {
         let token = await AsyncStorage.getItem('token');
@@ -225,6 +265,7 @@ const Tasks = (props) => {
                         rightIcon="ellipsis-v"
                         onPress={() => props.navigation.navigate('ChangePassord')}
                         onPress_signout={() => signoutHandler()}
+                        onPress_changeLang={() => changeLang()}
                     />
                     <View >
                         <_InputText
@@ -263,6 +304,39 @@ const Tasks = (props) => {
                                 callback={() => props.navigation.navigate('NewTask')} />
                         </View>
                     </View>
+                    
+                    <Modal animationType={"none"} transparent={true}
+                        visible={modalVisible}
+                        onRequestClose={() => toggleModal(false)}>
+
+                        <View style={styles.modalBackground}>
+                        <View style={styles.modalWrapper} >
+                            <View style={styles.modalHeading}>
+                                <Text style={styles.modalheadText}>Choose Language</Text>
+                            </View> 
+                            <View style={styles.langOptWrap}>
+                                <View style={styles.langOpt}>
+                                    <Radio
+                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
+                                        selected={check== 'en'} onPress={()=>selectLanguage('en')}
+                                    />
+                                    <Text> English</Text>
+                                </View>
+                                <View style={styles.langOpt}>
+                                    <Radio
+                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
+                                        onPress={()=>selectLanguage('he')} selected={check== 'he'}
+                                />
+                                    <Text>Other Language</Text>
+                                </View>
+                            </View>
+                        </View>
+                    </View>
+                
+            </Modal>
+           
+                        
+
                 </View >}
         </>
 
