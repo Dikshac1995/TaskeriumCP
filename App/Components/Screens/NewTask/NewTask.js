@@ -62,8 +62,16 @@ const NewTask = (props) => {
                     setinitialLoading(false)
                 },
                 error: (err) => {
-                    Alert.alert(err.message)
                     setinitialLoading(false)
+                    if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
+                        helpers.authError(err,props)
+                    }
+                    else{
+                    setTimeout(() => {
+                        Alert.alert(err.message)
+                    }, 100)
+                }
+                    
                 },
                 complete: () => { },
             };
@@ -235,7 +243,6 @@ const NewTask = (props) => {
     
 
     const uploadDoc = async (dataValue, taskId, resolve, reject) => {
-
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         if (baseUrl && baseUrl !== undefined) {
@@ -342,10 +349,14 @@ const NewTask = (props) => {
                 },
                 error: (err) => {
                     setloading(false)
+                    if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
+                        helpers.authError(err,props)
+                    }
+                     else{
                     setTimeout(() => {
-                        props.navigation.navigate('LogIn')
-                        Alert.alert("Error", err.message)
-                    }, 200);
+                        Alert.alert(err.message)
+                    }, 100)
+                    }
 
                 },
                 complete: () => { },

@@ -83,9 +83,14 @@ const Task = (props) => {
                 },
                 error: (err) => {
                     setMsgLoader(false)
+                    if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
+                        helpers.authError(err,props)
+                    }
+                        else{
                     setTimeout(() => {
                         Alert.alert(err.message)
                     }, 100)
+                }
                 },
                 complete: () => {
                     setMsgLoader(false)
@@ -172,10 +177,14 @@ const Task = (props) => {
                 },
                 error: (err) => {
                     setloading(false)
-                    props.navigation.navigate('LogIn')
+                    if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
+                        helpers.authError(err,props)
+                    }
+                     else{
                     setTimeout(() => {
-                        Alert.alert("Error", err.message)
-                    }, 100);
+                        Alert.alert(err.message)
+                    }, 100)
+                    }
 
                 },
                 complete: () => { },

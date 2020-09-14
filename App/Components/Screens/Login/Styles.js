@@ -119,9 +119,11 @@ export default styles = StyleSheet.create({
     paddingTop: 0,
     paddingLeft: 0,
     borderWidth: 0,
+    flex:1,
+    // borderColor:'#eee',
     width: "60%",
     ...sty.aCenter,
-    borderWidth: 0,
+    backgroundColor:'red'
     
   },
   signUpText: {

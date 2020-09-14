@@ -27,6 +27,7 @@ import {
   forEach,
   chunk,
 } from "lodash";
+import { StackActions, CommonActions } from "@react-navigation/native";
 
 
 export const _spaceChecker = (value) => {
@@ -361,6 +362,28 @@ export const userAuthdetails = async () => {
   return userAuthdetails;
 };
 
+
+export const authError =(err,props)=>{
+  setTimeout(() => {
+    Alert.alert(" Error ", err.message,
+        [
+            {
+                text: 'OK', onPress: () => {
+                    AsyncStorage.removeItem('userAuthDetails');
+                    AsyncStorage.removeItem('token');
+                    props.navigation.dispatch(
+                        CommonActions.reset({
+                            index: 0,
+                            routes: [
+                                { name: 'LogIn' },
+                            ],
+                        })
+                    );
+                }
+            },
+        ])
+}, 100)
+}
 
 
 //--------validation----------------------//

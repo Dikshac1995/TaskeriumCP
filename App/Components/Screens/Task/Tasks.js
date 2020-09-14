@@ -65,9 +65,15 @@ const Tasks = (props) => {
                 },
                 error: (err) => {
                     setloading(false)
+                    if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
+                        helpers.authError(err,props)
+                    }
+                     else{
                     setTimeout(() => {
-                        Alert.alert("Error", err.message)
-                    }, 200);
+                        Alert.alert(err.message)
+                    }, 100)
+                    }
+                   
                 },
                 complete: () => {
                     setloading(false)
@@ -112,25 +118,26 @@ const Tasks = (props) => {
             error: (err) => {
                 setTaskLoader(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                    setTimeout(() => {
-                        Alert.alert(" Error ", err.message,
-                            [
-                                {
-                                    text: 'OK', onPress: () => {
-                                        AsyncStorage.removeItem('userAuthDetails');
-                                        AsyncStorage.removeItem('token');
-                                        props.navigation.dispatch(
-                                            CommonActions.reset({
-                                                index: 0,
-                                                routes: [
-                                                    { name: 'LogIn' },
-                                                ],
-                                            })
-                                        );
-                                    }
-                                },
-                            ])
-                    }, 100)
+                    helpers.authError(err,props)
+                    // setTimeout(() => {
+                    //     Alert.alert(" Error ", err.message,
+                    //         [
+                    //             {
+                    //                 text: 'OK', onPress: () => {
+                    //                     AsyncStorage.removeItem('userAuthDetails');
+                    //                     AsyncStorage.removeItem('token');
+                    //                     props.navigation.dispatch(
+                    //                         CommonActions.reset({
+                    //                             index: 0,
+                    //                             routes: [
+                    //                                 { name: 'LogIn' },
+                    //                             ],
+                    //                         })
+                    //                     );
+                    //                 }
+                    //             },
+                    //         ])
+                    // }, 100)
                 }
                 else {
                     setTimeout(() => {
