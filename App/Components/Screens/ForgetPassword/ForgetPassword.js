@@ -25,7 +25,6 @@ const ForgetPassword = (props) => {
     const [userName, setuserName] = useState("");
     const [checked, setchecked] = useState(false);
     const [loading, setloading] = useState(false);
-    const [userNameValid, setuserNameValid] = useState("");
     const [customerId, setcustomerId] = useState("");
 
 

@@ -51,6 +51,14 @@ export default styles = StyleSheet.create({
     width: "60%",
     ...sty.aCenter
   },
+  checkBoxlogoWrap:{
+    ...sty.fRow,
+     paddingTop: 0, 
+     paddingLeft: 10,
+      borderWidth: 0, 
+      width: "60%", 
+      ...sty.aCenter
+  },
   checkBoxlogo: {
     height: 20,
     width: 20,
@@ -64,15 +72,18 @@ export default styles = StyleSheet.create({
     fontFamily: fonts.fontFamily.Regular
 
   },
-  buttonView: {
-
+  buttonWrap: {
+      paddingTop: 60
   },
   button: {
     // marginTop: 60
   },
   forgetPassView: {
     borderWidth: 0,
-    marginTop: 20
+    paddingVertical:10,
+    // marginTop: 10,
+    // marginBottom:10,
+    // backgroundColor:'red'
   },
   forgetPass: {
     ...sty.fRow,
@@ -95,7 +106,8 @@ export default styles = StyleSheet.create({
     paddingBottom: 50,
     paddingTop: 10,
     ...sty.jEnd,
-    ...sty.aCenter
+    ...sty.aCenter,
+    
   },
   signUpView: {
     borderWidth: 0,
@@ -110,6 +122,7 @@ export default styles = StyleSheet.create({
     width: "60%",
     ...sty.aCenter,
     borderWidth: 0,
+    
   },
   signUpText: {
     fontSize: 20,

@@ -13,6 +13,9 @@ export default styles = StyleSheet.create({
         // ...sty.flex1
         marginHorizontal: 15
     },
+    formWrap:{
+        flex:5
+    },
     TextInput: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
         fontFamily: fonts.fontFamily.Regular,
@@ -75,6 +78,12 @@ export default styles = StyleSheet.create({
     },
     pairButtonIcon: {
         height: 35, width: 35
+    },
+    uploadDoc:{
+        flex:4
+    },
+    footer:{
+        flex:1
     }
 
 

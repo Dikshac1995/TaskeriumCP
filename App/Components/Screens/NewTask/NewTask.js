@@ -406,7 +406,7 @@ const NewTask = (props) => {
                                 onPress={() => props.navigation.navigate('ChangePassord')}
                             />
                              
-                             <View style={{flex:5}}>
+                             <View style={styles.formWrap}>
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -462,7 +462,7 @@ const NewTask = (props) => {
                                     callback2={() => { addDocument() }}
                                     style={styles.pairButton}
                                 />
-                                <View style={{flex:4,}}>
+                                <View style={styles.uploadDoc}>
                                 <View style={styles.uploadDocWrapper}>
                                     <FlatList
                                         data={uploadedDoc}
@@ -479,7 +479,7 @@ const NewTask = (props) => {
                                 </View>
                                 </View>
                             </View>
-                            <View style={{flex:1}}>
+                            <View style={styles.footer}>
                             <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                 <View style={styles.signUpView}>
                                     <_PairButton

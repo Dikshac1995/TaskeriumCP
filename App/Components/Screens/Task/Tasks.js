@@ -62,9 +62,6 @@ const Tasks = (props) => {
                             ],
                         })
                     );
-                    // AsyncStorage.removeItem('userName');
-                    // AsyncStorage.removeItem('password');
-                    // props.navigation.navigate('LogIn')
                 },
                 error: (err) => {
                     setloading(false)
@@ -120,9 +117,6 @@ const Tasks = (props) => {
                             [
                                 {
                                     text: 'OK', onPress: () => {
-                                        // signout()
-                                        // props.navigation.navigate('LogIn')
-
                                         AsyncStorage.removeItem('userAuthDetails');
                                         AsyncStorage.removeItem('token');
                                         props.navigation.dispatch(
@@ -180,7 +174,6 @@ const Tasks = (props) => {
                         let fileFound = false
                         item[key].forEach((docitem) => {
                             for (const prop in docitem) {
-
                                 if (docitem[prop].title.toLowerCase().indexOf(text.toLowerCase()) != -1) {
                                     fileFound = true
                                     return true

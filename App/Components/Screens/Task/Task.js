@@ -14,7 +14,6 @@ import {
     StyleSheet, Modal, TouchableHighlight, Alert
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import { globals, helpers, validators, API } from '../../../Config';
 import { mainStyle, images, sty, colors } from '../../../Theme';
 import FastImage from 'react-native-fast-image'
@@ -31,11 +30,8 @@ import StarRating from 'react-native-star-rating';
 import { startClock } from 'react-native-reanimated';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
-import { SET_SINGLE_USER_STORY } from '../../../Redux/Actions/Constants';
 import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
-
-
 
 
 const Task = (props) => {
@@ -73,8 +69,6 @@ const Task = (props) => {
         return unsubscribe;
     }, [props.navigation])
 
-
-
     const getCommentData = async () => {
         setMsgLoader(true)
         let userAuthdetails = await helpers.userAuthdetails();
@@ -107,7 +101,6 @@ const Task = (props) => {
             };
             API.getCommentData(data, cb, header);
         } else {
-            // getEndPoint()
         }
     }
     const addCommentData = async () => {
@@ -150,7 +143,6 @@ const Task = (props) => {
                 };
                 API.addCommentData(data, cb, header);
             }
-
             else {
                 // getEndPoint()
             }
@@ -169,7 +161,6 @@ const Task = (props) => {
                     setloading(false)
                     AsyncStorage.removeItem('userAuthDetails');
                     AsyncStorage.removeItem('token');
-
                     props.navigation.dispatch(
                         CommonActions.reset({
                             index: 0,
@@ -198,7 +189,6 @@ const Task = (props) => {
             };
             API.signOut(data, cb, header);
         } else {
-            // getEndPoint()
         }
 
     }
@@ -256,8 +246,6 @@ const Task = (props) => {
     }
 
     const openDocument = (doc_uri, doc_title) => {
-        // setloading(true)
-
         let uri = doc_uri;
         if (Platform.OS === 'ios') {
             uri = doc_uri.replace('file://', '');
@@ -265,24 +253,18 @@ const Task = (props) => {
         let ext = doc_uri.split(".").pop()
         // const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
         const localFile = `${RNFS.DocumentDirectoryPath}/${doc_title}`
-
-
         const options = {
             fromUrl: uri,
             toFile: localFile
         };
         RNFS.downloadFile(options).promise
             .then(() =>
-                //    setloading(false),
                 FileViewer.open(localFile))
             .then(() => {
                 console.log("success")
-
             })
             .catch(error => {
-                setloading(false)
                 console.log("error", error)
-                // error
             });
     }
     const commentRender = (item) => {

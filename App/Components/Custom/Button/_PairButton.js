@@ -9,10 +9,10 @@ const _PairButton = (props) => {
     const style = props.style || {};
     const textStyle = props.textStyle || {}
     return (
-        <View style={{ width: "100%" }}>
+        <View style={styles.btnContainer}>
             <View style={[styles.btnWrap, , style]}>
                 <View style={[styles.pairButtonStyle]}>
-                    <TouchableOpacity style={{ ...sty.fRow }} onPress={() => { props.callback1 ? props.callback1() : null }}>
+                    <TouchableOpacity style={styles.row} onPress={() => { props.callback1 ? props.callback1() : null }}>
                         {props.icon1 ?
                             <FastImage
                                 style={[styles.pairBtnIconStyles, props.icon1Style]}
@@ -27,10 +27,10 @@ const _PairButton = (props) => {
                 </View>
                 <View style={styles.line} />
                 <View style={[styles.pairButtonStyle]}>
-                    <TouchableOpacity style={{ ...sty.fRow }} onPress={() => { props.callback2 ? props.callback2() : null }}>
+                    <TouchableOpacity style={styles.row} onPress={() => { props.callback2 ? props.callback2() : null }}>
                         {props.icon2 ?
                             <FastImage
-                                style={[{ height: 30, width: 30, marginRight: 5 }, props.icon2Style]}
+                                style={[styles.pairBtnIcon2Styles, props.icon2Style]}
                                 source={props.icon2}
                                 resizeMode={"contain"}
                             />

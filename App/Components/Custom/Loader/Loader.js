@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import {
-    StyleSheet,
     View,
     Modal,
     ActivityIndicator
 } from 'react-native';
+import {styles} from './Styles'
 
 const Loader = props => {
     const {
         loading,
-
         name,
         ...attributes
     } = props;
@@ -34,7 +33,7 @@ const Loader = props => {
     }
     else {
         return (
-            <View style={{ flex: 1 }}>
+            <View style={styles.loader2}>
                 <View style={styles.loading}>
                     <View>
                         <ActivityIndicator color="blue" />
@@ -45,31 +44,6 @@ const Loader = props => {
 
 }
 
-const styles = StyleSheet.create({
-    modalBackground: {
-        flex: 1,
-        alignItems: 'center',
-        flexDirection: 'column',
-        justifyContent: 'space-around',
-        backgroundColor: '#00000040'
-    },
-    activityIndicatorWrapper: {
-        backgroundColor: '#FFFFFF',
-        height: 100,
-        width: 100,
-        borderRadius: 10,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-around'
-    },
-    loading: {
 
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'center'
-
-    },
-});
 
 export default Loader;

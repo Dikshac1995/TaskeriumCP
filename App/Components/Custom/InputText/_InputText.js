@@ -16,11 +16,7 @@ const _InputText = (props) => {
                         style={[styles.inputText, style]}
                         placeholder={props.placeholder ? props.placeholder : "Text Input"}
                         placeholderTextColor={props.placeholderColor ? props.placeholderColor : colors.placeHolder}
-                        // secureTextEntry={props.secureTextEntry ? props.secureTextEntry : null}
-                        //onBlur={() => { this.props.onBlur() }}
                         value={props.value}
-                        // adjustsFontSizeToFit
-                        //  autoFocus={true} selection={{start:0, end:0}}
                         onChangeText={props.onChangeText ? (e) => props.onChangeText(e) : null}
                         onBlur={props.onBlur ? props.onBlur : null}
                         maxLength={props.maxLength ? props.maxLength : null}
@@ -31,8 +27,6 @@ const _InputText = (props) => {
                         secureTextEntry={props.secureTextEntry ? props.secureTextEntry : null}
                         ellipsizeMode={props.ellipsizeMode ? props.ellipsizeMode : null}
                         multiline={props.multiline ? props.multiline : null}
-                    // selection={{ start: 0, }}
-                    // autoFocus={true}
                     >
                     </TextInput>
 

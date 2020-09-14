@@ -9,8 +9,6 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 export default styles = StyleSheet.create({
 
     container: {
-        // backgroundColor: "#fff",
-        // ...sty.flex1
         marginHorizontal: 15
     },
     TextInput: {

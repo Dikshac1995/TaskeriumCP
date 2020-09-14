@@ -1,22 +1,11 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    SafeAreaView,
-    TextInput,
-    Text,
-    Image,
-    TouchableOpacity,
-    ScrollView,
-    Platform,
-    ActivityIndicator,
-    FlatList,
-    Linking,
-    StyleSheet, Alert
+     Alert
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
 import { mainStyle, images, sty } from '../../../Theme';
-import FastImage from 'react-native-fast-image'
 import _InputText from '../../Custom/InputText/_InputText'
 import styles from "./Styles";
 import MainHoc from '../../Hoc/MainHoc';

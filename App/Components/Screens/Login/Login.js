@@ -32,8 +32,6 @@ const Login = (props) => {
     const [customerId, setcustomerId] = useState("");
     const [checked, setchecked] = useState(false);
     const [loading, setloading] = useState(false);
-    const [emailValid, setemailValid] = useState("");
-    const [passwordValid, setpasswordValid] = useState("");
     
 
     const dispatch = useDispatch();
@@ -91,8 +89,6 @@ const Login = (props) => {
     const logInUser = () => {
         let cb = {
             success: async (res) => {
-                console.log({ res })
-
                 await AsyncStorage.setItem("userAuthDetails", JSON.stringify(res[0]));
                 await AsyncStorage.setItem("token", res[0].token);
                 await AsyncStorage.setItem("userName", userName);
@@ -217,7 +213,7 @@ const Login = (props) => {
                 <View style={styles.checkboxWrapper}>
                     <TouchableOpacity
                         onPress={() => toggleRememberMe()}
-                        style={{ ...sty.fRow, paddingTop: 0, paddingLeft: 10, borderWidth: 0, width: "60%", ...sty.aCenter }}>
+                        style={ styles.checkBoxlogoWrap}>
                         <FastImage
                             style={styles.checkBoxlogo}
                             source={checked ? images.checked : images.unchecked}
@@ -228,7 +224,7 @@ const Login = (props) => {
                 </View>
             </View>
 
-            <View style={{ paddingTop: 60 }}>
+            <View style={styles.buttonWrap}>
                 <_Button
                     style={styles.button}
                     btnTxt={helpers.getLocale(localize, "login", "signIn")}

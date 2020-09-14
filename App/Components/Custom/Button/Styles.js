@@ -6,6 +6,9 @@ import {
 } from "../../../Theme";
 
 export default styles = StyleSheet.create({
+    btnContainer:{
+        width: "100%"
+    },
     btnWrap: {
         borderTopWidth: 1.5,
         borderBottomWidth: 1.5,
@@ -16,6 +19,10 @@ export default styles = StyleSheet.create({
         paddingVertical: 7.5,
         ...sty.fRow,
         // paddingTop: Platform.OS === 'ios' ? 2 : 0
+    },
+    row:{
+        ...sty.fRow 
+
     },
     inputText: {
         fontSize: 20,
@@ -46,5 +53,8 @@ export default styles = StyleSheet.create({
     },
     pairBtnIconStyles:{
         height: 30, width: 30, marginRight: 5 
+    },
+    pairBtnIcon2Styles:{
+        height: 30, width: 30, marginRight: 5
     }
 });
