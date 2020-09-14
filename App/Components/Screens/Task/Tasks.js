@@ -27,6 +27,7 @@ import { setTasks } from "../../../Redux/Actions/TaskAction"
 import { large } from '../../../Theme/FontSizes';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
+import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 
 
 
@@ -42,6 +43,13 @@ const Tasks = (props) => {
 
     const signoutHandler = () => {
         signout()
+    }
+
+    const changeLang = () => {
+        if (localize.activeLanguage === "en")
+            dispatch(setTranslation("he"))
+        else
+            dispatch(setTranslation("en"))
     }
 
     const signout = async () => {
@@ -218,6 +226,7 @@ const Tasks = (props) => {
                         rightIcon="ellipsis-v"
                         onPress={() => props.navigation.navigate('ChangePassord')}
                         onPress_signout={() => signoutHandler()}
+                        onPress_changeLang={() => changeLang()}
                     />
                     <View >
                         <_InputText

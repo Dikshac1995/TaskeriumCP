@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    Alert, Image, Text, FlatList, TouchableOpacity,KeyboardAvoidingView
+    Alert, Image, Text, FlatList, TouchableOpacity, KeyboardAvoidingView
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -24,9 +24,12 @@ import { Container, Header, Button, Content, ActionSheet } from "native-base";
 import Map from "../Map/map"
 import moment from 'moment';
 import FileViewer from "react-native-file-viewer"
+import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
+
 
 const NewTask = (props) => {
     const localize = useSelector(state => state.localize);
+    const dispatch = useDispatch();
     const [name, setname] = useState("");
     const [address, setaddress] = useState("");
     const [title, settitle] = useState("");
@@ -52,7 +55,7 @@ const NewTask = (props) => {
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
         if (baseUrl && baseUrl !== undefined) {
-           let cb = {
+            let cb = {
                 success: async (res) => {
                     console.log({ res })
                     let customer_data = res[0].objects
@@ -156,7 +159,7 @@ const NewTask = (props) => {
             API.sync_data(data, cb, header);
         }
     }
-   
+
     const imagePicker = () => {
         ActionSheet.show(
             {
@@ -185,13 +188,13 @@ const NewTask = (props) => {
             mediaType: 'photo',
             smartAlbums: ['PhotoStream', 'Generic', 'Panoramas', 'Videos', 'Favorites', 'Timelapses', 'AllHidden', 'RecentlyAdded', 'Bursts', 'SlomoVideos', 'UserLibrary', 'SelfPortraits', 'Screenshots', 'DepthEffect', 'LivePhotos', 'Animated', 'LongExposure']
         }).then(response => {
-            console.log("uri from galary",response.path)
+            console.log("uri from galary", response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
             const item = {
                 "fileName": name,
                 "base64": base64,
-                "path":response.path
+                "path": response.path
             }
             const array = [...uploadedDoc]
             array.push(item)
@@ -212,16 +215,16 @@ const NewTask = (props) => {
             includeBase64: true,
             mediaType: 'photo',
         }).then(response => {
-            console.log("uri from camera",response.path)
+            console.log("uri from camera", response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
-           const imageName= "Image-" + name.slice(-12, name.length)
-           const imgExtention= imageName.split(".").pop()
-          const date= moment().format('MM-DD-YYYY:HH:mm:ss');
+            const imageName = "Image-" + name.slice(-12, name.length)
+            const imgExtention = imageName.split(".").pop()
+            const date = moment().format('MM-DD-YYYY:HH:mm:ss');
             const item = {
-                "fileName": "Image-cp_"+date+"."+imgExtention,
+                "fileName": "Image-cp_" + date + "." + imgExtention,
                 "base64": base64,
-                "path":response.path
+                "path": response.path
             }
             const array = [...uploadedDoc]
             array.push(item)
@@ -232,7 +235,7 @@ const NewTask = (props) => {
             })
 
     }
-    
+
 
     const uploadDoc = async (dataValue, taskId, resolve, reject) => {
 
@@ -253,7 +256,7 @@ const NewTask = (props) => {
             };
 
             let name = dataValue.fileName.split('cp').pop()
-            let filename= taskId+'_'+'cp'+name
+            let filename = taskId + '_' + 'cp' + name
             let header = helpers.buildHeader();
             let data = {
                 "user_id": userAuthdetails.user_id,
@@ -263,7 +266,7 @@ const NewTask = (props) => {
                 "photo": dataValue.base64,
                 "api_key": globals.API_KEY,
             };
-             API.postDocument(data, cb, header);
+            API.postDocument(data, cb, header);
         } else {
             // getEndPoint()
         }
@@ -299,16 +302,16 @@ const NewTask = (props) => {
                     let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
                     filepath = basepath + "/" + res.name;
                 }
-                console.log("filepathame",filepath)
-                const docExtension =res.name.split(".").pop()
-                const date= moment().format('MM-DD-YYYY:HH:mm:ss');
-                console.log("ecte",docExtension,date)
-                
+                console.log("filepathame", filepath)
+                const docExtension = res.name.split(".").pop()
+                const date = moment().format('MM-DD-YYYY:HH:mm:ss');
+                console.log("ecte", docExtension, date)
+
                 RNFS.readFile(filepath, "base64").then(result => {
                     const item = {
-                        "fileName":"Doc-cp_"+date+"."+docExtension,
+                        "fileName": "Doc-cp_" + date + "." + docExtension,
                         "base64": result,
-                        "path":filepath
+                        "path": filepath
                     }
                     const array = [...uploadedDoc]
                     array.push(item)
@@ -364,6 +367,13 @@ const NewTask = (props) => {
 
     }
 
+    const changeLang = () => {
+        if (localize.activeLanguage === "en")
+            dispatch(setTranslation("he"))
+        else
+            dispatch(setTranslation("en"))
+    }
+
     const pressHandle = (data) => {
         if (data) {
             setaddress(data)
@@ -371,25 +381,25 @@ const NewTask = (props) => {
         setlocationExpand(false)
         setedit(true)
     }
-    const onPressDocument=(fileUri)=>{
-        let uri=fileUri
-      
+    const onPressDocument = (fileUri) => {
+        let uri = fileUri
+
         if (Platform.OS === 'ios') {
             uri = fileUri.replace('file://', '');
-          }
-          console.log("uri",uri)
-          FileViewer.open(uri, { showOpenWithDialog: true })
-          .then(() => {
-           console.log("success")
-        })
-         .catch(error => {
-         console.log("error",error)
-                 });
+        }
+        console.log("uri", uri)
+        FileViewer.open(uri, { showOpenWithDialog: true })
+            .then(() => {
+                console.log("success")
+            })
+            .catch(error => {
+                console.log("error", error)
+            });
     }
 
     return (
         <>
-        
+
             {(!locationExpand) ?
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
@@ -397,16 +407,18 @@ const NewTask = (props) => {
                     {initialLoading ? < Loader
                         name /> :
                         <>
-                          
+
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
                                 rightIcon1={images.menu}
                                 rightcb
                                 rightIcon="ellipsis-v"
                                 onPress_signout={() => signout()}
                                 onPress={() => props.navigation.navigate('ChangePassord')}
+                                onPress_changeLang={() => changeLang()}
+
                             />
-                             
-                             <View style={styles.formWrap}>
+
+                            <View style={styles.formWrap}>
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -439,7 +451,7 @@ const NewTask = (props) => {
                                     callback={() =>
                                         setlocationExpand(true)
                                     }
-                               
+
                                 />
                                 <_InputText
                                     style={styles.TextInput1}
@@ -463,40 +475,40 @@ const NewTask = (props) => {
                                     style={styles.pairButton}
                                 />
                                 <View style={styles.uploadDoc}>
-                                <View style={styles.uploadDocWrapper}>
-                                    <FlatList
-                                        data={uploadedDoc}
-                                        renderItem={({ item, index }) =>
-                                            // <TouchableOpacity
-                                            //  onPress={()=>onPressDocument(item.path)}
-                                            // >
+                                    <View style={styles.uploadDocWrapper}>
+                                        <FlatList
+                                            data={uploadedDoc}
+                                            renderItem={({ item, index }) =>
+                                                // <TouchableOpacity
+                                                //  onPress={()=>onPressDocument(item.path)}
+                                                // >
                                                 <Text style={styles.text}>{item.fileName}</Text>
-                                            //  </TouchableOpacity>
+                                                //  </TouchableOpacity>
                                             }
-                                        keyExtractor={(item, index) => index.toString()}
-                                        removeClippedSubviews={Platform.OS == "android" ? true : false}
-                                    />
-                                </View>
+                                            keyExtractor={(item, index) => index.toString()}
+                                            removeClippedSubviews={Platform.OS == "android" ? true : false}
+                                        />
+                                    </View>
                                 </View>
                             </View>
                             <View style={styles.footer}>
-                            <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
-                                <View style={styles.signUpView}>
-                                    <_PairButton
-                                        btnTxt1={helpers.getLocale(localize, "task", "cancel")}
-                                        btnTxt2={helpers.getLocale(localize, "task", "save")}
-                                        txtStyle1={{ color: "red", }}
-                                        callback1={() => { cancleButtonHandler() }}
-                                        callback2={() => { saveButtonHandler() }}
-                                    />
+                                <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
+                                    <View style={styles.signUpView}>
+                                        <_PairButton
+                                            btnTxt1={helpers.getLocale(localize, "task", "cancel")}
+                                            btnTxt2={helpers.getLocale(localize, "task", "save")}
+                                            txtStyle1={{ color: "red", }}
+                                            callback1={() => { cancleButtonHandler() }}
+                                            callback2={() => { saveButtonHandler() }}
+                                        />
+                                    </View>
                                 </View>
-                            </View>
                             </View>
                         </>}
                 </View >
                 :
                 <Map onPressmap={(data) => { pressHandle(data) }} />}
-                
+
         </>
 
     );

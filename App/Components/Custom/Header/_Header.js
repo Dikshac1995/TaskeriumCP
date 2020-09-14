@@ -29,22 +29,22 @@ const _Header = (props) => {
                                 <Menu >
                                     <MenuTrigger customStyles={triggerStyles} >
                                         <FastImage
-                                            style={ styles.rightIconStyle}
+                                            style={styles.rightIconStyle}
                                             source={props.rightIcon1}
                                             resizeMode={"contain"}
                                         />
                                     </MenuTrigger>
                                     <MenuOptions customStyles={
                                         {
-                                        optionText: { fontSize: 20, fontFamily: 'MyriadPro-Regular' },
-                                        optionWrapper: { borderColor: '#1C7DED', borderWidth: 1 }
-                                    }
+                                            optionText: { fontSize: 20, fontFamily: 'MyriadPro-Regular' },
+                                            optionWrapper: { borderColor: '#1C7DED', borderWidth: 1 }
+                                        }
                                     } >
                                         <MenuOption text='Change Password'
                                             onSelect={props.onPress ? () => props.onPress() : null}
                                         />
-                                        <MenuOption text='Language'
-                                        // onSelect={() => this.setState({ renderer: SlideInMenu })}
+                                        <MenuOption text='Change Language'
+                                            onSelect={() => { props.onPress_changeLang ? props.onPress_changeLang() : null }}
                                         />
                                         <MenuOption text='Sign Out' customStyles={{}}
                                             onSelect={props.onPress_signout ? () => props.onPress_signout() : null}
@@ -64,11 +64,11 @@ const _Header = (props) => {
 }
 const triggerStyles = {
     triggerText: {
-        
+
     },
     triggerWrapper: {
         padding: 5,
-        
+
     },
     triggerTouchable: {
     },

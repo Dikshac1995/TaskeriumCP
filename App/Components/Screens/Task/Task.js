@@ -30,12 +30,14 @@ import StarRating from 'react-native-star-rating';
 import { startClock } from 'react-native-reanimated';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
+import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
 
 
 const Task = (props) => {
     const localize = useSelector(state => state.localize);
+    const dispatch = useDispatch();
     const { task } = props.route.params
     const Document = task.item.documents
     const task_evaluation = task.item.evaluation
@@ -47,6 +49,7 @@ const Task = (props) => {
     const [getMessage, setgetMessage] = useState([]);
     const [MsgLoader, setMsgLoader] = useState(false);
     const [loading, setloading] = useState(false);
+
 
     var DocumentCount = []
 
@@ -193,6 +196,13 @@ const Task = (props) => {
 
     }
 
+    const changeLang = () => {
+        if (localize.activeLanguage === "en")
+            dispatch(setTranslation("he"))
+        else
+            dispatch(setTranslation("en"))
+    }
+
     const saveButtHandler = async () => {
         let userAuthdetails = await helpers.userAuthdetails();
         const baseUrl = await AsyncStorage.getItem("baseUrl");
@@ -304,6 +314,7 @@ const Task = (props) => {
                     rightcb
                     onPress={() => props.navigation.navigate('ChangePassord')}
                     onPress_signout={() => signout()}
+                    onPress_changeLang={() => changeLang()}
                 />
                 <View style={styles.headerSeperator} />
 
