@@ -30,8 +30,7 @@ import { StackActions, CommonActions } from "@react-navigation/native";
 import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
 import { color } from 'react-native-reanimated';
-
-
+import LanguageModal from '../ContentType/LanguageModal/LanguageModal'
 
 
 const Tasks = (props) => {
@@ -309,7 +308,7 @@ const Tasks = (props) => {
                         visible={modalVisible}
                         onRequestClose={() => toggleModal(false)}>
 
-                        <View style={styles.modalBackground}>
+                        {/* <View style={styles.modalBackground}>
                         <View style={styles.modalWrapper} >
                             <View style={styles.modalHeading}>
                                 <Text style={styles.modalheadText}>Choose Language</Text>
@@ -330,14 +329,12 @@ const Tasks = (props) => {
                                     <Text>Other Language</Text>
                                 </View>
                             </View>
-                        </View>
-                    </View>
+                        </View> */}
+                    {/* </View> */}
+                    <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
                 
             </Modal>
-           
-                        
-
-                </View >}
+         </View >}
         </>
 
     );

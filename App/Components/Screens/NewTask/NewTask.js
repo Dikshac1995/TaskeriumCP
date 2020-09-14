@@ -395,28 +395,17 @@ const NewTask = (props) => {
     }
 
     const changeLang = () => {
-        // console.log("active",localize.activeLanguage)
         if (localize.activeLanguage === "en")
         {
-              setCheck("en")
+            setCheck("en")
         }
         else{
-               setCheck("he")
+            setCheck("he")
         }
 
         toggleModal(true)
     }
-    const selectLanguage = ( value)=>{
-        setCheck(value)
-        if (value === 'en'){
-            dispatch(setTranslation("en"))
-        }
-        else
-        {
-            dispatch(setTranslation("he"))
-        }
-            toggleModal(false)   
-    }
+    
 
     const pressHandle = (data) => {
         if (data) {
@@ -549,34 +538,14 @@ const NewTask = (props) => {
                                 </View>
                             </View>
                         </>}
-                        <Modal animationType={"none"} transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => toggleModal(false)}>
-
-                        <View style={styles.modalBackground}>
-                        <View style={styles.modalWrapper} >
-                            <View style={styles.modalHeading}>
-                                <Text style={styles.modalheadText}>Choose Language</Text>
-                            </View> 
-                            <View style={styles.langOptWrap}>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        selected={check== 'en'} onPress={()=>selectLanguage('en')}
-                                    />
-                                    <Text> English</Text>
-                                </View>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        onPress={()=>selectLanguage('he')} selected={check== 'he'}
-                                />
-                                    <Text>Other Language</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                
+                        
+            <Modal animationType={"none"} transparent={true}
+             visible={modalVisible}
+              onRequestClose={() => 
+              toggleModal(false)
+    }
+        >
+            <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
 
                 </View >

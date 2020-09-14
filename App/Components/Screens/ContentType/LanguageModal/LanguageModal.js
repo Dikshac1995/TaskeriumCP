@@ -23,16 +23,14 @@ import {
 } from "../../../../Theme";
 
    const LanguageModal=(props)=>{
-       console.log("data",props.true)
     const localize = useSelector(state => state.localize);
     const dispatch = useDispatch();
-    const [modalVisible, setmodalVisible] = useState(props)
-    const [check,setCheck]= useState(false);
+    const [modalVisible, setmodalVisible] = useState()
+    const [check,setCheck]= useState(props.language);
 
 
 
-   
-    const selectLanguage = ( value)=>{
+    const selectLanguage = (value)=>{
         setCheck(value)
         if (value === 'en'){
             dispatch(setTranslation("en"))
@@ -41,17 +39,10 @@ import {
         {
             dispatch(setTranslation("he"))
         }
-            return false  
+            return  props.close(false)
     }
        
        return(
-        <Modal animationType={"none"} transparent={true}
-        visible={modalVisible}
-    //     onRequestClose={() => 
-    //     // toggleModal(false)
-    // }
-        >
-
         <View style={styles.modalBackground}>
         <View style={styles.modalWrapper} >
             <View style={styles.modalHeading}>
@@ -76,7 +67,6 @@ import {
         </View>
     </View>
 
-</Modal>
 
        )
 

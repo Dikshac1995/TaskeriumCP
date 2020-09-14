@@ -34,7 +34,7 @@ import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
 import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
-
+import LanguageModal from '../ContentType/LanguageModal/LanguageModal'
 
 const Task = (props) => {
     const localize = useSelector(state => state.localize);
@@ -225,24 +225,8 @@ const Task = (props) => {
         }
 
         toggleModal(true)
-        // if (localize.activeLanguage === "en")
-        //     dispatch(setTranslation("he"))
-        // else
-        //     dispatch(setTranslation("en"))
             
     }
-    const selectLanguage = ( value)=>{
-        setCheck(value)
-        if (value === 'en'){
-            dispatch(setTranslation("en"))
-        }
-        else
-        {
-            dispatch(setTranslation("he"))
-        }
-            toggleModal(false)   
-    }
-
 
     const saveButtHandler = async () => {
         let userAuthdetails = await helpers.userAuthdetails();
@@ -525,33 +509,10 @@ const Task = (props) => {
 
 
             <Modal animationType={"none"} transparent={true}
-                        visible={modalVisible}
-                        onRequestClose={() => toggleModal(false)}>
+                 visible={modalVisible}
+                 onRequestClose={() => toggleModal(false)}>
 
-                        <View style={styles.modalBackground}>
-                        <View style={styles.modalWrapper} >
-                            <View style={styles.modalHeading}>
-                                <Text style={styles.modalheadText}>Choose Language</Text>
-                            </View> 
-                            <View style={styles.langOptWrap}>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        selected={check== 'en'} onPress={()=>selectLanguage('en')}
-                                    />
-                                    <Text> English</Text>
-                                </View>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        onPress={()=>selectLanguage('he')} selected={check== 'he'}
-                                />
-                                    <Text>Other Language</Text>
-                                </View>
-                            </View>
-                        </View>
-                    </View>
-                
+                 <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
            
         </View >
