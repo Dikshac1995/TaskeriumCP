@@ -49,7 +49,7 @@ const SignUp = (props) => {
     }, [])
 
     const signinHandler = () => {
-        if (email.trim() && userName.trim() && lastName.trim() && address.trim() && phoneNo && city && customerId) {
+        if (email.trim() && userName.trim() && lastName.trim() && address.trim() && phoneNo.trim() && city.trim() && customerId) {
             const emailerr = validation("email", email)
             const phoneNoerr = validation("phoneNo", phoneNo)
             if (!phoneNoerr) {

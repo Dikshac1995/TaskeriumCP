@@ -34,7 +34,8 @@ modalWrapper: {
 language:{fontSize:17},
 
 leftIcon:{
-    padding:5
+    padding:5,
+    
 },
 headerText:{
     fontSize:20,

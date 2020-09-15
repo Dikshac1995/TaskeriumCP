@@ -47,7 +47,7 @@ import { globals, helpers, validators, API, } from '../../../../Config';
         {
             dispatch(setTranslation("he"))
         }
-            // return  props.close(false)
+           
     }
     
  
@@ -57,34 +57,39 @@ import { globals, helpers, validators, API, } from '../../../../Config';
         <View style={styles.modalBackground}>
             <View style={styles.modalWrapper} >
                 <View style={ styles.modalHeading}>
-                    <View style={styles.leftIcon}>
-                        <Icon name="chevron-left" size={20} color={colors.primaryColor} onPress={()=>props.close(false)}/>
-                    </View>
+                    <TouchableOpacity style={styles.leftIcon} onPress={()=>props.close(false)}>
+                        <Icon name="chevron-left" size={20} color={colors.primaryColor} />
+                    </TouchableOpacity>
                     <Text style={styles.headerText}>{helpers.getLocale(localize, "language", "Language")}</Text>
                 </View>
+                <View >
                 <FlatList
                     data={languagesArr}
                     renderItem={({ item, index }) =>
+                    
                     <Content>
-                        <ListItem selected={false} >
+                        <ListItem selected={false}
+                        onPress={()=>selectLanguage(item.key)} >
                             <Left>
                                 <Text style={styles.language}>{item.value}</Text>
                             </Left>
                             <Right>
-                            <TouchableOpacity onPress={()=>selectLanguage(item.key)}>
                                 <FastImage
                                 style={styles.radioIconStyle}
                                 source={check===item.key ? images.radioCheck : images.radioUncheck}
                                 resizeMode={"contain"}
-                                        />
-                                </TouchableOpacity>
+                                />
                             </Right>
                         </ListItem>
+                      
+                        {/* <View style={{borderBottomWidth:1,borderBottomColor:colors.border}}></View> */}
                     </Content>
+                    
                     }
                     removeClippedSubviews={Platform.OS == "android" ? true : false}
                     keyExtractor={_keyExtractor}
                         />
+                        </View>
             {/* <View style={styles.modalHeading}>
                 <Text style={styles.modalheadText}>Choose Language</Text>
             </View>  */}
