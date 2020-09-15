@@ -30,7 +30,7 @@ import { StackActions, CommonActions } from "@react-navigation/native";
 import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
 import { color } from 'react-native-reanimated';
-import LanguageModal from '../ContentType/LanguageModal/LanguageModal'
+import Language from '../ContentType/LanguageModal/LanguageModal'
 
 
 const Tasks = (props) => {
@@ -266,7 +266,7 @@ const Tasks = (props) => {
                         onPress_signout={() => signoutHandler()}
                         onPress_changeLang={() => changeLang()}
                     />
-                    <View >
+                    <View>
                         <_InputText
                             style={styles.TextInput}
                             placeholder={helpers.getLocale(localize, "tasks", "search")}
@@ -331,7 +331,7 @@ const Tasks = (props) => {
                             </View>
                         </View> */}
                     {/* </View> */}
-                    <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
+                    <Language language={check} close={(value)=>{toggleModal(value)}}/>
                 
             </Modal>
          </View >}

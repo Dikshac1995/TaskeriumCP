@@ -11,7 +11,7 @@ export default styles = StyleSheet.create({
     container: {
         // backgroundColor: "#fff",
         // ...sty.flex1,
-        paddingTop: 20 
+        paddingTop: 20 ,
     },
     headerWrap:{
         ...sty.fRow, 

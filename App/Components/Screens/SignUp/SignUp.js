@@ -49,7 +49,7 @@ const SignUp = (props) => {
     }, [])
 
     const signinHandler = () => {
-        if (email && userName && lastName && address && phoneNo && city && customerId) {
+        if (email.trim() && userName.trim() && lastName.trim() && address.trim() && phoneNo && city && customerId) {
             const emailerr = validation("email", email)
             const phoneNoerr = validation("phoneNo", phoneNo)
             if (!phoneNoerr) {
@@ -97,7 +97,7 @@ const SignUp = (props) => {
             firstname: userName,
             lastname: lastName,
             phone: phoneNo,
-            email: email,
+            email: email.trim(),
             street: address.trim(),
             city: city,
             api_key: globals.API_KEY
@@ -186,6 +186,7 @@ const SignUp = (props) => {
                         placeholder={helpers.getLocale(localize, "signIn", "email")}
                         onChangeText={value => setemail(value)}
                         value={email}
+                        multiline={true}
                     />
                     <_InputText
                         style={styles.TextInput}

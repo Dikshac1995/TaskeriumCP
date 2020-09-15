@@ -34,7 +34,7 @@ import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
 import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
-import LanguageModal from '../ContentType/LanguageModal/LanguageModal'
+import Language from '../ContentType/LanguageModal/LanguageModal'
 
 const Task = (props) => {
     const localize = useSelector(state => state.localize);
@@ -476,7 +476,7 @@ const Task = (props) => {
                 </View>
             </ScrollView>
 
-            <Modal animationType={"none"} transparent={true}
+            {/* <Modal animationType={"none"} transparent={true}
                 visible={modalVisible}
                 onRequestClose={() => toggleModal(false)}>
                 <View style={styles.modalBackground}>
@@ -505,14 +505,14 @@ const Task = (props) => {
 
                     </View>
                 </View>
-            </Modal>
+            </Modal> */}
 
 
             <Modal animationType={"none"} transparent={true}
                  visible={modalVisible}
                  onRequestClose={() => toggleModal(false)}>
 
-                 <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
+                 <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
            
         </View >

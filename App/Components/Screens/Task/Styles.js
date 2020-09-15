@@ -14,8 +14,8 @@ export default styles = StyleSheet.create({
         marginHorizontal: 15
     },
     TextInput: {
-        marginTop: 35,
-        fontFamily: fonts.fontFamily.Regular
+        marginTop: 10,
+        fontFamily: fonts.fontFamily.Regular,
     },
     signUpWrapper: {
         flex: 1,

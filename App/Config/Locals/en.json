@@ -96,10 +96,15 @@
     "task_save": " Your task save successfully",
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
-    "validation_err": "Please fill the required details"
+    "validation_err": "Please fill the required details",
+    "set-address":"SET-ADDRESS"
   },
   "validation": {
     "username_Required ": " User Name is Required"
   },
-  "infoPopUp": {}
+  "language": {
+    "Language":"LANGUAGE",
+    "English" :"English",
+    "German":"German"
+  }
 }

@@ -103,16 +103,19 @@ export default styles = StyleSheet.create({
   signUpWrapper: {
     flex: 1,
     borderWidth: 0,
-    paddingBottom: 50,
+    paddingBottom: 20,
     paddingTop: 10,
     ...sty.jEnd,
     ...sty.aCenter,
+   
+   
     
   },
   signUpView: {
     borderWidth: 0,
     // paddingTop: 30
     // marginTop: 60
+    
   },
   signUp: {
     ...sty.fRow,
@@ -123,7 +126,6 @@ export default styles = StyleSheet.create({
     // borderColor:'#eee',
     width: "60%",
     ...sty.aCenter,
-    backgroundColor:'red'
     
   },
   signUpText: {

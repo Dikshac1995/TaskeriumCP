@@ -27,7 +27,7 @@ import FileViewer from "react-native-file-viewer"
 import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import {  Radio, Right, Left } from 'native-base';
 import { colors } from '../../../Theme';
-import LanguageModal from '../ContentType/LanguageModal/LanguageModal'
+import Language from '../ContentType/LanguageModal/LanguageModal'
 
 const NewTask = (props) => {
     const localize = useSelector(state => state.localize);
@@ -292,7 +292,7 @@ const NewTask = (props) => {
     }
 
     const saveButtonHandler = () => {
-        if (title && address && name) {
+        if (title.trim() && address.trim() && name.trim()) {
             addTask()
         }
         else {
@@ -545,7 +545,7 @@ const NewTask = (props) => {
               toggleModal(false)
     }
         >
-            <LanguageModal language={check} close={(value)=>{toggleModal(value)}}/>
+            <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
 
                 </View >
