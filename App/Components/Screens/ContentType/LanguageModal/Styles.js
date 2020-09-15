@@ -35,7 +35,7 @@ language:{fontSize:17},
 
 leftIcon:{
     padding:5,
-    
+    paddingHorizontal:10,
 },
 headerText:{
     fontSize:20,
