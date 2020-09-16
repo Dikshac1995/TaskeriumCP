@@ -27,34 +27,49 @@ class Main extends Component {
             loading: true,
             autoLogin: false,
         };
-        console.log("deviceLocale 1:", deviceLocale)
-
     }
 
     async componentDidMount() {
-       
+        this.setUpDeviceLang();
+        await this.getRememberedUser()
+
+    }
+
+    setUpDeviceLang = async () => {
+        let DeviceLang = await AsyncStorage.getItem('DeviceLang');
+
         const deviceLanguage =
             Platform.OS === 'ios'
                 ? NativeModules.SettingsManager.settings.AppleLocale ||
                 NativeModules.SettingsManager.settings.AppleLanguages[0] // iOS 13
                 : NativeModules.I18nManager.localeIdentifier;
 
-        
-        if(deviceLocale === 'It-LT'|| deviceLanguage==='It_LT'){
-            this.props.setTranslation("he")
+        if (DeviceLang === null || deviceLanguage !== DeviceLang) {
+            if (deviceLocale === 'lt-LT' || deviceLanguage === 'lt_LT') {
+                this.props.setTranslation("he")
+                await AsyncStorage.setItem("AppLang", "he");
+            }
+            else {
+                this.props.setTranslation("en")
+                await AsyncStorage.setItem("AppLang", "en");
+            }
+            await AsyncStorage.setItem("DeviceLang", deviceLanguage);
+
         }
-        else{
-            this.props.setTranslation("en") 
+        else {
+            let appLang = await AsyncStorage.getItem('AppLang');
+            if (appLang !== null)
+                this.props.setTranslation(appLang)
+            else
+                this.props.setTranslation("en")
+
         }
-        // Alert.alert("Lang found ", deviceLocale + " " + deviceLanguage)
-        await this.getRememberedUser()
     }
 
     getRememberedUser = async () => {
         let autoLogin = false;
         // const remeber = await AsyncStorage.getItem('RemeberMe');
         const token = await AsyncStorage.getItem("token");
-        console.log("token :", token)
         if (token !== null) {
             autoLogin = true
             // const remebervalue = JSON.parse(remeber)
@@ -76,7 +91,6 @@ class Main extends Component {
 
     render() {
         const { loading, autoLogin } = this.state;
-        console.log("loading autoLogin :", loading, autoLogin)
         return (
             loading ?
                 (<View />)
@@ -92,13 +106,13 @@ class Main extends Component {
                             NavigationService.setTopLevelNavigator(navigatorRef)
                         }}
                     />)
-            
+
         );
     }
 }
 
 const mapStateToProps = state => ({
-     data: state.localize
+    data: state.localize
 })
 
 
@@ -112,8 +126,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(Main)
 
 
 
-
-
-
-
-// export default Main;

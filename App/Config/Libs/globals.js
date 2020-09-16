@@ -1,7 +1,6 @@
 import { Dimensions, Platform } from "react-native";
-// import DeviceInfo from "react-native-device-info";
 
-export const live = false;
+export const live = true;
 export const API_KEY = "TqKGLk2e";
 export const POST_TYPES = {
 };
