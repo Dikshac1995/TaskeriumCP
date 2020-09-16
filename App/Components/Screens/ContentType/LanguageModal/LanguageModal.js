@@ -33,7 +33,7 @@ import { globals, helpers, validators, API, } from '../../../../Config';
     const [check,setCheck]= useState(props.language)
     const  languagesArr= [
         { key: 'en', label: 'english', value:helpers.getLocale(localize, "language", "English")},
-        { key: 'he', label: 'language.german', value: helpers.getLocale(localize, "language", "German")},
+        { key: 'he', label: 'language.german', value: helpers.getLocale(localize, "language", "Lithuanian")},
     ]
 
 

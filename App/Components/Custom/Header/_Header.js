@@ -8,10 +8,12 @@ import {
     MenuOption,
     MenuTrigger,
 } from 'react-native-popup-menu';
-
+import { connect, useSelector, useDispatch } from 'react-redux';
+import { globals, helpers, validators, API, } from '../../../Config';
 
 const _Header = (props) => {
     const [menu, setmenu] = useState(false);
+    const localize = useSelector(state => state.localize);
     const style = props.style || {};
     return (
         <View style={styles.container}>
@@ -40,13 +42,13 @@ const _Header = (props) => {
                                             optionWrapper: { borderColor: '#1C7DED', borderWidth: 1 }
                                         }
                                     } >
-                                        <MenuOption text='Change Password'
+                                        <MenuOption text={helpers.getLocale(localize, "task", "change_password")}
                                             onSelect={props.onPress ? () => props.onPress() : null}
                                         />
-                                        <MenuOption text='Change Language'
+                                        <MenuOption text={helpers.getLocale(localize, "task", "language")}
                                             onSelect={() => { props.onPress_changeLang ? props.onPress_changeLang() : null }}
                                         />
-                                        <MenuOption text='Sign Out' customStyles={{}}
+                                        <MenuOption text={helpers.getLocale(localize, "task", "sign_out")} customStyles={{}}
                                             onSelect={props.onPress_signout ? () => props.onPress_signout() : null}
 
                                         />
@@ -64,11 +66,9 @@ const _Header = (props) => {
 }
 const triggerStyles = {
     triggerText: {
-
     },
     triggerWrapper: {
         padding: 5,
-
     },
     triggerTouchable: {
     },

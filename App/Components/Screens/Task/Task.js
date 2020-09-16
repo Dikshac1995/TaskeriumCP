@@ -46,6 +46,7 @@ const Task = (props) => {
     const [modalVisible, setmodalVisible] = useState(false);
     const [msgExpand, setmsgExapnd] = useState(false);
     const [docExpand, setdocExapnd] = useState(false);
+    const [rateExpand, setrateExapnd] = useState(false);
     const [starCount, setstarCount] = useState(task_evaluation);
     const [getMessage, setgetMessage] = useState([]);
     const [MsgLoader, setMsgLoader] = useState(false);
@@ -448,7 +449,21 @@ const Task = (props) => {
                     </View>
 
                 </View>
-
+                <View style={styles.section2Wapper}>
+                        <TouchableOpacity onPress={() =>
+                            setrateExapnd(!rateExpand)
+                        }>
+                            <FastImage
+                                style={styles.downArrow}
+                                source={images.downArrow}
+                                resizeMode={"contain"}
+                            />
+                        </TouchableOpacity>
+                        <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "rate-it")}</Text>
+                    </View>
+                    <View style={styles.horizontalLine} />
+                    {true ? null : <View style={styles.seperator} />}
+                {rateExpand&&
                 <View style={styles.startRateWrapper}>
                     <StarRating
                         disabled={false}
@@ -459,11 +474,12 @@ const Task = (props) => {
                         selectedStar={(rating) => onStarRatingPress(rating)}
                         starStyle={{ padding: 5 }}
                     />
+                    
 
-                </View>
-
-                <View style={[styles.signUpWrapper]}>
-
+                </View>}
+                </ScrollView>
+                <View style={[styles.signUpWrapper1,{ borderWidth: 0,}]}>
+                
                     <View style={styles.signUpView}>
                         <_PairButton
                             btnTxt1={helpers.getLocale(localize, "task", "cancel")}
@@ -474,7 +490,7 @@ const Task = (props) => {
                         />
                     </View>
                 </View>
-            </ScrollView>
+            
 
             {/* <Modal animationType={"none"} transparent={true}
                 visible={modalVisible}
@@ -511,7 +527,6 @@ const Task = (props) => {
             <Modal animationType={"none"} transparent={true}
                  visible={modalVisible}
                  onRequestClose={() => toggleModal(false)}>
-
                  <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
            

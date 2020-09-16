@@ -107,15 +107,11 @@ export default styles = StyleSheet.create({
     paddingTop: 10,
     ...sty.jEnd,
     ...sty.aCenter,
-   
-   
-    
   },
   signUpView: {
     borderWidth: 0,
     // paddingTop: 30
     // marginTop: 60
-    
   },
   signUp: {
     ...sty.fRow,

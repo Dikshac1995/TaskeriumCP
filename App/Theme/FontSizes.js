@@ -14,7 +14,7 @@ export const xxLarge = 26;
 export const heading = 29;
 
 export const fontFamily = {
-    Regular: "MyriadPro-Regular",
+    Regular: 'MyriadPro-Regular',
     Bold: "MyriadPro-Bold",
     Semibold: "MyriadPro-Semibold",
     Light: "MyriadPro-Light"

@@ -19,22 +19,16 @@ export default styles = StyleSheet.create({
     TextInput: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
         fontFamily: fonts.fontFamily.Regular,
-    //   backgroundColor:'yellow',
-      
     },
     TextInput1: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
         fontFamily: fonts.fontFamily.Regular,
-        
-
     },
     signUpWrapper: {
         flex:1,
-        // paddingVertical:10,
         paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
-       
     },
     signUpView: {
         borderWidth: 0,
@@ -57,20 +51,18 @@ export default styles = StyleSheet.create({
         fontWeight: "bold",
         fontFamily: fonts.fontFamily.Regular
     },
+    uploadDoc:{
+        flex:4
+    },
     uploadDocWrapper: {
-        
         paddingVertical: 5,
         paddingHorizontal: 15,
-       
-        //  height:'30%',
-        // flex:1,
     },
     text: {
         color: colors.text,
         fontSize: 15,
         fontWeight: 'bold',
         fontFamily: fonts.fontFamily.Regular
-
     },
     pairButton: {
         borderTopWidth: 0,
@@ -79,9 +71,7 @@ export default styles = StyleSheet.create({
     pairButtonIcon: {
         height: 35, width: 35
     },
-    uploadDoc:{
-        flex:4
-    },
+    
     footer:{
         flex:1
     },
@@ -107,7 +97,8 @@ export default styles = StyleSheet.create({
         alignItems:'center',padding:10
     },
     modalheadText:{
-        fontSize:20
+        fontSize:20,
+        fontFamily: fonts.fontFamily.Regular
     },
     langOpt:{
         paddingBottom:10,display:'flex',flexDirection:'row' 

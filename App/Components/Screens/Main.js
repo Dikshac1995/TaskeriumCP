@@ -13,6 +13,9 @@ import {
 import AppNavigator from "../../Navigators/AppNavigator";
 import MainNavigator from "../../Navigators/MainNavigator";
 import AsyncStorage from '@react-native-community/async-storage';
+import { connect } from 'react-redux';
+import { setTranslation } from "../../Redux/Actions/LocalizeAction";
+
 
 import I18n from 'react-native-i18n';
 var deviceLocale = I18n.currentLocale()
@@ -37,10 +40,14 @@ class Main extends Component {
                 : NativeModules.I18nManager.localeIdentifier;
 
         console.log("deviceLanguage :", deviceLanguage);
-        Alert.alert("Lang found ", deviceLocale + " " + deviceLanguage)
-
+        if(deviceLocale === 'It-LT'|| deviceLanguage==='It_LT'){
+            this.props.setTranslation("he")
+        }
+        else{
+            this.props.setTranslation("en") 
+        }
+        // Alert.alert("Lang found ", deviceLocale + " " + deviceLanguage)
         await this.getRememberedUser()
-
     }
 
     getRememberedUser = async () => {
@@ -70,6 +77,7 @@ class Main extends Component {
     render() {
         const { loading, autoLogin } = this.state;
         console.log("loading autoLogin :", loading, autoLogin)
+        console.log("reducer",this.props.data)
         return (
 
             loading ?
@@ -91,10 +99,24 @@ class Main extends Component {
     }
 }
 
+const mapStateToProps = state => ({
+     data: state.localize
+})
+
+//Map your action creators to your props.
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setTranslation: (type) => dispatch(setTranslation(type))
+        // getCartData: (type) => dispatch(getCartData(type))
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main)
 
 
 
 
 
 
-export default Main;
+
+// export default Main;

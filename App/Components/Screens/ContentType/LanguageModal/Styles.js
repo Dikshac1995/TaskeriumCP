@@ -31,7 +31,10 @@ modalWrapper: {
 //     // alignItems: 'center',
 //     padding: 10
 },
-language:{fontSize:17},
+language:{
+    fontSize:17,
+    fontFamily: fonts.fontFamily.Regular,
+},
 
 leftIcon:{
     padding:5,
@@ -53,10 +56,13 @@ modalHeading:{
     flexDirection:'row'
 },
 modalheadText:{
-    fontSize:20
+    fontSize:20,
+    fontFamily: fonts.fontFamily.Regular,
 },
 langOpt:{
-    paddingBottom:10,display:'flex',flexDirection:'row' 
+    paddingBottom:10,
+    display:'flex',
+    flexDirection:'row' 
 },
 langOptWrap:{
     padding:10

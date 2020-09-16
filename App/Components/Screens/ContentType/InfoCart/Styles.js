@@ -16,7 +16,6 @@ export default styles = StyleSheet.create({
     TextInput: {
         marginTop: 45,
         fontFamily: fonts.fontFamily.Regular
-
     },
     signUpWrapper: {
         flex: 1,
@@ -44,25 +43,32 @@ export default styles = StyleSheet.create({
         color: colors.text,
         fontWeight: "bold",
         fontFamily: fonts.fontFamily.Regular
-
     },
     column1Wrapper: {
-        width: "57%", borderWidth: 0,
+        // width: "57%", 
+        borderWidth: 0,
+        flex:1.2
         // ...sty.jCenter,
-
     },
     column1Text: {
-        fontSize: 20, borderWidth: 0, lineHeight: 22, fontFamily: "MyriadPro-Regular"
-
+        fontSize: 20,
+        borderWidth: 0, 
+        lineHeight: 22, 
+        fontFamily: fonts.fontFamily.Regular
     },
     column2Wrapper: {
-        width: "43%", borderWidth: 0, ...sty.jCenter, paddingLeft: 0, borderWidth: 0,
-
+        // width: "43%", 
+        borderWidth: 0, 
+        ...sty.jCenter, 
+        paddingLeft: 0, 
+        borderWidth: 0,
+        flex:2
     },
     column2Text: {
-        fontSize: 20, borderWidth: 0, lineHeight: 22,
-        fontFamily: "MyriadPro-Regular"
-
+        fontSize: 20, 
+        borderWidth: 0, 
+        lineHeight: 22,
+        fontFamily: fonts.fontFamily.Regular
     }
 
 

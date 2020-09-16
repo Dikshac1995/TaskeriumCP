@@ -7,7 +7,7 @@ import {styles} from './Styles'
 import _Button from '../../Custom/Button/_Button';
 import _PairButton from '../../Custom/Button/_PairButton';
 import { globals, helpers, validators, API } from '../../../Config';
-
+import { connect } from 'react-redux';
 
 const screen = Dimensions.get('window');
 const ASPECT_RATIO = screen.width / screen.height;
@@ -16,7 +16,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 
 
-export default class Map extends React.Component {
+ class Map extends React.Component {
 
     constructor(props) {
         super(props)
@@ -34,6 +34,8 @@ export default class Map extends React.Component {
             address: "",
             userLocation: "Your current location",
             loading: false,
+             localize :props.localize
+            
         }
     }
 
@@ -200,11 +202,11 @@ export default class Map extends React.Component {
                         ]}>
                         <View style={styles.signUpView}>
                                  <_PairButton
-                                        btnTxt1= "CANCLE"
-                                        btnTxt2= "SET ADDRESS"
-                                        txtStyle1={{ color: "red", }}
-                                        callback1={() => { this.closeHandler() }}
-                                        callback2={() => {  this.props.onPressmap(this.state.address) }}
+                                       btnTxt1={helpers.getLocale(this.state.localize, "task", "cancel")}
+                                       btnTxt2={helpers.getLocale(this.state.localize, "newTask", "set")}
+                                       txtStyle1={{ color: "red", }}
+                                       callback1={() => { this.closeHandler() }}
+                                    callback2={() => {  this.props.onPressmap(this.state.address) }}
                                     />
                         </View>
                     </View>
@@ -220,7 +222,19 @@ export default class Map extends React.Component {
         );
     }
 }
+// const mapStateToProps = state => ({
+//     data: state
+// })
 
+// //Map your action creators to your props.
+// const mapDispatchToProps = (dispatch) => {
+// //    return {
+// //        setTranslation: (type) => dispatch(setTranslation(type))
+// //        // getCartData: (type) => dispatch(getCartData(type))
+// //    };
+// }
+
+export default Map
 
 
 

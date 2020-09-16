@@ -332,7 +332,6 @@ const Tasks = (props) => {
                         </View> */}
                     {/* </View> */}
                     <Language language={check} close={(value)=>{toggleModal(value)}}/>
-                
             </Modal>
          </View >}
         </>

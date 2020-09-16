@@ -74,14 +74,15 @@
     "status": "Status",
     "task_date": "Task date",
     "description": "Description",
-    "documents": "DOCUMENTS",
-    "messages": "MESSAGES",
-    "add_message": "ADD MESSAGE",
+    "documents": "Documents",
+    "messages": "Messages",
+    "add_message": "Add Message",
     "cancel": "CANCEL",
     "save": "SAVE",
     "empty_message": " Messages are  not available",
     "empty_document": "Documents are  not available",
-    "document_name": "Doc"
+    "document_name": "Doc",
+    "rate-it":"Rate it"
   },
   "newTask": {
     "new_task": "NEW TASK",
@@ -93,18 +94,19 @@
     "save": "SAVE",
     "document_name": "Doc",
     "image_name": "Photo",
-    "task_save": " Your task save successfully",
+    "task_save": " Your task saved successfully",
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
     "validation_err": "Please fill the required details",
-    "set-address":"SET-ADDRESS"
+    "set":"SET"
   },
   "validation": {
     "username_Required ": " User Name is Required"
   },
   "language": {
-    "Language":"LANGUAGE",
+    "Language":"Language",
     "English" :"English",
-    "German":"German"
+    "German":"German",
+    "Lithuanian":"Lithuanian"
   }
 }

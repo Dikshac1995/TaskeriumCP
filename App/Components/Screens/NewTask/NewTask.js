@@ -550,7 +550,7 @@ const NewTask = (props) => {
 
                 </View >
                 :
-                <Map onPressmap={(data) => { pressHandle(data) }} />}
+                <Map onPressmap={(data) => { pressHandle(data) }} localize={localize} />}
 
         </>
 

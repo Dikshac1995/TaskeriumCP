@@ -20,11 +20,15 @@ export default styles = StyleSheet.create({
       flex:1
     },
     rightIconWrap:{
-        flex: 1, ...sty.aEnd
+        flex: 1, 
+        ...sty.aEnd
     },
 
     rightIconStyle:{
-        height: 45, width: 40, paddingLeft: 0, color: 'black' 
+        height: 35, 
+        width: 40, 
+        paddingLeft: 0, 
+        color: 'black' 
     },
     inputText: {
         fontSize: 20,

@@ -17,19 +17,25 @@ export default styles = StyleSheet.create({
         marginTop: 10,
         fontFamily: fonts.fontFamily.Regular,
     },
-    signUpWrapper: {
-        flex: 1,
+    signUpWrapper1: {
+        flex: 0.1,
         borderWidth: 0,
-        //  paddingVertical:20,
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
-        // backgroundColor:'yellow'
+    },
+    signUpWrapper: {
+        flex: 1,
+        borderWidth: 0,
+         paddingBottom: 20,
+        ...sty.jEnd,
+        ...sty.aCenter,
     },
     signUpView: {
         borderWidth: 0,
         marginTop: 20,
-        width: "100%"
+        width: "100%",
+        // ...sty.jEnd,
     },
     signUp: {
         ...sty.fRow,
@@ -45,7 +51,6 @@ export default styles = StyleSheet.create({
         color: colors.text,
         fontWeight: "bold",
         fontFamily: fonts.fontFamily.Regular
-
     },
     starImgStyle: {
         height: 35,
@@ -67,7 +72,7 @@ export default styles = StyleSheet.create({
         textAlign: 'center',
         // paddingVertical: 30,
         fontSize: 20,
-        fontFamily: "MyriadPro-Regular"
+        fontFamily: fonts.fontFamily.Regular
 
     },
     tasksListWrapper: {
@@ -87,13 +92,15 @@ export default styles = StyleSheet.create({
     authorName: {
         fontWeight: 'bold',
         fontSize: 20,
-        fontFamily: "MyriadPro-Regular"
+        fontFamily: fonts.fontFamily.Regular
     },
     commentDateWrapper: {
-        flexDirection: 'row', display: 'flex',
+        flexDirection: 'row', 
+        display: 'flex',
     },
     commentText: {
-        fontSize: 20, fontFamily: "MyriadPro-Regular",
+        fontSize: 20, 
+        fontFamily: fonts.fontFamily.Regular,
     },
     clockImage: {
         height: 20,
@@ -108,55 +115,84 @@ export default styles = StyleSheet.create({
         width: "60%",
         borderRadius: 10,
         display: 'flex',
-        // alignItems: 'center',
         padding: 10
     },
     addMessage: {
-        marginTop: 20, borderWidth: 2, borderColor: "#969696"
+        marginTop: 20, 
+        borderWidth: 2, 
+        borderColor: "#969696",
+        marginBottom :10,
     },
     addMessageTextWrapper: {
-        width: "85%", ...sty.jCenter, paddingLeft: 40
+        width: "85%", 
+        ...sty.jCenter, 
+        paddingLeft: 40,
+        paddingVertical: Platform.OS === 'ios' ? 10 : 0,
     },
     addMessageText: {
-        fontSize: 25, borderWidth: 0,
-        fontFamily: "MyriadPro-Regular",
+        fontSize: 25, 
+        borderWidth: 0,
+        fontFamily: fonts.fontFamily.Regular,
         paddingTop: Platform.OS === 'ios' ? 5 : 0,
     },
     addMessageIConWrapper: {
-        width: "15%", ...sty.jCenter, ...sty.aCenter
+        width: "15%", 
+        ...sty.jCenter, 
+        ...sty.aCenter
     },
 
     addMessageICon: {
-        height: 20, width: 20, paddingLeft: 0
+        height: 20, 
+        width: 20, 
+        paddingLeft: 0
     },
     section2:{
         marginTop:10
     },
-
     section2Wapper: {
-        ...sty.fRow, paddingLeft: 10,
+        ...sty.fRow, 
+        paddingLeft: 10,
     },
     downArrow: {
-        height: 20, width: 20, paddingLeft: 0, marginTop: 7
+        height: 20, 
+        width: 20, 
+        paddingLeft: 0, 
+        // marginTop: 7,
+        marginTop: Platform.OS === 'ios' ? 0 : 5,
     },
     heading: {
-        fontSize: 25, fontFamily: "MyriadPro-Regular", paddingLeft: 10, textAlign: "center",
+        fontSize: 25, 
+        fontFamily: fonts.fontFamily.Regular,
+        paddingLeft: 10, 
+        textAlign: "center",
     },
     documentListText: {
-        fontSize: 18, fontFamily: "MyriadPro-Regular"
+        fontSize: 20, 
+        fontFamily: fonts.fontFamily.Regular
     },
     startRateWrapper: {
-        ...sty.fRow, ...sty.aCenter, ...sty.jCenter, paddingBottom: 10, paddingTop: 10,
-        marginTop: 20
+        ...sty.fRow,
+        ...sty.aCenter,
+        ...sty.jCenter,
+        paddingVertical:10
+        // paddingBottom: 10, 
+        // paddingTop: 10,
+        // marginTop: 20
     },
     horizontalLine: {
-        marginTop: 1, height: 1.5, backgroundColor: colors.primaryColor
+        marginTop: 1,
+        height: 1.5,
+        backgroundColor: colors.primaryColor
     },
     seperator:{
-        marginTop: 10, height: 1.5, backgroundColor: colors.primaryColor 
+        marginTop: 10,
+        height: 1.5,
+        backgroundColor: colors.primaryColor 
     },
     headerSeperator:{
-        marginTop: 20, height: 1.5, backgroundColor: colors.primaryColor 
+        marginTop: 20,
+        height: 1.5,
+        backgroundColor: colors.primaryColor 
     },
     infoCartContainer:{
         paddingTop: 10 
@@ -176,7 +212,9 @@ export default styles = StyleSheet.create({
         fontSize:20
     },
     langOpt:{
-        paddingBottom:10,display:'flex',flexDirection:'row' 
+        paddingBottom:10,
+        display:'flex',
+        flexDirection:'row' 
     },
     langOptWrap:{
         padding:10
