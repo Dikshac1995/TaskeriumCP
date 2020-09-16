@@ -20,8 +20,6 @@ import { login } from '../../../Redux/Actions/LoginAction'
 import Loader from '../../Custom/Loader/Loader'
 import { validation } from '../../../Config/Libs/helpers';
 import { StackActions, CommonActions } from "@react-navigation/native";
-// import { NavigationActions } from '@react-navigation/compat';
-
 
 
 
@@ -67,7 +65,6 @@ const Login = (props) => {
             }
         }
 
-        // set
         else {
             Alert.alert(helpers.getLocale(localize, "login", "onSubmit"))
 
@@ -109,11 +106,10 @@ const Login = (props) => {
 
             },
             error: (err) => {
-                console.log(err, "e")
                 setloading(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
                     setTimeout(() => {
-                        Alert.alert("Wrong username or password")
+                        Alert.alert(helpers.getLocale(localize, "login", "authentication_error"))
                     }, 100)
                 }
                 else {
@@ -151,7 +147,7 @@ const Login = (props) => {
                         Alert.alert(res.error.code)
                     }
                     else {
-                        Alert.alert('Error in fetch end Point', 'Authentication failed');
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
                     }
                 }
             },

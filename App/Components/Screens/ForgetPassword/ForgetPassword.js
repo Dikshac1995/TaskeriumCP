@@ -61,7 +61,7 @@ const ForgetPassword = (props) => {
                         Alert.alert(res.error.code)
                     }
                     else {
-                        Alert.alert('Error in fetch end Point', 'Authentication failed');
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
                     }
                 }
             },

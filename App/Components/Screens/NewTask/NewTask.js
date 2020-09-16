@@ -18,14 +18,11 @@ import Loader from '../../Custom/Loader/Loader'
 import DocumentPicker from 'react-native-document-picker';
 import { StackActions, CommonActions } from "@react-navigation/native";
 import RNFS from 'react-native-fs'
-import AddressLocation from '../Map/map'
 import ImagePicker1 from 'react-native-image-crop-picker';
-import { Container, Header, Button, Content, ActionSheet } from "native-base";
+import { ActionSheet } from "native-base";
 import Map from "../Map/map"
 import moment from 'moment';
 import FileViewer from "react-native-file-viewer"
-import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
-import {  Radio, Right, Left } from 'native-base';
 import { colors } from '../../../Theme';
 import Language from '../ContentType/LanguageModal/LanguageModal'
 
@@ -62,7 +59,6 @@ const NewTask = (props) => {
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    console.log({ res })
                     let customer_data = res[0].objects
                     setname(customer_data[0].name)
                     setaddress(customer_data[0].address)
@@ -84,7 +80,6 @@ const NewTask = (props) => {
                 complete: () => { },
             };
             let header = helpers.buildHeader();
-            console.log('header', header)
             let data = {
                 "user_id": userAuthdetails.user_id,
                 "token": userAuthdetails.token,
@@ -102,9 +97,7 @@ const NewTask = (props) => {
         if (baseUrl && baseUrl !== undefined) {
             let cb = {
                 success: async (res) => {
-                    console.log({ res })
                     settask_id(res.record_id)
-
                     Promise.all(uploadedDoc.map((element) => {
                         return new Promise((resolve, reject) => {
                             uploadDoc(element, res.record_id,
@@ -119,7 +112,6 @@ const NewTask = (props) => {
                         });
                     }))
                         .then(values => {
-                            console.log("values :", values);
                             setloading(false)
                             props.navigation.goBack()
                             setTimeout(() => {
@@ -141,7 +133,7 @@ const NewTask = (props) => {
                     Alert.alert("error", err.message)
                 },
                 complete: () => {
-                    // setloading(false)
+                    setloading(false)
 
                 },
             };
@@ -201,7 +193,6 @@ const NewTask = (props) => {
             mediaType: 'photo',
             smartAlbums: ['PhotoStream', 'Generic', 'Panoramas', 'Videos', 'Favorites', 'Timelapses', 'AllHidden', 'RecentlyAdded', 'Bursts', 'SlomoVideos', 'UserLibrary', 'SelfPortraits', 'Screenshots', 'DepthEffect', 'LivePhotos', 'Animated', 'LongExposure']
         }).then(response => {
-            console.log("uri from galary", response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
             const item = {
@@ -228,7 +219,6 @@ const NewTask = (props) => {
             includeBase64: true,
             mediaType: 'photo',
         }).then(response => {
-            console.log("uri from camera", response.path)
             const base64 = response.data
             const name = response.path.split("/").pop()
             const imageName = "Image-" + name.slice(-12, name.length)
@@ -246,7 +236,6 @@ const NewTask = (props) => {
             .catch(err => {
                 console.log("err", err)
             })
-
     }
 
 
@@ -262,8 +251,6 @@ const NewTask = (props) => {
                     reject(err)
                 },
                 complete: () => {
-                    // setloading(false)
-
                 },
             };
 
@@ -280,7 +267,7 @@ const NewTask = (props) => {
             };
             API.postDocument(data, cb, header);
         } else {
-            // getEndPoint()
+           
         }
 
     }
@@ -314,11 +301,8 @@ const NewTask = (props) => {
                     let basepath = res.uri.substring(0, res.uri.lastIndexOf("/"));
                     filepath = basepath + "/" + res.name;
                 }
-                console.log("filepathame", filepath)
                 const docExtension = res.name.split(".").pop()
                 const date = moment().format('MM-DD-YYYY:HH:mm:ss');
-                console.log("ecte", docExtension, date)
-
                 RNFS.readFile(filepath, "base64").then(result => {
                     const item = {
                         "fileName": "Doc-cp_" + date + "." + docExtension,
@@ -334,7 +318,7 @@ const NewTask = (props) => {
             .catch(error => {
                 console.log(error)
             })
-        // }
+        
     }
     const signout = async () => {
         let token = await AsyncStorage.getItem('token');
@@ -420,7 +404,6 @@ const NewTask = (props) => {
         if (Platform.OS === 'ios') {
             uri = fileUri.replace('file://', '');
         }
-        console.log("uri", uri)
         FileViewer.open(uri, { showOpenWithDialog: true })
             .then(() => {
                 console.log("success")

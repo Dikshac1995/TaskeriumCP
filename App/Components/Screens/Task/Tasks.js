@@ -53,7 +53,6 @@ const Tasks = (props) => {
     }
 
     const changeLang = () => {
-        // console.log("active",localize.activeLanguage)
         if (localize.activeLanguage === "en")
         {
               setCheck("en")
@@ -63,25 +62,7 @@ const Tasks = (props) => {
         }
 
         toggleModal(true)
-        // if (localize.activeLanguage === "en")
-        //     dispatch(setTranslation("he"))
-        // else
-        //     dispatch(setTranslation("en"))
-            
     }
-    const selectLanguage = ( value)=>{
-        setCheck(value)
-        if (value === 'en'){
-            dispatch(setTranslation("en"))
-        }
-        else
-        {
-            dispatch(setTranslation("he"))
-        }
-            toggleModal(false)   
-    }
-
-    
 
     const signout = async () => {
         let token = await AsyncStorage.getItem('token');
@@ -145,7 +126,6 @@ const Tasks = (props) => {
             success: async (res) => {
                 dispatch(setTasks({ res }))
                 setTaskLoader(false)
-                console.log({ res })
                 const TaskList = res[0].tasks
                 TaskList.sort(function (a, b) {
                     return (b.id - a.id)
@@ -158,25 +138,6 @@ const Tasks = (props) => {
                 setTaskLoader(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
                     helpers.authError(err,props)
-                    // setTimeout(() => {
-                    //     Alert.alert(" Error ", err.message,
-                    //         [
-                    //             {
-                    //                 text: 'OK', onPress: () => {
-                    //                     AsyncStorage.removeItem('userAuthDetails');
-                    //                     AsyncStorage.removeItem('token');
-                    //                     props.navigation.dispatch(
-                    //                         CommonActions.reset({
-                    //                             index: 0,
-                    //                             routes: [
-                    //                                 { name: 'LogIn' },
-                    //                             ],
-                    //                         })
-                    //                     );
-                    //                 }
-                    //             },
-                    //         ])
-                    // }, 100)
                 }
                 else {
                     setTimeout(() => {
@@ -198,9 +159,6 @@ const Tasks = (props) => {
         };
         API.getAllTasks(data, cb, header);
     }
-
-
-
     const taskRender = (a) => {
         return (
             <View style={styles.infoCartWrapper}>
@@ -236,7 +194,6 @@ const Tasks = (props) => {
                     }
                 }
                 return false
-
             });
             settask(newData)
         }
@@ -247,8 +204,6 @@ const Tasks = (props) => {
             }))
         }
     }
-
-
 
     const _keyExtractor = (item, index) => "tasks" + index.toString();
     return (
@@ -307,30 +262,6 @@ const Tasks = (props) => {
                     <Modal animationType={"none"} transparent={true}
                         visible={modalVisible}
                         onRequestClose={() => toggleModal(false)}>
-
-                        {/* <View style={styles.modalBackground}>
-                        <View style={styles.modalWrapper} >
-                            <View style={styles.modalHeading}>
-                                <Text style={styles.modalheadText}>Choose Language</Text>
-                            </View> 
-                            <View style={styles.langOptWrap}>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        selected={check== 'en'} onPress={()=>selectLanguage('en')}
-                                    />
-                                    <Text> English</Text>
-                                </View>
-                                <View style={styles.langOpt}>
-                                    <Radio
-                                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                                        onPress={()=>selectLanguage('he')} selected={check== 'he'}
-                                />
-                                    <Text>Other Language</Text>
-                                </View>
-                            </View>
-                        </View> */}
-                    {/* </View> */}
                     <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
          </View >}

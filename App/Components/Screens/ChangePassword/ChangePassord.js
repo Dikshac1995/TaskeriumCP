@@ -75,7 +75,7 @@ const ChangePassword = (props) => {
             };
             API.resetpassword(data, cb, header);
         } else {
-            // getEndPoint()
+            
         }
     }
 

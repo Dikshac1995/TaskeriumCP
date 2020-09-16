@@ -9,8 +9,6 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 export default styles = StyleSheet.create({
 
     container: {
-        // backgroundColor: "#fff",
-        // ...sty.flex1
         marginHorizontal: 15
     },
     TextInput: {
@@ -126,7 +124,7 @@ export default styles = StyleSheet.create({
     addMessageTextWrapper: {
         width: "85%", 
         ...sty.jCenter, 
-        paddingLeft: 40,
+        paddingLeft: 30,
         paddingVertical: Platform.OS === 'ios' ? 10 : 0,
     },
     addMessageText: {
@@ -218,6 +216,10 @@ export default styles = StyleSheet.create({
     },
     langOptWrap:{
         padding:10
+    },
+    msgText:{
+        fontSize:20,
+        fontFamily: fonts.fontFamily.Regular
     }
 
 });

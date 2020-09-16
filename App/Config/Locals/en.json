@@ -9,7 +9,10 @@
     "forgotPassword": "Forgot password?",
     "signUp": "SIGN UP",
     "onSubmit": "Please  fill all required details",
-    "validation_err": "You have entered an invalid username/email-id! "
+    "validation_err": "You have entered an invalid username/email-id! ",
+    "authentication_error":"Wrong username or password",
+    "endPoint_error":"Error in fetch end Point",
+    "authentication _fail":"Authentication failed"
   },
   "signIn": {
     "first_name": "Firstname",
@@ -82,7 +85,10 @@
     "empty_message": " Messages are  not available",
     "empty_document": "Documents are  not available",
     "document_name": "Doc",
-    "rate-it":"Rate it"
+    "rate-it":"Rate it",
+    "save_success":"Saved successfully ",
+    "addMessage_success":"Message added successfully ",
+    "addMessage_error":"Message is Required"
   },
   "newTask": {
     "new_task": "NEW TASK",
@@ -98,7 +104,8 @@
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
     "validation_err": "Please fill the required details",
-    "set":"SET"
+    "set":"SET",
+    "geolocation_err":"Fetching the Position failed, please pick one manually!"
   },
   "validation": {
     "username_Required ": " User Name is Required"
@@ -106,7 +113,6 @@
   "language": {
     "Language":"Language",
     "English" :"English",
-    "German":"German",
     "Lithuanian":"Lithuanian"
   }
 }

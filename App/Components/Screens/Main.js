@@ -32,14 +32,14 @@ class Main extends Component {
     }
 
     async componentDidMount() {
-        console.log("deviceLocale 2:", deviceLocale)
+       
         const deviceLanguage =
             Platform.OS === 'ios'
                 ? NativeModules.SettingsManager.settings.AppleLocale ||
                 NativeModules.SettingsManager.settings.AppleLanguages[0] // iOS 13
                 : NativeModules.I18nManager.localeIdentifier;
 
-        console.log("deviceLanguage :", deviceLanguage);
+        
         if(deviceLocale === 'It-LT'|| deviceLanguage==='It_LT'){
             this.props.setTranslation("he")
         }
@@ -77,9 +77,7 @@ class Main extends Component {
     render() {
         const { loading, autoLogin } = this.state;
         console.log("loading autoLogin :", loading, autoLogin)
-        console.log("reducer",this.props.data)
         return (
-
             loading ?
                 (<View />)
                 :
@@ -103,11 +101,10 @@ const mapStateToProps = state => ({
      data: state.localize
 })
 
-//Map your action creators to your props.
+
 const mapDispatchToProps = (dispatch) => {
     return {
         setTranslation: (type) => dispatch(setTranslation(type))
-        // getCartData: (type) => dispatch(getCartData(type))
     };
 }
 

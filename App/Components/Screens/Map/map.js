@@ -1,4 +1,4 @@
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; // removef not using Google Maps
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; 
 import React from "react";
 import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
@@ -49,7 +49,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         }
     }
     onMapReady = () => {
-        this.setState({ isMapReady: true, marginTop: 0 });
+        this.setState({ isMapReady: true, });
     }
 
     // Fetch location details as a JOSN from google map API
@@ -59,13 +59,9 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
             "&key=" + "AIzaSyA1dN3ZXZiAAxmtkafcgakmm2DeDSosf_w")
             .then((response) => response.json())
             .then((responseJson) => {
-                console.log("fetchAddress responseJson", responseJson)
                 if (responseJson.status === "OK") {
                     const res = responseJson.results[0].formatted_address;
                     const userLocation = responseJson.results[0].formatted_address;
-                    console.log("res :", res)
-                    console.log("userLocation :", userLocation)
-
                     this.setState({
                         userLocation: userLocation,
                         address: res,
@@ -91,23 +87,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         console.log("add", this.state.address)
         if (this.state.address != "") {
             const address = this.state.address
-            console.log(" onPressHandler address :", this.state)
-            // Alert.alert(
-            //     ' Do you want to set this location  as address', this.state.address,
-            //     [
-            //         {
-            //             text: 'YES', onPress: () => {
-            //                 this.props.onPressmap(address)
-                           
-            //             }
-            //         },
-            //         {
-            //             text: 'No', onPress: () => {
-            //                 console.log("no")
-            //             }
-            //         },
-            //     ]
-            // );
         }
 
     }
@@ -117,7 +96,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
     pickLocationHandler = event => {
         const coords = event.nativeEvent.coordinate;
-        console.log("coords :", coords)
         this.map.animateToRegion({
             ...this.state.focusedLocation,
             latitude: coords.latitude,
@@ -151,23 +129,18 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         },
             err => {
                 console.log(err);
-                alert("Fetching the Position failed, please pick one manually!");
+                alert(helpers.getLocale(this.state.localize, "newTask", "geolocation_err"));
             },
-            // { enableHighAccuracy: true, timeout: 200000, 
-            //     // maximumAge: 1000 
-            // },
             { enableHighAccuracy: false, timeout: 20000 }
         );
 
     }
     closeHandler = () => {
         this.props.onPressmap()
-
     }
 
     render() {
         let marker = null;
-
         if (this.state.locationChosen && !this.state.loading) {
             marker = <MapView.Marker coordinate={this.state.focusedLocation}
                 title={this.state.userLocation}
@@ -195,7 +168,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
                                 <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
                             </View> */}
                         </MapView>
-                       
                         <View style={styles.footer}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
@@ -222,17 +194,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         );
     }
 }
-// const mapStateToProps = state => ({
-//     data: state
-// })
 
-// //Map your action creators to your props.
-// const mapDispatchToProps = (dispatch) => {
-// //    return {
-// //        setTranslation: (type) => dispatch(setTranslation(type))
-// //        // getCartData: (type) => dispatch(getCartData(type))
-// //    };
-// }
 
 export default Map
 

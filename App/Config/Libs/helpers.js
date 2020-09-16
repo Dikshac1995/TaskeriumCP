@@ -428,15 +428,6 @@ export const validation = (type, text, pass) => {
     }
   }
 
-
-
-
-
-
-
-
-
-
 }
 
 

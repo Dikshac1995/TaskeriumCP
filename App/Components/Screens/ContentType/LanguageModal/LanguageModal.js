@@ -81,54 +81,13 @@ import { globals, helpers, validators, API, } from '../../../../Config';
                                 />
                             </Right>
                         </ListItem>
-                      
-                        {/* <View style={{borderBottomWidth:1,borderBottomColor:colors.border}}></View> */}
                     </Content>
                     
                     }
                     removeClippedSubviews={Platform.OS == "android" ? true : false}
                     keyExtractor={_keyExtractor}
                         />
-                        </View>
-            {/* <View style={styles.modalHeading}>
-                <Text style={styles.modalheadText}>Choose Language</Text>
-            </View>  */}
-            {/* <View style={styles.langOptWrap}>
-                <TouchableOpacity style={styles.langOpt}  
-                // onPress={()=>selectLanguage('en')}
-                >
-                    <Radio
-                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                        selected={check== 'en'} 
-                        // style={{
-                        //     width: 25,
-                        //     height: 25,
-                        //     borderColor:colors.primaryColor,
-                        //     borderWidth:2,
-
-                        //   }}
-                        onPress={()=>selectLanguage('en')}
-                    />
-                    <Text style={{fontSize:15}}> English</Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.langOpt} 
-                 >
-                    <Radio
-                        color={colors.primaryColor} selectedColor={colors.primaryColor}
-                        onPress={()=>selectLanguage('he')} 
-                        // selected={true}
-                        // style={{
-                        //     width: 25,
-                        //     height: 25,
-                        //     borderColor:colors.primaryColor,
-                        //     borderWidth:2,
-
-                        //   }}
-                        selected={check== 'he'}
-                />
-                    <Text style={{fontSize:15}}>Other Language</Text>
-                </TouchableOpacity>
-            </View> */}
+                </View>
         </View> 
     </View>
 

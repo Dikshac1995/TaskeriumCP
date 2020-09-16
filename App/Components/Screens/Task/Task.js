@@ -115,7 +115,7 @@ const Task = (props) => {
         }
     }
     const addCommentData = async () => {
-        if (message) {
+        if (message.trim()) {
             setloading(true)
             let userAuthdetails = await helpers.userAuthdetails();
             const baseUrl = await AsyncStorage.getItem("baseUrl");
@@ -126,8 +126,7 @@ const Task = (props) => {
                         setloading(false)
                         setTimeout(() => {
                             Alert.alert(
-                                'Success',
-                                'Message Added Successfully ',
+                                helpers.getLocale(localize, "task", "addMessage_success")
                             );
                         }, 100)
                         setmessage("")
@@ -159,7 +158,7 @@ const Task = (props) => {
             }
         }
         else {
-            Alert.alert("Message is required")
+            Alert.alert(helpers.getLocale(localize, "task", "addMessage_error"))
         }
     }
     const signout = async () => {
@@ -216,7 +215,6 @@ const Task = (props) => {
     // }
 
     const changeLang = () => {
-        // console.log("active",localize.activeLanguage)
         if (localize.activeLanguage === "en")
         {
               setCheck("en")
@@ -237,7 +235,7 @@ const Task = (props) => {
                 success: async (res) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert('Success', 'Save Successfully ');
+                        Alert.alert( helpers.getLocale(localize, "task", "save_success"));
                     }, 100);
                 },
                 error: (err) => {
@@ -275,7 +273,6 @@ const Task = (props) => {
 
     const saveButtonHandler = () => {
         saveButtHandler()
-
     }
     const onStarRatingPress = (rating) => {
         setstarCount(rating)
@@ -287,7 +284,6 @@ const Task = (props) => {
             uri = doc_uri.replace('file://', '');
         }
         let ext = doc_uri.split(".").pop()
-        // const localFile = `${RNFS.DocumentDirectoryPath}/temporaryfile.${ext}`
         const localFile = `${RNFS.DocumentDirectoryPath}/${doc_title}`
         const options = {
             fromUrl: uri,
@@ -326,9 +322,6 @@ const Task = (props) => {
             </View>)
     }
     const _keyExtractor = (item, index) => "tasks" + index.toString();
-
-
-
     return (
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
@@ -430,7 +423,7 @@ const Task = (props) => {
                                 <TextInput placeholder={helpers.getLocale(localize, "task", "add_message")}
                                     value={message}
                                     onChangeText={value => { setmessage(value) }}
-                                    style={{ fontSize: 20 }} placeholderTextColor='black'
+                                    style={styles.msgText} placeholderTextColor='black'
                                     multiline={true} />
 
                                 {/* <Text allowFontScaling={false} style={styles.addMessageText}>

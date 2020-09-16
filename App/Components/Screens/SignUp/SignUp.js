@@ -72,7 +72,6 @@ const SignUp = (props) => {
 
         let cb = {
             success: async (res) => {
-                console.log("success res:", res)
                 setloading(false)
                 Alert.alert('Success', helpers.getLocale(localize, "signIn", "onSubmitSuccess"),
                     [
@@ -110,7 +109,6 @@ const SignUp = (props) => {
         setloading(true)
         let cb = {
             success: async (res) => {
-                console.log("success res:", res)
                 if (res.error === null) {
                     await AsyncStorage.setItem("baseUrl", res.result.ws_url);
                     signupUser()
@@ -121,7 +119,7 @@ const SignUp = (props) => {
                         Alert.alert(res.error.code)
                     }
                     else {
-                        Alert.alert('Error in fetch end Point', 'Authentication failed');
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
                     }
                 }
 
@@ -219,7 +217,6 @@ const SignUp = (props) => {
                         </TouchableOpacity>
                     </View>
                 </View>
-
             </ScrollView>
 
 
