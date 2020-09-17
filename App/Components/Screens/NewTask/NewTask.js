@@ -72,7 +72,8 @@ const NewTask = (props) => {
                     }
                     else{
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err,props,err.message,
+                          [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                 }
                     
@@ -115,7 +116,8 @@ const NewTask = (props) => {
                             setloading(false)
                             props.navigation.goBack()
                             setTimeout(() => {
-                                Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "newTask", "task_save"))
+                                Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "newTask", "task_save"),
+                                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                             }, 100)
 
 
@@ -123,14 +125,16 @@ const NewTask = (props) => {
                         .catch(error => {
                             setloading(false)
                             setTimeout(() => {
-                                Alert.alert(helpers.getLocale(localize, "popup", "Error"), error.message)
+                                Alert.alert(helpers.getLocale(localize, "popup", "Error"), error.message,
+                                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                             }, 100)
                         });
 
                 },
                 error: (err) => {
                     setloading(false)
-                    Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
+                    Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message,
+                    [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                 },
                 complete: () => {
                     setloading(false)
@@ -283,7 +287,8 @@ const NewTask = (props) => {
             addTask()
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "newTask", "validation_err"))
+            Alert.alert("",helpers.getLocale(localize, "newTask", "validation_err"),
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
 
         }
     }
@@ -342,11 +347,13 @@ const NewTask = (props) => {
                 error: (err) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                        )
                     }
                      else{
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error") ,err.message,  
+                         [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                     }
 
@@ -501,6 +508,7 @@ const NewTask = (props) => {
                                                 <Text style={styles.text}>{item.fileName}</Text>
                                                 //  </TouchableOpacity>
                                             }
+                                            showsVerticalScrollIndicator={false}
                                             keyExtractor={(item, index) => index.toString()}
                                             removeClippedSubviews={Platform.OS == "android" ? true : false}
                                         />

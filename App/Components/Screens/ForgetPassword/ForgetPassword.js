@@ -35,14 +35,16 @@ const ForgetPassword = (props) => {
         if (userName && customerId) {
             const emailerr = validation("email", userName)
             if (!emailerr) {
-                Alert.alert(helpers.getLocale(localize, "forgetPassword", "validation_err"))
+                Alert.alert("",helpers.getLocale(localize, "forgetPassword", "validation_err"),
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
             }
             else {
                 getEndPoint()
             }
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "forgetPassword", "onSubmit"))
+            Alert.alert("",helpers.getLocale(localize, "forgetPassword", "onSubmit"),
+            [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
         }
 
 
@@ -58,17 +60,19 @@ const ForgetPassword = (props) => {
                 } else {
                     setloading(false)
                     if (res.error.code === "COMPANY_NOT_FOUND") {
-                        Alert.alert(res.error.code)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),res.error.code,
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
                     }
                     else {
-                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"),
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
                     }
                 }
             },
             error: (err) => {
                 setloading(false)
                 setTimeout(() => {
-                    Alert.alert(err.message);
+                    Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}]);
                 }, 100)
             },
             complete: () => {
@@ -91,11 +95,11 @@ const ForgetPassword = (props) => {
             success: async (res) => {
                 setloading(false)
                 Alert.alert(
-                    'Success',
+                    helpers.getLocale(localize, "popup", "Success"),
                     helpers.getLocale(localize, "forgetPassword", "onSubmitSuccess"),
                     [
                         {
-                            text: 'OK', onPress: () => {
+                            text: helpers.getLocale(localize, "popup", "Ok"), onPress: () => {
                                 props.navigation.navigate('LogIn')
                             }
                         },

@@ -39,11 +39,11 @@ const ChangePassword = (props) => {
                     setloading(false)
                     setTimeout(() => {
                         Alert.alert(
-                            'Success',
+                            helpers.getLocale(localize, "popup", "Success"),
                             helpers.getLocale(localize, "changePassword", "onSubmitSuccess"),
                             [
                                 {
-                                    text: 'OK', onPress: () => {
+                                    text: helpers.getLocale(localize, "popup", "Ok"), onPress: () => {
                                         props.navigation.navigate('LogIn')
                                     }
                                 },
@@ -56,7 +56,7 @@ const ChangePassword = (props) => {
                 error: (err) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert("Error", err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
                     }, 100)
 
                 },
@@ -88,15 +88,18 @@ const ChangePassword = (props) => {
                     resetPassword()
                 }
                 else {
-                    Alert.alert(helpers.getLocale(localize, "changePassword", "passwordNotMatch"))
+                    Alert.alert("",helpers.getLocale(localize, "changePassword", "passwordNotMatch"),
+                    [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                 }
             }
             else {
-                Alert.alert(helpers.getLocale(localize, "changePassword", "currentPasswordNotMatched"))
+                Alert.alert("",helpers.getLocale(localize, "changePassword", "currentPasswordNotMatched"),
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
             }
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "changePassword", "onSubmit"))
+            Alert.alert("",helpers.getLocale(localize, "changePassword", "onSubmit"),
+            [{text:  helpers.getLocale(localize, "popup", "Ok")}])
         }
 
     }

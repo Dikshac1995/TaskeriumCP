@@ -53,17 +53,20 @@ const SignUp = (props) => {
             const emailerr = validation("email", email)
             const phoneNoerr = validation("phoneNo", phoneNo)
             if (!phoneNoerr) {
-                Alert.alert(helpers.getLocale(localize, "signIn", "phoneNo_err"))
+                Alert.alert("",helpers.getLocale(localize, "signIn", "phoneNo_err"),
+                [{text: helpers.getLocale(localize, "popup", "Ok")}])
             }
             else if (!emailerr) {
-                Alert.alert(helpers.getLocale(localize, "forgetPassword", "validation_err"))
+                Alert.alert("",helpers.getLocale(localize, "forgetPassword", "validation_err"),
+                [{text: helpers.getLocale(localize, "popup", "Ok")}])
             }
             else {
                 getEndPoint()
             }
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "signIn", "onSubmit"))
+            Alert.alert("",helpers.getLocale(localize, "signIn", "onSubmit"),
+            [{text:  helpers.getLocale(localize, "popup", "Ok")}])
         }
 
     }
@@ -76,7 +79,7 @@ const SignUp = (props) => {
                 Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "signIn", "onSubmitSuccess"),
                     [
                         {
-                            text: 'OK', onPress: () => {
+                            text: helpers.getLocale(localize, "popup", "Ok"), onPress: () => {
                                 props.navigation.navigate('LogIn')
                             }
                         },
@@ -84,7 +87,8 @@ const SignUp = (props) => {
             },
             error: (err) => {
                 setloading(false)
-                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
+                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message,
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
             },
             complete: () => {
                 setloading(false)
@@ -116,17 +120,20 @@ const SignUp = (props) => {
                 } else {
                     setloading(false)
                     if (res.error.code === "COMPANY_NOT_FOUND") {
-                        Alert.alert(res.error.code)
+                        Alert.alert(" ",res.error.code,
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }
                     else {
-                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"),
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }
                 }
 
             },
             error: (err) => {
                 setloading(false)
-                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
+                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message,
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
             },
             complete: () => {
                 setloading(false)
@@ -206,8 +213,6 @@ const SignUp = (props) => {
                         btnTxt={helpers.getLocale(localize, "signIn", "signUp")}
                         callback={signinHandler} />
                 </View>
-
-
                 <View style={styles.signUpWrapper}>
                     <View style={styles.signUpView}>
                         <TouchableOpacity

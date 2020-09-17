@@ -58,15 +58,17 @@ const Login = (props) => {
         if (userName && password && customerId) {
             const emailerr = validation("email", userName)
             if (!emailerr) {
-                Alert.alert(helpers.getLocale(localize, "login", "validation_err"))
+                Alert.alert(" ",helpers.getLocale(localize, "login", "validation_err"),
+                [{text:  helpers.getLocale(localize, "popup", "Ok")}])
+                
             }
             else {
                 getEndPoint();
             }
         }
-
         else {
-            Alert.alert(helpers.getLocale(localize, "login", "onSubmit"))
+            Alert.alert("",helpers.getLocale(localize, "login", "onSubmit"),
+            [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
 
         }
     }
@@ -109,12 +111,13 @@ const Login = (props) => {
                 setloading(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
                     setTimeout(() => {
-                        Alert.alert(helpers.getLocale(localize, "login", "authentication_error"))
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),helpers.getLocale(localize, "login", "authentication_error"),
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                 }
                 else {
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                 }
 
@@ -144,17 +147,20 @@ const Login = (props) => {
                 } else {
                     setloading(false)
                     if (res.error.code === "COMPANY_NOT_FOUND") {
-                        Alert.alert(res.error.code)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),res.error.code,
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}]);
                     }
                     else {
-                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"), helpers.getLocale(localize, "login", "authentication_fail"));
+                        Alert.alert(helpers.getLocale(localize, "login", "endPoint_error"),
+                         helpers.getLocale(localize, "login", "authentication_fail"),
+                         [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }
                 }
             },
             error: (err) => {
                 setloading(false)
                 setTimeout(() => {
-                    Alert.alert("Error", err.message)
+                    Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}])
                 }, 100);
             },
             complete: () => { setloading(false) },

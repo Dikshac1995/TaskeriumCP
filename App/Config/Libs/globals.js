@@ -1,6 +1,6 @@
 import { Dimensions, Platform } from "react-native";
 
-export const live = true;
+export const live = false;
 export const API_KEY = "TqKGLk2e";
 export const POST_TYPES = {
 };

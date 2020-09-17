@@ -60,8 +60,7 @@ export default styles = StyleSheet.create({
     },
     text: {
         color: colors.text,
-        fontSize: 15,
-        fontWeight: 'bold',
+        fontSize: 20,
         fontFamily: fonts.fontFamily.Regular
     },
     pairButton: {

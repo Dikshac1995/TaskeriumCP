@@ -118,6 +118,7 @@
   "popup":{
     "Success":"Sėkmė",
     "Error":" Klaida",
-    "Failed":"Nepavyko"
+    "Failed":"Nepavyko",
+    "Ok":"Gerai"
   }
 }

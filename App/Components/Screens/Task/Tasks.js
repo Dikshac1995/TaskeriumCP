@@ -86,11 +86,12 @@ const Tasks = (props) => {
                 error: (err) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
                     }
                      else{
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),
+                        err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                     }
                    
@@ -141,7 +142,8 @@ const Tasks = (props) => {
                 }
                 else {
                     setTimeout(() => {
-                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),
+                        err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                 }
             },
@@ -246,6 +248,7 @@ const Tasks = (props) => {
                                     keyExtractor={_keyExtractor}
                                     removeClippedSubviews={Platform.OS == "android" ? true : false}
                                     scrollToIndex={1}
+                                    showsVerticalScrollIndicator={false}
                                 /></>}
 
                     </View>

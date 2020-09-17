@@ -67,7 +67,7 @@ export default styles = StyleSheet.create({
         borderColor: colors.border
     },
     emptyDataText: {
-        paddingLeft:10,
+        paddingLeft:12,
         // textAlign: 'center',
         // paddingVertical: 30,
         fontSize: 20,
@@ -83,7 +83,7 @@ export default styles = StyleSheet.create({
     },
     CommentWrapper: {
         paddingHorizontal: 10,
-        // marginLeft:5
+        marginLeft:5
        
     },
     commentRow: {
@@ -125,13 +125,15 @@ export default styles = StyleSheet.create({
         marginTop: 20, 
         borderWidth: 2, 
         borderColor: "#969696",
-        borderRadius:10
+        borderRadius:10,
+      
     },
     addMessageTextWrapper: {
         width: "85%", 
         ...sty.jCenter, 
-        paddingLeft: 20,
+        paddingLeft: 10,
         paddingVertical: Platform.OS === 'ios' ? 10 : 0,
+    
     },
     addMessageText: {
         fontSize: 25, 
@@ -216,7 +218,7 @@ export default styles = StyleSheet.create({
     },
     documentWrapper:{
         paddingLeft: 10 ,
-        marginLeft:4
+        marginLeft:8,
     },
     scrollView:{
         flex:1
@@ -239,7 +241,11 @@ export default styles = StyleSheet.create({
     },
     msgText:{
         fontSize:20,
-        fontFamily: fonts.fontFamily.Regular
+        fontFamily: fonts.fontFamily.Regular,
+      
+          
+
+
     }
 
 });

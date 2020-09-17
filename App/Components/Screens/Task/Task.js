@@ -52,7 +52,7 @@ const Task = (props) => {
     const [MsgLoader, setMsgLoader] = useState(false);
     const [loading, setloading] = useState(false);
     const [check,setCheck]= useState(false);
-
+     
 
     var DocumentCount = []
 
@@ -94,7 +94,8 @@ const Task = (props) => {
                     }
                         else{
                     setTimeout(() => {
-                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message,
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                 }
                 },
@@ -126,7 +127,8 @@ const Task = (props) => {
                         setloading(false)
                         setTimeout(() => {
                             Alert.alert(helpers.getLocale(localize, "popup", "Success"),
-                                helpers.getLocale(localize, "task", "addMessage_success")
+                                helpers.getLocale(localize, "task", "addMessage_success"),
+                                [{text:  helpers.getLocale(localize, "popup", "Ok")}]
                             );
                         }, 100)
                         setmessage("")
@@ -136,7 +138,8 @@ const Task = (props) => {
                         toggleModal(false)
                         setloading(false)
                         setTimeout(() => {
-                            Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
+                            Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message,
+                            [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                         }, 100)
 
                     },
@@ -158,7 +161,8 @@ const Task = (props) => {
             }
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "task", "addMessage_error"))
+            Alert.alert(helpers.getLocale(localize, "popup", "Error"),helpers.getLocale(localize, "task", "addMessage_error"),
+            [{text:  helpers.getLocale(localize, "popup", "Ok")}])
         }
     }
     const signout = async () => {
@@ -183,11 +187,12 @@ const Task = (props) => {
                 error: (err) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
                     }
                      else{
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message,
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100)
                     }
 
@@ -235,13 +240,16 @@ const Task = (props) => {
                 success: async (res) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "newTask", "task_save"));
+                        Alert.alert(helpers.getLocale(localize, "popup", "Success"), 
+                        helpers.getLocale(localize, "newTask", "task_save"),
+                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100);
                 },
                 error: (err) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"), 
+                        err.message,[{text:  helpers.getLocale(localize, "popup", "Ok")}])
                     }, 100);
                 },
                 complete: () => { },
@@ -341,17 +349,20 @@ const Task = (props) => {
                     <InfoCart localize={localize} tasks={task} />
                 </View>
                 <View style={styles.section2}>
+                <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
                     <View style={styles.section2Wapper}>
-                        <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
+                   
                             <FastImage
-                                style={!docExpand?styles.downArrow: styles.downArrow2}
+                                style={docExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
-                        </TouchableOpacity>
+                       
                         <Text allowFontScaling={false} style={styles.heading}>
                             {helpers.getLocale(localize, "task", "documents")}</Text>
+                            
                     </View>
+                    </TouchableOpacity>
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
 
@@ -366,6 +377,7 @@ const Task = (props) => {
                                         </TouchableOpacity>
                                     }
                                     keyExtractor={_keyExtractor}
+                                    showsVerticalScrollIndicator={false}
                                     removeClippedSubviews={Platform.OS == "android" ? true : false}
                                 />
 
@@ -379,18 +391,20 @@ const Task = (props) => {
                 </View>
 
                 <View style={styles.section2}>
-                    <View style={styles.section2Wapper}>
-                        <TouchableOpacity onPress={() =>
+                <TouchableOpacity onPress={() =>
                             setmsgExapnd(!msgExpand)
                         }>
+                    <View style={styles.section2Wapper}>
+                      
                             <FastImage
-                                style={!msgExpand?styles.downArrow: styles.downArrow2}
+                                style={msgExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
-                        </TouchableOpacity>
+                       
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "messages")}</Text>
                     </View>
+                    </TouchableOpacity>
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
 
@@ -411,6 +425,7 @@ const Task = (props) => {
                                             maxToRenderPerBatch={2}
                                             renderItem={commentRender}
                                             keyExtractor={_keyExtractor}
+                                            showsVerticalScrollIndicator={false}
                                             removeClippedSubviews={Platform.OS == "android" ? true : false}
                                         />
                                     </View>
@@ -424,7 +439,9 @@ const Task = (props) => {
                                     value={message}
                                     onChangeText={value => { setmessage(value) }}
                                     style={styles.msgText}
-                                    multiline={true} />
+                                    multiline={true}
+                                //    textAlignVertical="top"
+                                     />
 
                                 {/* <Text allowFontScaling={false} style={styles.addMessageText}>
                                     {helpers.getLocale(localize, "task", "add_message")}</Text> */}
@@ -445,18 +462,20 @@ const Task = (props) => {
                 </View>
             
                 <View style={styles.section2}>
-                <View style={styles.section2Wapper}>
-                        <TouchableOpacity onPress={() =>
+                <TouchableOpacity onPress={() =>
                             setrateExapnd(!rateExpand)
                         }>
+                <View style={styles.section2Wapper}>
+                       
                             <FastImage
-                                style={!rateExpand?styles.downArrow: styles.downArrow2}
+                                style={rateExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
-                        </TouchableOpacity>
+                       
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "rate-it")}</Text>
                     </View>
+                    </TouchableOpacity>
                     <View style={styles.horizontalLine} />
                     {true ? null : <View style={styles.seperator} />}
                 {rateExpand&&

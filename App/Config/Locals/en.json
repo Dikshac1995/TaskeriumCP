@@ -103,7 +103,8 @@
     "task_save": " Your task saved successfully",
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
-    "validation_err": "Please fill the required details"
+    "validation_err": "Please fill the required details",
+    "set":"SET"
   },
   "validation": {
     "username_Required ": "User name is required"
@@ -116,7 +117,8 @@
   "popup":{
     "Success":"Success",
     "Error":"Error",
-    "Failed":"Failed"
+    "Failed":"Failed",
+    "Ok":"OK"
   }
 
 }
