@@ -137,11 +137,11 @@ const Tasks = (props) => {
             error: (err) => {
                 setTaskLoader(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                    helpers.authError(err,props)
+                    helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
                 }
                 else {
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message)
                     }, 100)
                 }
             },

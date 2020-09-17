@@ -8,8 +8,8 @@
     "signIn": "SIGN IN",
     "forgotPassword": "Forgot password?",
     "signUp": "SIGN UP",
-    "onSubmit": "Please  fill all required details",
-    "validation_err": "You have entered an invalid username/email-id! ",
+    "onSubmit": "Please fill all required details",
+    "validation_err": "Invalid username/email-id!",
     "authentication_error":"Wrong username or password",
     "endPoint_error":"Error in fetch end Point",
     "authentication _fail":"Authentication failed"
@@ -24,9 +24,9 @@
     "city": "City",
     "signUp": "SIGN UP",
     "signIn": "SIGN IN",
-    "onSubmit": "Please fill  all required details",
-    "onSubmitSuccess": "Registerd successfully",
-    "phoneNo_err": "You have entered an invalid  phone-no! "
+    "onSubmit": "Please fill all required details",
+    "onSubmitSuccess": "Registered successfully",
+    "phoneNo_err": "You have entered an invalid  phone No! "
 
   },
   "forgetPassword": {
@@ -45,7 +45,7 @@
     "change_password": "CHANGE PASSWORD",
     "onSubmit": "Please fill all required details ",
     "onSubmitSuccess": "Your password  changed successfully",
-    "passwordNotMatch": "Password and repeat password does not match ",
+    "passwordNotMatch": "Password and repeat password does not match",
     "currentPasswordNotMatched": "Please enter correct current password"
   },
   "tasks": {
@@ -61,7 +61,7 @@
     "title": "Title",
     "status": "Status",
     "task_date": "Task date",
-    "empty_task": " Task are not available"
+    "empty_task": "Tasks are not available"
   },
   "task": {
     "task": "TASK",
@@ -82,13 +82,13 @@
     "add_message": "Add Message",
     "cancel": "CANCEL",
     "save": "SAVE",
-    "empty_message": " Messages are  not available",
-    "empty_document": "Documents are  not available",
+    "empty_message": " Messages are not available",
+    "empty_document": "Documents are not available",
     "document_name": "Doc",
     "rate-it":"Rate it",
     "save_success":"Saved successfully ",
     "addMessage_success":"Message added successfully ",
-    "addMessage_error":"Message is Required"
+    "addMessage_error":"Message is required"
   },
   "newTask": {
     "new_task": "NEW TASK",
@@ -103,16 +103,20 @@
     "task_save": " Your task saved successfully",
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
-    "validation_err": "Please fill the required details",
-    "set":"SET",
-    "geolocation_err":"Fetching the Position failed, please pick one manually!"
+    "validation_err": "Please fill the required details"
   },
   "validation": {
-    "username_Required ": " User Name is Required"
+    "username_Required ": "User name is required"
   },
   "language": {
     "Language":"Language",
     "English" :"English",
     "Lithuanian":"Lithuanian"
+  },
+  "popup":{
+    "Success":"Success",
+    "Error":"Error",
+    "Failed":"Failed"
   }
+
 }

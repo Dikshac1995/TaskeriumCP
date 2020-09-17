@@ -67,10 +67,13 @@ export default styles = StyleSheet.create({
         borderColor: colors.border
     },
     emptyDataText: {
-        textAlign: 'center',
+        paddingLeft:10,
+        // textAlign: 'center',
         // paddingVertical: 30,
         fontSize: 20,
-        fontFamily: fonts.fontFamily.Regular
+        fontFamily: fonts.fontFamily.Regular,
+        // color:'#A9A9A9'
+        color:'#808080'
 
     },
     tasksListWrapper: {
@@ -79,13 +82,16 @@ export default styles = StyleSheet.create({
         // height:'60%'
     },
     CommentWrapper: {
-        paddingHorizontal: 10
+        paddingHorizontal: 10,
+        // marginLeft:5
+       
     },
     commentRow: {
         display: 'flex',
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingBottom: 10,
+        
     },
     authorName: {
         fontWeight: 'bold',
@@ -119,12 +125,12 @@ export default styles = StyleSheet.create({
         marginTop: 20, 
         borderWidth: 2, 
         borderColor: "#969696",
-        marginBottom :10,
+        borderRadius:10
     },
     addMessageTextWrapper: {
         width: "85%", 
         ...sty.jCenter, 
-        paddingLeft: 30,
+        paddingLeft: 20,
         paddingVertical: Platform.OS === 'ios' ? 10 : 0,
     },
     addMessageText: {
@@ -136,13 +142,20 @@ export default styles = StyleSheet.create({
     addMessageIConWrapper: {
         width: "15%", 
         ...sty.jCenter, 
-        ...sty.aCenter
+        ...sty.aCenter,
+     backgroundColor:"#DCDCDC",
+    opacity:0.7,
+    borderLeftWidth:1,
+    borderBottomRightRadius:10,
+    borderTopRightRadius:10,
+        
+
     },
 
     addMessageICon: {
         height: 20, 
         width: 20, 
-        paddingLeft: 0
+        paddingLeft: 0,
     },
     section2:{
         marginTop:10
@@ -155,8 +168,14 @@ export default styles = StyleSheet.create({
         height: 20, 
         width: 20, 
         paddingLeft: 0, 
-        // marginTop: 7,
         marginTop: Platform.OS === 'ios' ? 0 : 5,
+    },
+    downArrow2: {
+        height: 20, 
+        width: 20, 
+        paddingLeft: 0, 
+        marginTop: Platform.OS === 'ios' ? 0 : 5,
+        transform: [{ rotate: '270deg' }]
     },
     heading: {
         fontSize: 25, 
@@ -196,7 +215,8 @@ export default styles = StyleSheet.create({
         paddingTop: 10 
     },
     documentWrapper:{
-        paddingLeft: 10  
+        paddingLeft: 10 ,
+        marginLeft:4
     },
     scrollView:{
         flex:1

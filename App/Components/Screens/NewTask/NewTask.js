@@ -68,7 +68,7 @@ const NewTask = (props) => {
                 error: (err) => {
                     setinitialLoading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
                     }
                     else{
                     setTimeout(() => {
@@ -115,7 +115,7 @@ const NewTask = (props) => {
                             setloading(false)
                             props.navigation.goBack()
                             setTimeout(() => {
-                                Alert.alert('Success', helpers.getLocale(localize, "newTask", "task_save"))
+                                Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "newTask", "task_save"))
                             }, 100)
 
 
@@ -123,14 +123,14 @@ const NewTask = (props) => {
                         .catch(error => {
                             setloading(false)
                             setTimeout(() => {
-                                Alert.alert("Error", error.message)
+                                Alert.alert(helpers.getLocale(localize, "popup", "Error"), error.message)
                             }, 100)
                         });
 
                 },
                 error: (err) => {
                     setloading(false)
-                    Alert.alert("error", err.message)
+                    Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
                 },
                 complete: () => {
                     setloading(false)

@@ -90,11 +90,11 @@ const Task = (props) => {
                 error: (err) => {
                     setMsgLoader(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
                     }
                         else{
                     setTimeout(() => {
-                        Alert.alert(err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"),err.message)
                     }, 100)
                 }
                 },
@@ -125,7 +125,7 @@ const Task = (props) => {
                         toggleModal(false)
                         setloading(false)
                         setTimeout(() => {
-                            Alert.alert(
+                            Alert.alert(helpers.getLocale(localize, "popup", "Success"),
                                 helpers.getLocale(localize, "task", "addMessage_success")
                             );
                         }, 100)
@@ -136,7 +136,7 @@ const Task = (props) => {
                         toggleModal(false)
                         setloading(false)
                         setTimeout(() => {
-                            Alert.alert("Error", err.message)
+                            Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
                         }, 100)
 
                     },
@@ -235,13 +235,13 @@ const Task = (props) => {
                 success: async (res) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert( helpers.getLocale(localize, "task", "save_success"));
+                        Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "newTask", "task_save"));
                     }, 100);
                 },
                 error: (err) => {
                     setloading(false)
                     setTimeout(() => {
-                        Alert.alert("Error", err.message)
+                        Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
                     }, 100);
                 },
                 complete: () => { },
@@ -305,15 +305,15 @@ const Task = (props) => {
         return (
             <View style={styles.CommentWrapper}>
                 <View style={styles.commentRow}>
-                    <Text style={styles.authorName}> {item.item.author} </Text >
+                    <Text style={styles.authorName} allowFontScaling={false}> {item.item.author} </Text >
                     <View style={styles.commentDateWrapper}>
-                        <Text style={styles.commentText}> {date}</Text >
+                        <Text style={styles.commentText} allowFontScaling={false}> {date}</Text >
                         <FastImage
                             style={styles.clockImage}
                             source={images.clock}
                             resizeMode={"contain"}
                         />
-                        <Text style={styles.commentText}> {time}</Text >
+                        <Text style={styles.commentText} allowFontScaling={false}> {time}</Text >
                     </View>
 
                 </View>
@@ -344,7 +344,7 @@ const Task = (props) => {
                     <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
                             <FastImage
-                                style={styles.downArrow}
+                                style={!docExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
@@ -358,12 +358,11 @@ const Task = (props) => {
                     {docExpand && <>
                         {Document ?
                             <View style={styles.documentWrapper}>
-
                                 <FlatList
                                     data={docList}
                                     renderItem={({ item, index }) =>
                                         <TouchableOpacity onPress={() => openDocument(item.file_path, item.title)}>
-                                            <Text style={styles.documentListText}>{item.title}</Text>
+                                            <Text  allowFontScaling={false} style={styles.documentListText}>{item.title}</Text>
                                         </TouchableOpacity>
                                     }
                                     keyExtractor={_keyExtractor}
@@ -371,7 +370,7 @@ const Task = (props) => {
                                 />
 
                             </View> :
-                            <Text style={styles.emptyDataText}> {helpers.getLocale(localize, "task", "empty_document")}
+                            <Text style={styles.emptyDataText}  allowFontScaling={false}> {helpers.getLocale(localize, "task", "empty_document")}
                             </Text>
                         }
                     </>
@@ -385,7 +384,7 @@ const Task = (props) => {
                             setmsgExapnd(!msgExpand)
                         }>
                             <FastImage
-                                style={styles.downArrow}
+                                style={!msgExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
@@ -402,7 +401,7 @@ const Task = (props) => {
                             </View> :
                             <>
                                 {getMessage.length == 0 ?
-                                    <Text style={styles.emptyDataText}>
+                                    <Text style={styles.emptyDataText}  allowFontScaling={false}>
                                         {helpers.getLocale(localize, "task", "empty_message")}
                                     </Text>
                                     :
@@ -416,14 +415,15 @@ const Task = (props) => {
                                         />
                                     </View>
                                 }</>
-                        }</>}
+                        }
+                        
                     <View style={styles.addMessage}>
-                        <View style={{ ...sty.fRow }} >
+                        <View style={{ ...sty.fRow, }} >
                             <View style={styles.addMessageTextWrapper}>
                                 <TextInput placeholder={helpers.getLocale(localize, "task", "add_message")}
                                     value={message}
                                     onChangeText={value => { setmessage(value) }}
-                                    style={styles.msgText} placeholderTextColor='black'
+                                    style={styles.msgText}
                                     multiline={true} />
 
                                 {/* <Text allowFontScaling={false} style={styles.addMessageText}>
@@ -440,14 +440,17 @@ const Task = (props) => {
                             </View>
                         </View>
                     </View>
+                    </>}
 
                 </View>
+            
+                <View style={styles.section2}>
                 <View style={styles.section2Wapper}>
                         <TouchableOpacity onPress={() =>
                             setrateExapnd(!rateExpand)
                         }>
                             <FastImage
-                                style={styles.downArrow}
+                                style={!rateExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
@@ -470,6 +473,7 @@ const Task = (props) => {
                     
 
                 </View>}
+                </View>
                 </ScrollView>
                 <View style={[styles.signUpWrapper1,{ borderWidth: 0,}]}>
                 

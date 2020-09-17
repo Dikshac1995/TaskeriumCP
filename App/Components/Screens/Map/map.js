@@ -1,6 +1,7 @@
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps'; 
 import React from "react";
-import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
+import { View, Text, Share, Button, TouchableOpacity, FlatList, Modal, Dimensions, 
+    StyleSheet, TextInput, Alert, ActivityIndicator } from "react-native";
 import Geolocation from '@react-native-community/geolocation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {styles} from './Styles'
@@ -69,14 +70,13 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
                     });
                 }
                 else {
-                    Alert.alert("Failed", responseJson.error_message)
+                    Alert.alert(helpers.getLocale(localize, "popup", "Failed"), responseJson.error_message)
                     this.setState({ loading: false })
                 }
 
             })
             .catch((err) => {
-                console.log("eror", err)
-                Alert.alert(err)
+                Alert.alert(helpers.getLocale(localize, "popup", "Error"),err)
                 this.setState({ loading: false })
             })
 
@@ -84,7 +84,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
     }
 
     onPressHandler = () => {
-        console.log("add", this.state.address)
         if (this.state.address != "") {
             const address = this.state.address
         }
@@ -128,8 +127,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
             this.pickLocationHandler(coordsEvent);
         },
             err => {
-                console.log(err);
-                alert(helpers.getLocale(this.state.localize, "newTask", "geolocation_err"));
+                Alert.alert(helpers.getLocale(this.state.localize, "newTask", "geolocation_err"));
             },
             { enableHighAccuracy: false, timeout: 20000 }
         );

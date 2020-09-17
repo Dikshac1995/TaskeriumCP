@@ -363,9 +363,9 @@ export const userAuthdetails = async () => {
 };
 
 
-export const authError =(err,props)=>{
+export const authError =(Error,err,props)=>{
   setTimeout(() => {
-    Alert.alert(" Error ", err.message,
+    Alert.alert(Error, err.message,
         [
             {
                 text: 'OK', onPress: () => {

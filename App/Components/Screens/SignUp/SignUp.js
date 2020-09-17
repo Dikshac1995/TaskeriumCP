@@ -73,7 +73,7 @@ const SignUp = (props) => {
         let cb = {
             success: async (res) => {
                 setloading(false)
-                Alert.alert('Success', helpers.getLocale(localize, "signIn", "onSubmitSuccess"),
+                Alert.alert(helpers.getLocale(localize, "popup", "Success"), helpers.getLocale(localize, "signIn", "onSubmitSuccess"),
                     [
                         {
                             text: 'OK', onPress: () => {
@@ -84,7 +84,7 @@ const SignUp = (props) => {
             },
             error: (err) => {
                 setloading(false)
-                Alert.alert("Error", err.message)
+                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
             },
             complete: () => {
                 setloading(false)
@@ -126,7 +126,7 @@ const SignUp = (props) => {
             },
             error: (err) => {
                 setloading(false)
-                Alert.alert("Error", err.message)
+                Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
             },
             complete: () => {
                 setloading(false)

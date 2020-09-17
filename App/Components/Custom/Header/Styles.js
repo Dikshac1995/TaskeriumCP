@@ -25,8 +25,8 @@ export default styles = StyleSheet.create({
     },
 
     rightIconStyle:{
-        height: 35, 
-        width: 40, 
+        height: 25, 
+        width: 30, 
         paddingLeft: 0, 
         color: 'black' 
     },
