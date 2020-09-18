@@ -52,6 +52,7 @@ const Task = (props) => {
     const [MsgLoader, setMsgLoader] = useState(false);
     const [loading, setloading] = useState(false);
     const [check,setCheck]= useState(false);
+    const [height,setheight]= useState(20);
      
 
     var DocumentCount = []
@@ -334,6 +335,9 @@ const Task = (props) => {
             </View>)
     }
     const _keyExtractor = (item, index) => "tasks" + index.toString();
+    const updateSize = (height) => {
+       setheight(height)
+      }
     return (
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
@@ -442,10 +446,11 @@ const Task = (props) => {
                                 <TextInput placeholder={helpers.getLocale(localize, "task", "add_message")}
                                     value={message}
                                     onChangeText={value => { setmessage(value) }}
-                                    style={styles.msgText}
+                                    style={[styles.msgText,{height: Math.min(80, height)}]}
                                     multiline={true}
                                     allowFontScaling={false}
                                     underlineColorAndroid = "transparent"
+                                    onContentSizeChange={(e) => updateSize(e.nativeEvent.contentSize.height)}
                                 //    textAlignVertical="top"
                                      />
 
