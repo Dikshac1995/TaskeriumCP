@@ -445,6 +445,7 @@ const Task = (props) => {
                                     style={styles.msgText}
                                     multiline={true}
                                     allowFontScaling={false}
+                                    underlineColorAndroid = "transparent"
                                 //    textAlignVertical="top"
                                      />
 
