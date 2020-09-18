@@ -133,8 +133,6 @@ export default styles = StyleSheet.create({
         ...sty.jCenter, 
         paddingLeft: 10,
         paddingVertical: Platform.OS === 'ios' ? 10 : 0,
-       
-    
     },
     addMessageText: {
         fontSize: 25, 
@@ -241,8 +239,9 @@ export default styles = StyleSheet.create({
     msgText:{
         fontSize:20,
         fontFamily: fonts.fontFamily.Regular,
+        padding:5
         //  flex:1,
-        paddingLeft: Platform.OS === 'ios' ? 10 : 0,
+        // paddingLeft: Platform.OS === 'ios' ? 10 : 0,
     }
 
 });

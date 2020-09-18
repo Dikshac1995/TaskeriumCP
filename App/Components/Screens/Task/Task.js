@@ -446,11 +446,11 @@ const Task = (props) => {
                                 <TextInput placeholder={helpers.getLocale(localize, "task", "add_message")}
                                     value={message}
                                     onChangeText={value => { setmessage(value) }}
-                                    style={[styles.msgText,{height: Math.min(80, height)}]}
+                                    style={styles.msgText}
                                     multiline={true}
                                     allowFontScaling={false}
                                     underlineColorAndroid = "transparent"
-                                    onContentSizeChange={(e) => updateSize(e.nativeEvent.contentSize.height)}
+                                    // onContentSizeChange={(e) => updateSize(e.nativeEvent.contentSize.height)}
                                 //    textAlignVertical="top"
                                      />
 
