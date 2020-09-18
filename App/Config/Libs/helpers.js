@@ -363,12 +363,12 @@ export const userAuthdetails = async () => {
 };
 
 
-export const authError =(Error,err,props)=>{
+export const authError =(Error,err,props,ok)=>{
   setTimeout(() => {
     Alert.alert(Error, err.message,
         [
             {
-                text: 'OK', onPress: () => {
+                text: ok, onPress: () => {
                     AsyncStorage.removeItem('userAuthDetails');
                     AsyncStorage.removeItem('token');
                     props.navigation.dispatch(

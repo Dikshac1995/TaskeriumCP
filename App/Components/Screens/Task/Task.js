@@ -90,7 +90,8 @@ const Task = (props) => {
                 error: (err) => {
                     setMsgLoader(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                        helpers.getLocale(localize, "popup", "Ok"))
                     }
                         else{
                     setTimeout(() => {
@@ -161,7 +162,7 @@ const Task = (props) => {
             }
         }
         else {
-            Alert.alert(helpers.getLocale(localize, "popup", "Error"),helpers.getLocale(localize, "task", "addMessage_error"),
+            Alert.alert("",helpers.getLocale(localize, "task", "addMessage_error"),
             [{text:  helpers.getLocale(localize, "popup", "Ok")}])
         }
     }
@@ -187,7 +188,8 @@ const Task = (props) => {
                 error: (err) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                        helpers.getLocale(localize, "popup", "Ok"))
                     }
                      else{
                     setTimeout(() => {
@@ -242,7 +244,9 @@ const Task = (props) => {
                     setTimeout(() => {
                         Alert.alert(helpers.getLocale(localize, "popup", "Success"), 
                         helpers.getLocale(localize, "newTask", "task_save"),
-                        [{text:  helpers.getLocale(localize, "popup", "Ok")}])
+                        [{text:  helpers.getLocale(localize, "popup", "Ok"),
+                        onPress: () => {
+                            props.navigation.navigate('Tasks')}}])
                     }, 100);
                 },
                 error: (err) => {
@@ -440,6 +444,7 @@ const Task = (props) => {
                                     onChangeText={value => { setmessage(value) }}
                                     style={styles.msgText}
                                     multiline={true}
+                                    allowFontScaling={false}
                                 //    textAlignVertical="top"
                                      />
 

@@ -86,7 +86,8 @@ const Tasks = (props) => {
                 error: (err) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                        helpers.getLocale(localize, "popup", "Ok"))
                     }
                      else{
                     setTimeout(() => {
@@ -138,7 +139,8 @@ const Tasks = (props) => {
             error: (err) => {
                 setTaskLoader(false)
                 if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                    helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
+                    helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                    helpers.getLocale(localize, "popup", "Ok"))
                 }
                 else {
                     setTimeout(() => {

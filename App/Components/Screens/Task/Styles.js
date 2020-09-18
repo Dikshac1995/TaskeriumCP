@@ -123,7 +123,7 @@ export default styles = StyleSheet.create({
     },
     addMessage: {
         marginTop: 20, 
-        borderWidth: 2, 
+        borderWidth: 1, 
         borderColor: "#969696",
         borderRadius:10,
       
@@ -150,10 +150,8 @@ export default styles = StyleSheet.create({
     borderLeftWidth:1,
     borderBottomRightRadius:10,
     borderTopRightRadius:10,
-        
-
+    borderColor: "#969696",
     },
-
     addMessageICon: {
         height: 20, 
         width: 20, 
@@ -242,10 +240,8 @@ export default styles = StyleSheet.create({
     msgText:{
         fontSize:20,
         fontFamily: fonts.fontFamily.Regular,
-      
-          
-
-
+       
+        // height:40
     }
 
 });

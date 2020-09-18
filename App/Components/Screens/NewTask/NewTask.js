@@ -68,7 +68,8 @@ const NewTask = (props) => {
                 error: (err) => {
                     setinitialLoading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
-                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props)
+                        helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
+                        helpers.getLocale(localize, "popup", "Ok"))
                     }
                     else{
                     setTimeout(() => {
@@ -289,7 +290,6 @@ const NewTask = (props) => {
         else {
             Alert.alert("",helpers.getLocale(localize, "newTask", "validation_err"),
                 [{text:  helpers.getLocale(localize, "popup", "Ok")}])
-
         }
     }
 
@@ -348,7 +348,7 @@ const NewTask = (props) => {
                     setloading(false)
                     if (err.type === 'AUTHORIZATION' || err.message === 'Not logged in / Wrong password or username / Token expired') {
                         helpers.authError(helpers.getLocale(localize, "popup", "Error"),err,props,
-                        )
+                        helpers.getLocale(localize, "popup", "Ok"))
                     }
                      else{
                     setTimeout(() => {
@@ -505,7 +505,7 @@ const NewTask = (props) => {
                                                 // <TouchableOpacity
                                                 //  onPress={()=>onPressDocument(item.path)}
                                                 // >
-                                                <Text style={styles.text}>{item.fileName}</Text>
+                                                <Text style={styles.text} allowFontScaling={false}>{item.fileName}</Text>
                                                 //  </TouchableOpacity>
                                             }
                                             showsVerticalScrollIndicator={false}
