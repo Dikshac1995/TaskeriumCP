@@ -105,6 +105,9 @@
     "upload_success": "Dokumentas įkeltas sėkmingai",
     "validation_err": "Prašome užpildyti visus laukelius",
     "set":"RINKTIS",
+    "Camera":"Camera",
+    "Gallery":"Gallery",
+    "Select Photo":"Select Photo",
     "geolocation_err":"Padėties nustatymas nepavyko, pasirinkite vieną rankiniu būdu!"
   },
   "validation": {

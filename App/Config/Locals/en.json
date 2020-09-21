@@ -104,7 +104,11 @@
     "taskid_not_availabel": "Firstly save the task then upload documents",
     "upload_success": "Document uploaded successfully",
     "validation_err": "Please fill the required details",
-    "set":"SET"
+    "set":"SET",
+    "Camera":"Camera",
+    "Gallery":"Gallery",
+    "Select Photo":"Select Photo",
+    "geolocation_err":"Padėties nustatymas nepavyko, pasirinkite vieną rankiniu būdu!"
   },
   "validation": {
     "username_Required ": "User name is required"
