@@ -45,7 +45,9 @@ const NewTask = (props) => {
     const [check,setCheck]= useState(false);
 
     const Document = [];
-    var BUTTONS = ["Camera", "Gallery", "Cancel"];
+    var BUTTONS = [ helpers.getLocale(localize, "newTask",  "Camera"), 
+                    helpers.getLocale(localize, "newTask",   "Gallery"), 
+                    helpers.getLocale(localize, "task", "cancel")];
     var CANCEL_INDEX = 2;
 
     useEffect(() => {
@@ -175,7 +177,7 @@ const NewTask = (props) => {
             {
                 options: BUTTONS,
                 cancelButtonIndex: CANCEL_INDEX,
-                title: "Select Photo"
+                title: helpers.getLocale(localize, "newTask",  "Select Photo")
             },
             buttonIndex => {
                 if (buttonIndex === 0) {

@@ -105,10 +105,11 @@
     "upload_success": "Document uploaded successfully",
     "validation_err": "Please fill the required details",
     "set":"SET",
+    "geolocation_err":"Fetching the Position failed, please pick one manually!",
     "Camera":"Camera",
     "Gallery":"Gallery",
-    "Select Photo":"Select Photo",
-    "geolocation_err":"Padėties nustatymas nepavyko, pasirinkite vieną rankiniu būdu!"
+    "Select Photo":"Select Photo"
+    
   },
   "validation": {
     "username_Required ": "User name is required"
