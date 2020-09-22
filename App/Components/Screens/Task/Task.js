@@ -319,7 +319,7 @@ const Task = (props) => {
             <View style={styles.CommentWrapper}>
                 <View style={styles.commentRow}>
                     <View style={styles.authNameWrap}>
-                    <Text style={styles.authorName} allowFontScaling={false}> {item.item.author}abcfdgfhhhfh </Text >
+                    <Text style={styles.authorName} allowFontScaling={false}> {item.item.author}</Text >
                     </View>
                     <View style={styles.commentDateWrapper}>
                         <Text style={styles.commentText} allowFontScaling={false}> {date}</Text >
