@@ -332,7 +332,7 @@ const Task = (props) => {
                     </View>
 
                 </View>
-                <Text style={styles.commentText}> {item.item.task_comment}  </Text >
+                <Text style={styles.commentText} allowFontScaling={false}> {item.item.task_comment}  </Text >
                 <View style={styles.seperator} />
             </View>)
     }
