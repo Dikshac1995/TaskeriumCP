@@ -91,7 +91,10 @@ export default styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         paddingBottom: 10,
-        
+       flex:1
+    },
+    authNameWrap:{
+        flex:1.2
     },
     authorName: {
         fontWeight: 'bold',
@@ -101,6 +104,8 @@ export default styles = StyleSheet.create({
     commentDateWrapper: {
         flexDirection: 'row', 
         display: 'flex',
+        flex:1,
+        justifyContent:'flex-end',
     },
     commentText: {
         fontSize: 20, 

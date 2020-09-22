@@ -318,7 +318,9 @@ const Task = (props) => {
         return (
             <View style={styles.CommentWrapper}>
                 <View style={styles.commentRow}>
-                    <Text style={styles.authorName} allowFontScaling={false}> {item.item.author} </Text >
+                    <View style={styles.authNameWrap}>
+                    <Text style={styles.authorName} allowFontScaling={false}> {item.item.author}abcfdgfhhhfh </Text >
+                    </View>
                     <View style={styles.commentDateWrapper}>
                         <Text style={styles.commentText} allowFontScaling={false}> {date}</Text >
                         <FastImage
