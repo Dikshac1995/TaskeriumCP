@@ -452,6 +452,7 @@ const NewTask = (props) => {
                                         settitle(value)
                                     }}
                                     multiline={true}
+                                    blurOnSubmit={true}
                                 />
                                 <_InputText
                                     style={styles.TextInput1}

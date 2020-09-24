@@ -27,6 +27,8 @@ const _InputText = (props) => {
                         secureTextEntry={props.secureTextEntry ? props.secureTextEntry : null}
                         ellipsizeMode={props.ellipsizeMode ? props.ellipsizeMode : null}
                         multiline={props.multiline ? props.multiline : null}
+                        // blurOnSubmit={props.blurOnSubmit ? props.blurOnSubmit : null}
+                        blurOnSubmit={true}
                     >
                     </TextInput>
 

@@ -11,7 +11,7 @@ import {
     ActivityIndicator,
     FlatList,
     Linking,
-    StyleSheet, Modal, TouchableHighlight, Alert
+    StyleSheet, Modal, TouchableHighlight, Alert, KeyboardAvoidingView
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -452,6 +452,7 @@ const Task = (props) => {
                                     multiline={true}
                                     allowFontScaling={false}
                                     underlineColorAndroid = "transparent"
+                                    blurOnSubmit={true}
                                      />
 
                             </View>
@@ -520,7 +521,6 @@ const Task = (props) => {
                  onRequestClose={() => toggleModal(false)}>
                  <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
-           
         </View >
 
     );
