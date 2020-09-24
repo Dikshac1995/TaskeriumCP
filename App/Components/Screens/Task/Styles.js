@@ -68,12 +68,10 @@ export default styles = StyleSheet.create({
     },
     emptyDataText: {
         paddingLeft:12,
-        // textAlign: 'center',
-        // paddingVertical: 30,
         fontSize: 20,
         fontFamily: fonts.fontFamily.Regular,
-        // color:'#A9A9A9'
-        color:'#808080'
+        color:'#808080',
+        marginTop: Platform.OS === 'ios' ? 10: 5,
 
     },
     tasksListWrapper: {
@@ -83,8 +81,8 @@ export default styles = StyleSheet.create({
     },
     CommentWrapper: {
         paddingHorizontal: 10,
-        marginLeft:5
-       
+        marginLeft:5,
+        marginTop: Platform.OS === 'ios' ? 10: 5,
     },
     commentRow: {
         display: 'flex',
@@ -106,6 +104,7 @@ export default styles = StyleSheet.create({
         display: 'flex',
         flex:1,
         justifyContent:'flex-end',
+       
     },
     commentText: {
         fontSize: 20, 
@@ -115,7 +114,7 @@ export default styles = StyleSheet.create({
         height: 20,
         width: 20,
         paddingLeft: 1,
-        marginTop: 5,
+        marginTop: Platform.OS === 'ios' ? 0: 5,
         marginLeft: 5
     },
     modalWrapper: {
@@ -137,7 +136,7 @@ export default styles = StyleSheet.create({
         width: "85%", 
         ...sty.jCenter, 
         paddingLeft: 10,
-        paddingVertical: Platform.OS === 'ios' ? 10 : 0,
+        paddingTop: Platform.OS === 'ios' ? 10 : 0,
     },
     addMessageText: {
         fontSize: 25, 
@@ -221,6 +220,7 @@ export default styles = StyleSheet.create({
     documentWrapper:{
         paddingLeft: 10 ,
         marginLeft:8,
+        marginTop: Platform.OS === 'ios' ? 10: 5,
     },
     scrollView:{
         flex:1

@@ -452,12 +452,8 @@ const Task = (props) => {
                                     multiline={true}
                                     allowFontScaling={false}
                                     underlineColorAndroid = "transparent"
-                                    // onContentSizeChange={(e) => updateSize(e.nativeEvent.contentSize.height)}
-                                //    textAlignVertical="top"
                                      />
 
-                                {/* <Text allowFontScaling={false} style={styles.addMessageText}>
-                                    {helpers.getLocale(localize, "task", "add_message")}</Text> */}
                             </View>
                             <View style={styles.addMessageIConWrapper}>
                                 <TouchableOpacity onPress={() => addCommentData()}>
@@ -519,40 +515,6 @@ const Task = (props) => {
                         />
                     </View>
                 </View>
-            
-
-            {/* <Modal animationType={"none"} transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => toggleModal(false)}>
-                <View style={styles.modalBackground}>
-                    <View style={styles.modalWrapper} >
-                        <_InputText
-                            style={styles.TextInput}
-                            placeholder={helpers.getLocale(localize, "task", "add_message")}
-                            onChangeText={value => { setmessage(value) }
-                            }
-                        />
-                        <View style={styles.addMessage}>
-                            <TouchableOpacity style={{ ...sty.fRow }} onPress={() => addCommentData()}
-                            >
-                                <View style={styles.addMessageTextWrapper}>
-                                    <Text allowFontScaling={false} style={styles.addMessageText}>{helpers.getLocale(localize, "task", "add_message")}</Text>
-                                </View>
-                                <View style={styles.addMessageIConWrapper}>
-                                    <FastImage
-                                        style={styles.addMessageICon}
-                                        source={images.upArrow}
-                                        resizeMode={"contain"}
-                                    />
-                                </View>
-                            </TouchableOpacity>
-                        </View>
-
-                    </View>
-                </View>
-            </Modal> */}
-
-
             <Modal animationType={"none"} transparent={true}
                  visible={modalVisible}
                  onRequestClose={() => toggleModal(false)}>
