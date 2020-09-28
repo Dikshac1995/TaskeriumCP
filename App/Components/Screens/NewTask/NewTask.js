@@ -376,11 +376,7 @@ const NewTask = (props) => {
         }
 
     }
-    const DismissKeyboard = ({ children }) => (
-        <TouchableWithoutFeedback 
-        onPress={() => Keyboard.dismiss()}> {children}
-        </TouchableWithoutFeedback>
-        );
+   
 
     // const changeLang = () => {
 
@@ -429,19 +425,15 @@ const NewTask = (props) => {
     }
 
     return (
-        <>
-     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} style={{backgroundColor:'red'}}>
-
+    <>
+       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
             {(!locationExpand) ?
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
                         loading={loading} />
                     {initialLoading ? < Loader
                         name /> :
-
                         <>
-                        
-                            
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
                                 rightIcon1={images.menu}
                                 rightcb
