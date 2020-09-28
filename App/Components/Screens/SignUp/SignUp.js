@@ -149,10 +149,11 @@ const SignUp = (props) => {
 
     return (
         <View style={[mainStyle.rootView, styles.container]}>
+            <ScrollView style={styles.formField} showsVerticalScrollIndicator={false}>
             <Loader
                 loading={loading} />
             <_Header header={helpers.getLocale(localize, "signIn", "signUp")} />
-            <ScrollView style={styles.formField} showsVerticalScrollIndicator={false}>
+            
                 <View style={{}}>
                     <_InputText
                         style={styles.TextInput}

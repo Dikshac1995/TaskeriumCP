@@ -1,7 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-     Alert
+     Alert,
+     Keyboard,TouchableWithoutFeedback
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -105,6 +106,8 @@ const ChangePassword = (props) => {
     }
 
     return (
+        <>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
@@ -141,6 +144,8 @@ const ChangePassword = (props) => {
                 </View>
             </View>
         </View >
+        </TouchableWithoutFeedback>
+        </>
 
     );
 };

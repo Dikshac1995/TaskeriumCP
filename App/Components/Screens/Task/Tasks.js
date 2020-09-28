@@ -8,7 +8,7 @@ import {
     ActivityIndicator,
     FlatList,
     Linking,
-    StyleSheet, Alert,Modal
+    StyleSheet, Alert,Modal,Keyboard,TouchableWithoutFeedback
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API, } from '../../../Config';
@@ -212,6 +212,7 @@ const Tasks = (props) => {
     const _keyExtractor = (item, index) => "tasks" + index.toString();
     return (
         <>
+          <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
             {
                 <View style={[mainStyle.rootView, styles.container]}>
                     <Loader
@@ -270,6 +271,7 @@ const Tasks = (props) => {
                     <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
          </View >}
+         </TouchableWithoutFeedback>
         </>
 
     );

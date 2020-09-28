@@ -4,7 +4,8 @@ import {
     Text,
     Image,
     TouchableOpacity,
-    Alert
+Keyboard,TouchableWithoutFeedback,
+    Alert,
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API, } from '../../../Config';
@@ -19,7 +20,7 @@ import AsyncStorage from '@react-native-community/async-storage';
 import { login } from '../../../Redux/Actions/LoginAction'
 import Loader from '../../Custom/Loader/Loader'
 import { validation } from '../../../Config/Libs/helpers';
-import { StackActions, CommonActions } from "@react-navigation/native";
+import { StackActions, CommonActions, } from "@react-navigation/native";
 
 
 
@@ -175,8 +176,12 @@ const Login = (props) => {
     };
 
     return (
-
+        <>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
+       
         <View style={[mainStyle.rootView, styles.container]}>
+           
+           
             <Loader
                 loading={loading} />
             <View style={{}}>
@@ -253,8 +258,10 @@ const Login = (props) => {
                     </TouchableOpacity>
                 </View>
             </View>
+           
         </View >
-
+        </TouchableWithoutFeedback>
+        </>
     );
 };
 

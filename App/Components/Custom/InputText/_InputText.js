@@ -1,9 +1,10 @@
 import React from 'react';
-import { Text, View, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity,TouchableWithoutFeedback,Keyboard } from 'react-native';
 import { Input, Item } from "native-base";
 import styles from "./Styles";
 import { colors, sty } from "../../../Theme"
 import FastImage from 'react-native-fast-image'
+
 
 
 const _InputText = (props) => {
@@ -11,7 +12,9 @@ const _InputText = (props) => {
     return (
         <>
             <View style={styles.textInputContainer}>
+          
                 <View style={{ borderWidth: 0, width: props.leftIcon ? "80%" : "100%" }}>
+                   
                     <TextInput
                         style={[styles.inputText, style]}
                         placeholder={props.placeholder ? props.placeholder : "Text Input"}
@@ -31,9 +34,10 @@ const _InputText = (props) => {
                         blurOnSubmit={true}
                     >
                     </TextInput>
-
+                   
 
                 </View>
+                
 
                 {props.leftIcon ?
                     <View style={styles.leftIconContainer}>

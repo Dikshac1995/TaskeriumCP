@@ -1,7 +1,7 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    Alert
+    Alert,Keyboard,TouchableWithoutFeedback
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
@@ -127,6 +127,8 @@ const ForgetPassword = (props) => {
     }
 
     return (
+        <>
+        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
@@ -154,6 +156,8 @@ const ForgetPassword = (props) => {
                 </View>
             </View>
         </View >
+        </TouchableWithoutFeedback>
+        </>
 
     );
 };

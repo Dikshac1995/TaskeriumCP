@@ -14,7 +14,7 @@ export default styles = StyleSheet.create({
         marginHorizontal: 15
     },
     formWrap:{
-        flex:5
+        flex:5,
     },
     TextInput: {
         marginTop: Platform.OS === 'ios' ? 40 : 10,
@@ -52,7 +52,7 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular
     },
     uploadDoc:{
-        flex:4
+        flex:4,
     },
     uploadDocWrapper: {
         paddingVertical: 5,

@@ -1,7 +1,8 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    Alert, Image, Text, FlatList, TouchableOpacity, KeyboardAvoidingView,Modal
+    Alert, Image, Text, FlatList, TouchableOpacity,ScrollView, KeyboardAvoidingView,Modal,
+    Keyboard,  TouchableWithoutFeedback
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -375,6 +376,11 @@ const NewTask = (props) => {
         }
 
     }
+    const DismissKeyboard = ({ children }) => (
+        <TouchableWithoutFeedback 
+        onPress={() => Keyboard.dismiss()}> {children}
+        </TouchableWithoutFeedback>
+        );
 
     // const changeLang = () => {
 
@@ -424,6 +430,7 @@ const NewTask = (props) => {
 
     return (
         <>
+     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} style={{backgroundColor:'red'}}>
 
             {(!locationExpand) ?
                 <View style={[mainStyle.rootView, styles.container]}>
@@ -431,8 +438,10 @@ const NewTask = (props) => {
                         loading={loading} />
                     {initialLoading ? < Loader
                         name /> :
-                        <>
 
+                        <>
+                        
+                            
                             <_Header header={helpers.getLocale(localize, "newTask", "new_task")}
                                 rightIcon1={images.menu}
                                 rightcb
@@ -442,8 +451,9 @@ const NewTask = (props) => {
                                 onPress_changeLang={() => changeLang()}
 
                             />
-
+                         
                             <View style={styles.formWrap}>
+                                <>
                                 <_InputText
                                     style={styles.TextInput}
                                     value={title}
@@ -488,6 +498,7 @@ const NewTask = (props) => {
                                     multiline={true}
                                 />
 
+                            </>
 
                                 <_PairButton
                                     icon1={images.camera}
@@ -500,6 +511,9 @@ const NewTask = (props) => {
                                     callback2={() => { addDocument() }}
                                     style={styles.pairButton}
                                 />
+                               
+                               
+                              
                                 <View style={styles.uploadDoc}>
                                     <View style={styles.uploadDocWrapper}>
                                         <FlatList
@@ -518,6 +532,8 @@ const NewTask = (props) => {
                                     </View>
                                 </View>
                             </View>
+                            
+                            
                             <View style={styles.footer}>
                                 <View style={[styles.signUpWrapper, { borderWidth: 0 }]}>
                                     <View style={styles.signUpView}>
@@ -531,7 +547,10 @@ const NewTask = (props) => {
                                     </View>
                                 </View>
                             </View>
+                           
+                            
                         </>}
+                        
                         
             <Modal animationType={"none"} transparent={true}
              visible={modalVisible}
@@ -545,7 +564,7 @@ const NewTask = (props) => {
                 </View >
                 :
                 <Map onPressmap={(data) => { pressHandle(data) }} localize={localize} />}
-
+            </TouchableWithoutFeedback>
         </>
 
     );
