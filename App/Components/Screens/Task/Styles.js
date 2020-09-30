@@ -16,11 +16,12 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular,
     },
     signUpWrapper1: {
-        flex: 0.1,
+        flex:1,
         borderWidth: 0,
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
+       
     },
     signUpWrapper: {
         flex: 1,
@@ -28,10 +29,11 @@ export default styles = StyleSheet.create({
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
+       
     },
     signUpView: {
         borderWidth: 0,
-        marginTop: 20,
+    //  marginTop: 20,
         width: "100%",
         // ...sty.jEnd,
     },
@@ -42,7 +44,8 @@ export default styles = StyleSheet.create({
         borderWidth: 0,
         width: "60%",
         ...sty.aCenter,
-        borderWidth: 0
+        borderWidth: 0,
+       
     },
     signUpText: {
         fontSize: 20,

@@ -341,9 +341,11 @@ const Task = (props) => {
        setheight(height)
       }
     return (
+        
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
+                <View style={{flex:0.85}}>
             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
                     rightIcon1={images.menu}
@@ -504,8 +506,9 @@ const Task = (props) => {
                 </View>}
                 </View>
                 </ScrollView>
+                </View>
+                <View style={{flex:0.15}}>
                 <View style={[styles.signUpWrapper1,{ borderWidth: 0,}]}>
-                
                     <View style={styles.signUpView}>
                         <_PairButton
                             btnTxt1={helpers.getLocale(localize, "task", "cancel")}
@@ -515,6 +518,7 @@ const Task = (props) => {
                             callback2={() => { saveButtonHandler() }}
                         />
                     </View>
+                </View>
                 </View>
             <Modal animationType={"none"} transparent={true}
                  visible={modalVisible}
