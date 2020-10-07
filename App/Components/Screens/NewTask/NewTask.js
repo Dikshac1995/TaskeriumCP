@@ -189,8 +189,6 @@ const NewTask = (props) => {
                 }
             }
         )
-
-
     }
     const imagefromGalary = () => {
         ImagePicker1.openPicker({

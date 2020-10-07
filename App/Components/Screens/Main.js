@@ -68,14 +68,10 @@ class Main extends Component {
 
     getRememberedUser = async () => {
         let autoLogin = false;
-        // const remeber = await AsyncStorage.getItem('RemeberMe');
+
         const token = await AsyncStorage.getItem("token");
         if (token !== null) {
             autoLogin = true
-            // const remebervalue = JSON.parse(remeber)
-            // if (remebervalue) {
-            // autoLogin = token === null ? false : true;
-            // }
         }
 
         this.setState({

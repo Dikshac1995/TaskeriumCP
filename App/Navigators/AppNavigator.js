@@ -12,29 +12,9 @@ import AsyncStorage from '@react-native-community/async-storage';
 
 
 function AppNavigator() {
-  const [intialRout, setintialRout] = useState('LogIn');
-
-  useEffect(() => {
-   
-  }, [])
-
-  const getRememberedUser = async () => {
-    const remeber = await AsyncStorage.getItem('RemeberMe');
-
-    if (remeber != null) {
-      const remebervalue = JSON.parse(remeber)
-    
-      if (remebervalue)
-        setintialRout('Tasks')
-      else
-        setintialRout('LogIn')
-     
-    }
-    else {
-    }
-
-  };
+ 
   const StackNavigator = createStackNavigator()
+  
   return (
     <NavigationContainer>
       
