@@ -8,13 +8,11 @@ import ForgetPassword from "../Components/Screens/ForgetPassword/ForgetPassword"
 import Tasks from "../Components/Screens/Task/Tasks";
 import Task from "../Components/Screens/Task/Task";
 import NewTask from "../Components/Screens/NewTask/NewTask";
-import AsyncStorage from '@react-native-community/async-storage';
-
 
 function AppNavigator() {
  
   const StackNavigator = createStackNavigator()
-  
+
   return (
     <NavigationContainer>
       
@@ -35,5 +33,4 @@ function AppNavigator() {
     </NavigationContainer>
   );
 }
-
 export default AppNavigator
