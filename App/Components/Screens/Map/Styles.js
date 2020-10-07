@@ -11,7 +11,6 @@ import {
         display: "flex",
         height: Dimensions.get("screen").height,
         width: Dimensions.get("screen").width,
-
     },
     map: {
         flex: 1,
@@ -25,7 +24,6 @@ windowClosedIcon:{
     signUpWrapper: {
         flex: 1,
         borderWidth: 0,
-        //  paddingVertical:20,
     },
     signUpView: {
         borderWidth: 0,
@@ -46,7 +44,6 @@ windowClosedIcon:{
         color: colors.text,
         fontWeight: "bold",
         fontFamily: fonts.fontFamily.Regular
-
     },
     
 

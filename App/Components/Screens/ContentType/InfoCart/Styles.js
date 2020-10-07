@@ -9,8 +9,6 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../../Config/Libs/globals';
 export default styles = StyleSheet.create({
 
     container: {
-        // backgroundColor: "#fff",
-        // ...sty.flex1
         marginLeft: 15
     },
     TextInput: {
@@ -45,10 +43,8 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular
     },
     column1Wrapper: {
-        // width: "57%", 
         borderWidth: 0,
         flex:1.2
-        // ...sty.jCenter,
     },
     column1Text: {
         fontSize: 20,
@@ -57,7 +53,6 @@ export default styles = StyleSheet.create({
         fontFamily: fonts.fontFamily.Regular
     },
     column2Wrapper: {
-        // width: "43%", 
         borderWidth: 0, 
         ...sty.jCenter, 
         paddingLeft: 0, 
@@ -70,6 +65,4 @@ export default styles = StyleSheet.create({
         lineHeight: 22,
         fontFamily: fonts.fontFamily.Regular
     }
-
-
 });

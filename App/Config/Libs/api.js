@@ -92,26 +92,20 @@ async function request(requestData, cb, featureURL, secureRequest, urlData = '',
     if (response.status == 200) {
       cb.success(response.data);
     } else {
-      console.log("a")
       if (response.data.message === 'Invalid credentials' || response.data.error === 'Error: Invalid credentials') {
         logout();
       }
       cb.error(response.data);
     }
   } catch (error) {
-    console.log("b")
     !live ? console.log({ error }) : null;
     if (cb.complete) cb.complete();
     if (error.response) {
       if (error.response.data.type === 'AUTHORIZATION' || error.response.data.message === 'Not logged in / Wrong password or username / Token expired') {
-        // logout();
-        // message: "Not logged in / Wrong password or username / Token expired"
-        // type: "AUTHORIZATION"
       }
       cb.error(error.response.data);
     }
     else {
-      console.log("c")
       if (error.data.message === 'Invalid credentials' || error.data.error === 'Error: Invalid credentials') {
         logout();
       }

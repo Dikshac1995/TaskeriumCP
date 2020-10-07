@@ -1,7 +1,6 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    SafeAreaView,
     TextInput,
     Text,
     Image,
@@ -10,8 +9,7 @@ import {
     Platform,
     ActivityIndicator,
     FlatList,
-    Linking,
-    StyleSheet, Modal, TouchableHighlight, Alert, KeyboardAvoidingView
+  Modal, TouchableHighlight, Alert, KeyboardAvoidingView
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { globals, helpers, validators, API } from '../../../Config';
@@ -27,13 +25,11 @@ import _PairButton from '../../Custom/Button/_PairButton';
 import InfoCart from '../ContentType/InfoCart/InfoCart';
 import AsyncStorage from '@react-native-community/async-storage';
 import StarRating from 'react-native-star-rating';
-import { startClock } from 'react-native-reanimated';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
 import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
 import FileViewer from 'react-native-file-viewer';
 import RNFS from 'react-native-fs';
-import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
 import Language from '../ContentType/LanguageModal/LanguageModal'
 
 const Task = (props) => {
@@ -215,13 +211,6 @@ const Task = (props) => {
 
     }
 
-    // const changeLang = () => {
-    //     if (localize.activeLanguage === "en")
-    //         dispatch(setTranslation("he"))
-    //     else
-    //         dispatch(setTranslation("en"))
-    // }
-
     const changeLang = () => {
         if (localize.activeLanguage === "en")
         {
@@ -230,9 +219,7 @@ const Task = (props) => {
         else{
                setCheck("he")
         }
-
         toggleModal(true)
-            
     }
 
     const saveButtHandler = async () => {
@@ -345,8 +332,8 @@ const Task = (props) => {
         <View style={[mainStyle.rootView, styles.container]}>
             <Loader
                 loading={loading} />
-                <View style={{flex:0.85}}>
-            <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
+            <View style={styles.taskWarpper}>
+             <ScrollView style={styles.scrollView} showsVerticalScrollIndicator={false}>
                 <_Header header={helpers.getLocale(localize, "task", "task")}
                     rightIcon1={images.menu}
                     rightIcon="ellipsis-v"
@@ -363,13 +350,11 @@ const Task = (props) => {
                 <View style={styles.section2}>
                 <TouchableOpacity onPress={() => setdocExapnd(!docExpand)}>
                     <View style={styles.section2Wapper}>
-                   
-                            <FastImage
-                                style={docExpand?styles.downArrow: styles.downArrow2}
-                                source={images.downArrow}
-                                resizeMode={"contain"}
-                            />
-                       
+                        <FastImage
+                            style={docExpand?styles.downArrow: styles.downArrow2}
+                            source={images.downArrow}
+                            resizeMode={"contain"}
+                        />
                         <Text allowFontScaling={false} style={styles.heading}>
                             {helpers.getLocale(localize, "task", "documents")}</Text>
                             
@@ -403,17 +388,15 @@ const Task = (props) => {
                 </View>
 
                 <View style={styles.section2}>
-                <TouchableOpacity onPress={() =>
-                            setmsgExapnd(!msgExpand)
-                        }>
+                   <TouchableOpacity onPress={() =>
+                    setmsgExapnd(!msgExpand)
+                    }>
                     <View style={styles.section2Wapper}>
-                      
-                            <FastImage
-                                style={msgExpand?styles.downArrow: styles.downArrow2}
-                                source={images.downArrow}
-                                resizeMode={"contain"}
-                            />
-                       
+                        <FastImage
+                            style={msgExpand?styles.downArrow: styles.downArrow2}
+                            source={images.downArrow}
+                            resizeMode={"contain"}
+                         />
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "messages")}</Text>
                     </View>
                     </TouchableOpacity>
@@ -477,19 +460,18 @@ const Task = (props) => {
                 <TouchableOpacity onPress={() =>
                             setrateExapnd(!rateExpand)
                         }>
-                <View style={styles.section2Wapper}>
-                       
+                    <View style={styles.section2Wapper}>
                             <FastImage
                                 style={rateExpand?styles.downArrow: styles.downArrow2}
                                 source={images.downArrow}
                                 resizeMode={"contain"}
                             />
-                       
                         <Text allowFontScaling={false} style={[styles.heading]}>{helpers.getLocale(localize, "task", "rate-it")}</Text>
                     </View>
-                    </TouchableOpacity>
-                    <View style={styles.horizontalLine} />
-                    {true ? null : <View style={styles.seperator} />}
+                </TouchableOpacity>
+                <View style={styles.horizontalLine} />
+                {true ? null : <View style={styles.seperator} />}
+
                 {rateExpand&&
                 <View style={styles.startRateWrapper}>
                     <StarRating
@@ -501,31 +483,31 @@ const Task = (props) => {
                         selectedStar={(rating) => onStarRatingPress(rating)}
                         starStyle={{ padding: 5 }}
                     />
-                    
-
                 </View>}
-                </View>
-                </ScrollView>
-                </View>
-                <View style={{flex:0.15}}>
-                <View style={[styles.signUpWrapper1,{ borderWidth: 0,}]}>
-                    <View style={styles.signUpView}>
-                        <_PairButton
-                            btnTxt1={helpers.getLocale(localize, "task", "cancel")}
-                            btnTxt2={helpers.getLocale(localize, "task", "save")}
-                            txtStyle1={{ color: "red" }}
-                            callback1={() => { cancleButtonHandler() }}
-                            callback2={() => { saveButtonHandler() }}
+             </View>
+            </ScrollView>
+          </View>
+
+        <View style={styles.footer}>
+            <View style={[styles.signUpWrapper1,{ borderWidth: 0,}]}>
+                <View style={styles.signUpView}>
+                    <_PairButton
+                        btnTxt1={helpers.getLocale(localize, "task", "cancel")}
+                        btnTxt2={helpers.getLocale(localize, "task", "save")}
+                        txtStyle1={{ color: "red" }}
+                        callback1={() => { cancleButtonHandler() }}
+                        callback2={() => { saveButtonHandler() }}
                         />
-                    </View>
-                </View>
-                </View>
-            <Modal animationType={"none"} transparent={true}
-                 visible={modalVisible}
-                 onRequestClose={() => toggleModal(false)}>
-                 <Language language={check} close={(value)=>{toggleModal(value)}}/>
-            </Modal>
-        </View >
+                 </View>
+            </View>
+        </View>
+
+         <Modal animationType={"none"} transparent={true}
+            visible={modalVisible}
+            onRequestClose={() => toggleModal(false)}>
+                <Language language={check} close={(value)=>{toggleModal(value)}}/>
+        </Modal>
+    </View >
 
     );
 };

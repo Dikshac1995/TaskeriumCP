@@ -27,6 +27,7 @@ const ChangePassword = (props) => {
     useEffect(() => {
 
     }, [])
+
     const resetPassword = async () => {
         setloading(true)
         let token = await AsyncStorage.getItem('token');
@@ -51,7 +52,6 @@ const ChangePassword = (props) => {
                             ]
                         );
                     }, 100)
-
                 },
 
                 error: (err) => {
@@ -59,7 +59,6 @@ const ChangePassword = (props) => {
                     setTimeout(() => {
                         Alert.alert(helpers.getLocale(localize, "popup", "Error"), err.message)
                     }, 100)
-
                 },
                 complete: () => {
                     setloading(false)
@@ -79,7 +78,6 @@ const ChangePassword = (props) => {
             
         }
     }
-
 
     const saveHandler = async () => {
         if (currentPassword && password && confirmPassword) {

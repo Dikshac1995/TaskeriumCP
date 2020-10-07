@@ -36,12 +36,6 @@ const App: () => React$Node = () => {
   useEffect(() => {
     YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
     console.disableYellowBox = true;
-    
-
-    // Permission.requestMultiplePermission([PERMISSIONS_TYPE.camera,
-    //   PERMISSIONS_TYPE.photo,
-    //   PERMISSIONS_TYPE.location
-    // ])
 
   }, []);
 

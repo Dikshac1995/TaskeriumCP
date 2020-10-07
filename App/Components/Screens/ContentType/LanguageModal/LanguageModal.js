@@ -37,8 +37,6 @@ const LanguageModal = (props) => {
         { key: 'he', label: 'language.german', value: helpers.getLocale(localize, "language", "Lithuanian") },
     ]
 
-
-
     const selectLanguage = async (value) => {
         setCheck(value)
         if (value === 'en') {
@@ -48,11 +46,8 @@ const LanguageModal = (props) => {
         else {
             dispatch(setTranslation("he"))
             await AsyncStorage.setItem('AppLang', "he");
-
         }
-
     }
-
 
     const _keyExtractor = (item, index) => index.toString();
 
@@ -69,7 +64,6 @@ const LanguageModal = (props) => {
                     <FlatList
                         data={languagesArr}
                         renderItem={({ item, index }) =>
-
                             <Content>
                                 <ListItem selected={false}
                                     onPress={() => selectLanguage(item.key)} >
@@ -84,15 +78,12 @@ const LanguageModal = (props) => {
                                         />
                                     </Right>
                                 </ListItem>
-
                             </Content>
-
                         }
                         removeClippedSubviews={Platform.OS == "android" ? true : false}
                         keyExtractor={_keyExtractor}
                     />
                 </View>
-                
             </View>
         </View>
 

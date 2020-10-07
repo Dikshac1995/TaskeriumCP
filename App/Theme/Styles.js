@@ -144,7 +144,6 @@ export const sty = {
     width: "100%"
   },
   inputSm: {
-    // height: 40,
     fontSize: fonts.small,
     color: colors.text,
     fontFamily: "Helvetica",
@@ -154,10 +153,9 @@ export const sty = {
     color: colors.black,
     marginLeft: 3,
     fontFamily: "Helvetica-light",
-    // fontFamily: "Helvetica",
     fontWeight: "300"
   },
   appBorder: {
-    borderRadius: 5 //10
+    borderRadius: 5 
   }
 };

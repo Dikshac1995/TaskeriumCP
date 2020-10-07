@@ -15,8 +15,7 @@ function AppNavigator() {
   const [intialRout, setintialRout] = useState('LogIn');
 
   useEffect(() => {
-    // console.log("AppNavigator useEffect")
-    // getRememberedUser()
+   
   }, [])
 
   const getRememberedUser = async () => {
@@ -32,7 +31,6 @@ function AppNavigator() {
      
     }
     else {
-      // return 'LogIn'
     }
 
   };

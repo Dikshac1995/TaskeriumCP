@@ -21,7 +21,6 @@ const MainHoc = (WrappedComponent) => {
         return (
             <SafeAreaView style={mainStyles.rootView}>
                 <StatusBar barStyle="dark-content" />
-                {/* <ActivityIndicator color={colors.darkGray} size={"small"} /> */}
                 <View style={mainStyles.rootView}>
                     <WrappedComponent {...props} />
                 </View>

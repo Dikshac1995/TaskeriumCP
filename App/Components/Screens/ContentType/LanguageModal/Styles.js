@@ -13,23 +13,12 @@ modalBackground: {
     alignItems: 'center',
     flexDirection: 'column',
     justifyContent: 'space-around',
-    // backgroundColor: '#00000040'
     backgroundColor: '#FFFFFF',
     marginTop: Platform.OS === 'ios' ? 40 : 0,
-
 },
 modalWrapper: {
     height:"100%",
     width:"100%",
-    // paddingHorizontal:20
-//     backgroundColor: '#FFFFFF',
-//    flex:1,
-//     // height: 150,
-//     // width: "60%",
-//     borderRadius: 10,
-//     // display: 'flex',
-//     // alignItems: 'center',
-//     padding: 10
 },
 language:{
     fontSize:17,

@@ -40,10 +40,6 @@ const InfoCart = (props) => {
     const title = Tasks.title
     const taskDate = Date
 
-
-
-
-
     const infoRow = (tag, value, fontStyle = {}) => {
         return (
             <View style={{ ...sty.fRow, }}>

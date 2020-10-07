@@ -11,22 +11,6 @@ import {
   Linking,
   Image,
 } from "react-native";
-import {
-  map,
-  filter,
-  reject,
-  concat,
-  find,
-  toUpper,
-  uniqBy,
-  findIndex,
-  differenceBy,
-  orderBy,
-  shuffle,
-  chain,
-  forEach,
-  chunk,
-} from "lodash";
 import { StackActions, CommonActions } from "@react-navigation/native";
 
 
@@ -81,49 +65,42 @@ export const _validateData = (obj) => {
             if (!validators.RequiredFieldValidator(value)) {
               validation.status = false;
               validation.data.push(ele[2] + " is required");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' is required')) // ' is required')
             }
             break;
           case "number":
             if (!validators.NumberValidator(value) && value != "") {
               validation.status = false;
               validation.data.push(ele[2] + " must be number");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be number')) //' must be number')
             }
             break;
           case "mobnumber":
             if (!validators.MobileNumberValidator(value) && value != "") {
               validation.status = false;
               validation.data.push(ele[2] + " must be number");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be number')) //' must be number')
             }
             break;
           case "email":
             if (!validators.EmailValidator(value) && value != "") {
               validation.status = false;
               validation.data.push(ele[2] + " must be valid email");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be valid email')) //' must be valid email')
             }
             break;
           case "public_email":
             if (!validators.EmailValidator(value) && value != "") {
               validation.status = false;
               validation.data.push(ele[2] + " must be valid email");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be valid email')) //' must be valid email')
             }
             break;
           case "url":
             if (!validators.UrlValidator(value) && value != "") {
               validation.status = false;
               validation.data.push(ele[2] + " must be valid URL");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be valid URL')) // ' must be valid URL')
             }
             break;
           case "link":
             if (!validators.LinkValidator(value)) {
               validation.status = false;
               validation.data.push(ele[2] + " must be valid link");
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be valid URL')) //' must be valid link')
             }
             break;
           case "min":
@@ -132,7 +109,6 @@ export const _validateData = (obj) => {
               validation.data.push(
                 ele[2] + ` must be minimum ${itemArr[1]} characters`
               );
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must be minimum') + itemArr[1] + getLocale(currentLang, 'validator', ' characters'))  // ` must be minimum ${itemArr[1]} characters`)
             }
             break;
           case "max":
@@ -141,21 +117,18 @@ export const _validateData = (obj) => {
               validation.data.push(
                 ele[2] + ` must be maximum ${itemArr[1]} characters`
               );
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', '') + itemArr[1] + getLocale(currentLang, 'validator', ''))
             }
             break;
           case "space":
             if (!validators.spaceValidator(value)) {
               validation.status = false;
               validation.data.push(ele[2] + ` must not contain spaces`);
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must not contain spaces')) // ` must not contain spaces`)
             }
             break;
           case "emoji":
             if (!validators.emojisValidator(value)) {
               validation.status = false;
               validation.data.push(ele[2] + ` must not contain emoji`);
-              // validation.data.push(ele[2] + getLocale(currentLang, 'validator', ' must not contain emoji'))  //` must not contain emoji`)
             }
             break;
           default:
@@ -389,26 +362,13 @@ export const authError =(Error,err,props,ok)=>{
 //--------validation----------------------//
 export const validation = (type, text, pass) => {
 
-
-
-  // console.log(text, 0, pass)
-
-  // const regex = /^[A-Za-z]+$/;
-  // const passreg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/
-
-
   const numregx = /^[0-9]+$/
-  // /^\d{10}$/
-  // const emailPattern = /^([a-zA-Z])+([0-9a-zA-Z_\.\-])+\@+(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,5}$)$/;
   const emailPattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
-  // /^ [_a - z0 - 9 -] + (\.[_a-z0 - 9 -]+)*@[a - z0 - 9 -]+(\.[a - z0 - 9 -] +)* (\.[a - z]{ 2, 4 }) $ /;s
-  // const emailPattern = /^[a-z][a-zA-Z0-9_.]*(\.[a-zA-Z][a-zA-Z0-9_.]*)?@[a-z][a-zA-Z-0-9]*\.[a-z]+(\.[a-z]+)?$/
   if (type == 'email') {
     if (text == " " || !text) {
       return false
     }
-
     else if (emailPattern.test(text)) {
       return true
     }

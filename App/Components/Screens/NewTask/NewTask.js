@@ -297,7 +297,6 @@ const NewTask = (props) => {
     }
 
     const addDocument = async () => {
-
         DocumentPicker.pick({
             type: [DocumentPicker.types.allFiles]
         })
@@ -321,12 +320,10 @@ const NewTask = (props) => {
                     array.push(item)
                     setuploadedDoc(array)
                 })
-
             })
             .catch(error => {
                 console.log(error)
             })
-        
     }
     const signout = async () => {
         let token = await AsyncStorage.getItem('token');
@@ -377,14 +374,6 @@ const NewTask = (props) => {
 
     }
    
-
-    // const changeLang = () => {
-
-    //     if (localize.activeLanguage === "en")
-    //         dispatch(setTranslation("he"))
-    //     else
-    //         dispatch(setTranslation("en"))
-    // }
     const toggleModal = (visible) => {
         setmodalVisible(visible);
     }
@@ -397,7 +386,6 @@ const NewTask = (props) => {
         else{
             setCheck("he")
         }
-
         toggleModal(true)
     }
     
@@ -409,22 +397,8 @@ const NewTask = (props) => {
         setlocationExpand(false)
         setedit(true)
     }
-    const onPressDocument = (fileUri) => {
-        let uri = fileUri
 
-        if (Platform.OS === 'ios') {
-            uri = fileUri.replace('file://', '');
-        }
-        FileViewer.open(uri, { showOpenWithDialog: true })
-            .then(() => {
-                console.log("success")
-            })
-            .catch(error => {
-                console.log("error", error)
-            });
-    }
-
-    return (
+return (
     <>
        <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
             {(!locationExpand) ?
@@ -511,11 +485,7 @@ const NewTask = (props) => {
                                         <FlatList
                                             data={uploadedDoc}
                                             renderItem={({ item, index }) =>
-                                                // <TouchableOpacity
-                                                //  onPress={()=>onPressDocument(item.path)}
-                                                // >
                                                 <Text style={styles.text} allowFontScaling={false}>{item.fileName}</Text>
-                                                //  </TouchableOpacity>
                                             }
                                             showsVerticalScrollIndicator={false}
                                             keyExtractor={(item, index) => index.toString()}
@@ -539,21 +509,16 @@ const NewTask = (props) => {
                                     </View>
                                 </View>
                             </View>
-                           
-                            
                         </>}
                         
                         
             <Modal animationType={"none"} transparent={true}
              visible={modalVisible}
               onRequestClose={() => 
-              toggleModal(false)
-    }
-        >
-            <Language language={check} close={(value)=>{toggleModal(value)}}/>
+              toggleModal(false)}>
+                <Language language={check} close={(value)=>{toggleModal(value)}}/>
             </Modal>
-
-                </View >
+          </View >
                 :
                 <Map onPressmap={(data) => { pressHandle(data) }} localize={localize} />}
             </TouchableWithoutFeedback>

@@ -178,10 +178,7 @@ const Login = (props) => {
     return (
         <>
         <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()} >
-       
         <View style={[mainStyle.rootView, styles.container]}>
-           
-           
             <Loader
                 loading={loading} />
             <View style={{}}>

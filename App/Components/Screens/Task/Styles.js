@@ -11,6 +11,9 @@ export default styles = StyleSheet.create({
     container: {
         marginHorizontal: 15
     },
+    taskWarpper:{
+        flex:0.85
+    },
     TextInput: {
         marginTop: 10,
         fontFamily: fonts.fontFamily.Regular,
@@ -21,7 +24,6 @@ export default styles = StyleSheet.create({
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
-       
     },
     signUpWrapper: {
         flex: 1,
@@ -29,13 +31,13 @@ export default styles = StyleSheet.create({
          paddingBottom: 20,
         ...sty.jEnd,
         ...sty.aCenter,
-       
+    },
+    footer:{
+        flex:0.15
     },
     signUpView: {
         borderWidth: 0,
-    //  marginTop: 20,
         width: "100%",
-        // ...sty.jEnd,
     },
     signUp: {
         ...sty.fRow,
@@ -80,7 +82,6 @@ export default styles = StyleSheet.create({
     tasksListWrapper: {
         paddingVertical: 5,
         flex:6
-        // height:'60%'
     },
     CommentWrapper: {
         paddingHorizontal: 10,
@@ -198,9 +199,6 @@ export default styles = StyleSheet.create({
         ...sty.aCenter,
         ...sty.jCenter,
         paddingVertical:10
-        // paddingBottom: 10, 
-        // paddingTop: 10,
-        // marginTop: 20
     },
     horizontalLine: {
         marginTop: 1,
@@ -248,8 +246,6 @@ export default styles = StyleSheet.create({
         fontSize:20,
         fontFamily: fonts.fontFamily.Regular,
         padding:5
-        //  flex:1,
-        // paddingLeft: Platform.OS === 'ios' ? 10 : 0,
     }
 
 });

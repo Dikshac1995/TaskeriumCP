@@ -90,7 +90,6 @@ const ForgetPassword = (props) => {
 
 
     const forgetPassword = async () => {
-        
         let cb = {
             success: async (res) => {
                 setloading(false)
@@ -139,7 +138,6 @@ const ForgetPassword = (props) => {
                     placeholder={helpers.getLocale(localize, "forgetPassword", "userName")}
                     onChangeText={value => { setuserName(value) }}
                     value={userName}
-
                 />
                 <_InputText
                     style={styles.TextInput}

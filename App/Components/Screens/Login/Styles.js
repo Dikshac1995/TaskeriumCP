@@ -8,8 +8,6 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 
 export default styles = StyleSheet.create({
   container: {
-    // backgroundColor: "#fff",
-    // ...sty.flex1
     marginHorizontal: 15
   },
   logoWrap: {
@@ -76,14 +74,11 @@ export default styles = StyleSheet.create({
       paddingTop: 60
   },
   button: {
-    // marginTop: 60
+   
   },
   forgetPassView: {
     borderWidth: 0,
     paddingVertical:10,
-    // marginTop: 10,
-    // marginBottom:10,
-    // backgroundColor:'red'
   },
   forgetPass: {
     ...sty.fRow,
@@ -110,8 +105,6 @@ export default styles = StyleSheet.create({
   },
   signUpView: {
     borderWidth: 0,
-    // paddingTop: 30
-    // marginTop: 60
   },
   signUp: {
     ...sty.fRow,
@@ -119,10 +112,8 @@ export default styles = StyleSheet.create({
     paddingLeft: 0,
     borderWidth: 0,
     flex:1,
-    // borderColor:'#eee',
     width: "60%",
     ...sty.aCenter,
-    
   },
   signUpText: {
     fontSize: 20,
@@ -130,7 +121,6 @@ export default styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: fonts.fontFamily.Regular,
     paddingTop: 10
-
   },
 
 });

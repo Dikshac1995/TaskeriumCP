@@ -1,6 +1,6 @@
 import {check, request ,PERMISSIONS, RESULTS} from 'react-native-permissions';
 import{Platform} from 'react-native'
-import { FlatList } from 'react-native-gesture-handler';
+
 
 const PLATFORM_CAMERA_PERMISSION={
     ios:PERMISSIONS.IOS.CAMERA,

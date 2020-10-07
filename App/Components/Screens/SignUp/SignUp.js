@@ -1,27 +1,17 @@
 import React, { Component, useState, useEffect } from 'react';
 import {
     View,
-    SafeAreaView,
-    TextInput,
     Text,
-    Image,
     TouchableOpacity,
     ScrollView,
-    Platform,
-    ActivityIndicator,
-    FlatList,
-    Linking,
-    StyleSheet,
     Alert
 } from 'react-native';
 import { connect, useSelector, useDispatch } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { globals, helpers, validators, API, } from '../../../Config';
 import { mainStyle, images, sty } from '../../../Theme';
-import FastImage from 'react-native-fast-image'
 import _InputText from '../../Custom/InputText/_InputText'
 import styles from "./Styles";
-import moment from 'moment';
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 import MainHoc from '../../Hoc/MainHoc';
 import _Button from '../../Custom/Button/_Button';
@@ -224,8 +214,6 @@ const SignUp = (props) => {
                     </View>
                 </View>
             </ScrollView>
-
-
         </View >
 
     );

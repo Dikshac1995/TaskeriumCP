@@ -18,7 +18,7 @@ export default styles = StyleSheet.create({
         borderTopColor: colors.buttonBorder,
         paddingVertical: 7.5,
         ...sty.fRow,
-        // paddingTop: Platform.OS === 'ios' ? 2 : 0
+        
     },
     row:{
         ...sty.fRow 

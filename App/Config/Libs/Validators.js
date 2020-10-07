@@ -13,11 +13,8 @@ export const RequiredFieldValidator = (txt) => {
 export const RegularExpressionName = (txt) => {
 	var isValid = false;
 	var reg = /^[A-Za-z ]+$/g;
-	//var reg = /^([A-Za-z ]+) {2,20}$/;
-
 	if (txt !== '' && txt !== null) {
 		if (txt.trim() !== '') {
-
 			if (txt.length >= 2 && txt.length <= 20) {
 
 				if (!txt.match(reg)) {
@@ -53,7 +50,6 @@ export const CheckForSpecialChars = (str) => {
 	var iChars = "!@#$%^&*()+=-[]\\\';,./{}|\":<>?";
 	for (var i = 0; i < str.length; i++) {
 		if (iChars.indexOf(str.charAt(i)) != -1) {
-
 			return false;
 		}
 	}
@@ -63,10 +59,7 @@ export const CheckForSpecialChars = (str) => {
 
 export const EmailValidator = (txt) => {
 	var isValid = false;
-	// var reg = /\S+@\S+\.\S+/;
 	const reg = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	//var reg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-	//var reg = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 	if (txt !== '' && txt !== null) {
 		if (reg.test(txt) === false) {
 			isValid = false;
@@ -113,16 +106,10 @@ export const PasswordValidator = (txt) => {
 	/*TODO need to make changes here*/
 	var isValid = false;
 	var str = txt.toString().trim();
-	// var reg = /^([a-z0-9])|(?=.*[_$@.])+$/i;
 	var letter = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;///[a-zA-Z]/;
-	//var number = /[0-9]/;
-	//var valid = number.test(str) && letter.test(str);
 	if (str.length >= 6) {
-		// isValid = false;
 		var _valid = letter.test(str);
-		//var _valid = number.test(str) && letter.test(str);
 
-		// if (reg.test(str) == false) {
 		if (_valid == false) {
 			isValid = false;
 		} else {
@@ -137,7 +124,6 @@ export const PasswordValidator = (txt) => {
 
 export const PasswordLengthValidator = (txt) => {
 	var isValid = false;
-	//Ti.API.info(JSON.stringify(txt));
 	if (txt.value !== null) {
 		if (txt.value.length >= 6) {
 			if (txt.value.trim() !== '') {
@@ -152,11 +138,10 @@ export const MobileNumberValidator = (txt) => {
 	var isValid = false;
 	var reg = /^\+?\d*$/;
 	if (isNaN(txt) === false && txt !== null) {
-		//if (txt.length === 10) {
 		if (txt.trim() !== '') {
 			isValid = true;
 		}
-		//}
+		
 	}
 
 	return isValid;

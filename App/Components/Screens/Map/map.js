@@ -18,7 +18,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
 
  class Map extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = {
@@ -87,11 +86,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         if (this.state.address != "") {
             const address = this.state.address
         }
-
     }
-
-
-
 
     pickLocationHandler = event => {
         const coords = event.nativeEvent.coordinate;
@@ -133,6 +128,7 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
         );
 
     }
+
     closeHandler = () => {
         this.props.onPressmap()
     }
@@ -153,7 +149,6 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
             >
                 {this.state.loading ? <ActivityIndicator color="red" /> :
                     <View style={styles.container}>
-                        
                         <MapView
                             initialRegion={this.state.focusedLocation}
                             region={!this.state.locationChosen ? this.state.focusedLocation : null}
@@ -162,32 +157,25 @@ const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
                             ref={ref => this.map = ref}
                         >
                             {marker}
-                            {/* <View style={styles.windowClosedIcon}>
-                                <Icon name="window-close" size={30} color="#8B0000" onPress={() => this.closeHandler()} />
-                            </View> */}
                         </MapView>
                         <View style={styles.footer}>
                         <View style={[styles.signUpWrapper, 
                         { borderWidth: 0 }
                         ]}>
                         <View style={styles.signUpView}>
-                                 <_PairButton
-                                       btnTxt1={helpers.getLocale(this.state.localize, "task", "cancel")}
-                                       btnTxt2={helpers.getLocale(this.state.localize, "newTask", "set")}
-                                       txtStyle1={{ color: "red", }}
-                                       callback1={() => { this.closeHandler() }}
-                                    callback2={() => {  this.props.onPressmap(this.state.address) }}
+                             <_PairButton
+                                btnTxt1={helpers.getLocale(this.state.localize, "task", "cancel")}
+                                btnTxt2={helpers.getLocale(this.state.localize, "newTask", "set")}
+                                txtStyle1={{ color: "red", }}
+                                callback1={() => { this.closeHandler() }}
+                                callback2={() => {  this.props.onPressmap(this.state.address) }}
                                     />
                         </View>
                     </View>
                  </View>
             </View>
-                    
                  }
-                   
-            </Modal>
-
-
+        </Modal>
 
         );
     }

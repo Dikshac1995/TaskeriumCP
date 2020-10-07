@@ -41,24 +41,6 @@ const mainStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#ddd'
     },
-    // tabWrap: {
-    //     borderRadius: 10,
-    //     marginBottom: 5,
-    //     backgroundColor: '#fff',
-    //     padding: 5,
-    //     overflow: 'hidden',
-    //     marginTop: 5
-    // },
-    // tabItem: {
-    //     backgroundColor: '#fff',
-    //     borderColor : 'black',
-    //     borderWidth : 0.7,
-    //     paddingVertical : 4,
-    //     borderRadius: 10,
-    //     overflow: 'hidden',
-    //     paddingHorizontal: 8,
-    //     ...sty.aCenter
-    // },
     tabWrap: {
         paddingVertical: 8,
         borderBottomColor: colors.black,
@@ -114,8 +96,6 @@ const mainStyles = StyleSheet.create({
         backgroundColor: '#fff',
         ...sty.appBorder,
         ...sty.flex1,
-        //  paddingTop:3,
-        // ...sty.mgB10,
         overflow: 'hidden',
     },
     rootViewLight: {
@@ -130,24 +110,6 @@ const mainStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#ddd'
     },
-    // tabWrap: {
-    //     borderRadius: 10,
-    //     marginBottom: 5,
-    //     backgroundColor: '#fff',
-    //     padding: 5,
-    //     overflow: 'hidden',
-    //     marginTop: 5
-    // },
-    // tabItem: {
-    //     backgroundColor: '#fff',
-    //     borderColor : 'black',
-    //     borderWidth : 0.7,
-    //     paddingVertical : 4,
-    //     borderRadius: 10,
-    //     overflow: 'hidden',
-    //     paddingHorizontal: 8,
-    //     ...sty.aCenter
-    // },
     tabWrap: {
         paddingVertical: 10,
         borderBottomColor: colors.black
@@ -191,7 +153,6 @@ const mainStyles = StyleSheet.create({
         color: colors.heading1,
         fontFamily: "Helvetica", //"Helvetica-Bold",
         fontWeight: "bold",
-        // fontSize: 12
     },
     lightHeadTxt: {
         color: colors.heading1,
@@ -204,13 +165,13 @@ const mainStyles = StyleSheet.create({
         fontFamily: "Helvetica-light",
         fontWeight: "300"
     },
-    appTxt: { color: colors.text, fontFamily: "Helvetica", }, // fontSize: 12
+    appTxt: { color: colors.text, fontFamily: "Helvetica", }, 
     appTxtBold: { color: colors.text, fontFamily: "Helvetica-Bold" },
     appTxtLight: {
         color: colors.text,
         fontFamily: "Helvetica-light",
         fontWeight: "300",
-        // fontSize: 12
+        
     },
 
     //Theme white

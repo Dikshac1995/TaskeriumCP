@@ -7,10 +7,7 @@ import {
 import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 
 export default styles = StyleSheet.create({
-
     container: {
-        // backgroundColor: "#fff",
-        // ...sty.flex1
         marginHorizontal: 15
     },
     formWrap:{
@@ -32,7 +29,6 @@ export default styles = StyleSheet.create({
     },
     signUpView: {
         borderWidth: 0,
-        // marginTop: 20,
         width: "100%",
     },
     signUp: {
@@ -43,7 +39,6 @@ export default styles = StyleSheet.create({
         width: "60%",
         ...sty.aCenter,
         borderWidth: 0,
-        
     },
     signUpText: {
         fontSize: 20,
@@ -87,7 +82,6 @@ export default styles = StyleSheet.create({
         width: "60%",
         borderRadius: 10,
         display: 'flex',
-        // alignItems: 'center',
         padding: 10
     },
     modalHeading:{

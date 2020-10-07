@@ -3,7 +3,6 @@ import {
     View,
     Text,
     TouchableOpacity,
-    ScrollView,
     Platform,
     ActivityIndicator,
     FlatList,
@@ -28,8 +27,6 @@ import { large } from '../../../Theme/FontSizes';
 import Loader from '../../Custom/Loader/Loader'
 import { StackActions, CommonActions } from "@react-navigation/native";
 import { setTranslation } from "../../../Redux/Actions/LocalizeAction"
-import { Container, Header, Content, ListItem, Radio, Right, Left } from 'native-base';
-import { color } from 'react-native-reanimated';
 import Language from '../ContentType/LanguageModal/LanguageModal'
 
 
@@ -55,12 +52,11 @@ const Tasks = (props) => {
     const changeLang = () => {
         if (localize.activeLanguage === "en")
         {
-              setCheck("en")
+            setCheck("en")
         }
         else{
-               setCheck("he")
+            setCheck("he")
         }
-
         toggleModal(true)
     }
 
@@ -113,15 +109,14 @@ const Tasks = (props) => {
         } else {
             props.navigation.navigate('LogIn')
         }
-
     }
+
     useEffect(() => {
         const unsubscribe = props.navigation.addListener('focus', () => {
             getTasks();
         });
         return unsubscribe;
     }, [props.navigation])
-
 
     const getTasks = async () => {
         let cb = {
@@ -131,7 +126,6 @@ const Tasks = (props) => {
                 const TaskList = res[0].tasks
                 TaskList.sort(function (a, b) {
                     return (b.id - a.id)
-
                 })
                 settask(TaskList)
                 setarrayHolder(res[0].tasks)

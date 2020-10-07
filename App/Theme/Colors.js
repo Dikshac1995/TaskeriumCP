@@ -33,9 +33,6 @@ export const placeHolder = "#5A5A5A";
 export const btnText = "#1C7DED"
 export const border = "#1C7DED";
 
-
-
-
 //Button
 export const buttonBorder = "#1C7DED";
 export const primaryColor = "#1C7DED";

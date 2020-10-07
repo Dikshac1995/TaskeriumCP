@@ -9,8 +9,6 @@ import { WINDOW_HEIGHT, WINDOW_WIDTH } from '../../../Config/Libs/globals';
 export default styles = StyleSheet.create({
 
     container: {
-        // backgroundColor: "#fff",
-        // ...sty.flex1
         marginHorizontal: 15
     },
     TextInput: {
@@ -43,7 +41,6 @@ export default styles = StyleSheet.create({
         color: colors.text,
         fontWeight: "bold",
         fontFamily: fonts.fontFamily.Regular
-
     },
     formField:{
        marginTop:10
