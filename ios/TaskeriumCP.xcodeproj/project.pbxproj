@@ -32,20 +32,20 @@
 		C65BC6A1E9B6454AB2034965 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C8C15008435044159F217AC2 /* Entypo.ttf */; };
 		D19A0E3D21C041E895580390 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CC0F5F6FFAA746CEA8EB2815 /* Ionicons.ttf */; };
 		E257D6E954F44CDBA89ACC95 /* libPods-TaskeriumCPTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C7D8D3FC0763156A6E01B6BE /* libPods-TaskeriumCPTests.a */; };
-		E9B4EABD25107C2F00F8AB47 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB625107C0900F8AB47 /* MyriadPro-Black.otf */; };
-		E9B4EABE25107C2F00F8AB47 /* MyriadPro-BlackCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EABB25107C0A00F8AB47 /* MyriadPro-BlackCond.otf */; };
-		E9B4EABF25107C2F00F8AB47 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EABC25107C0A00F8AB47 /* MyriadPro-Bold.otf */; };
-		E9B4EAC025107C2F00F8AB47 /* MyriadPro-BoldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB125107C0900F8AB47 /* MyriadPro-BoldCond.otf */; };
-		E9B4EAC125107C2F00F8AB47 /* MyriadPro-BoldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB425107C0900F8AB47 /* MyriadPro-BoldCondIt.otf */; };
-		E9B4EAC225107C2F00F8AB47 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB725107C0900F8AB47 /* MyriadPro-BoldIt.otf */; };
-		E9B4EAC325107C2F00F8AB47 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB525107C0900F8AB47 /* MyriadPro-Cond.otf */; };
-		E9B4EAC425107C2F00F8AB47 /* MyriadPro-CondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB925107C0A00F8AB47 /* MyriadPro-CondIt.otf */; };
-		E9B4EAC525107C2F00F8AB47 /* MyriadPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB825107C0A00F8AB47 /* MyriadPro-It.otf */; };
-		E9B4EAC625107C2F00F8AB47 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EABA25107C0A00F8AB47 /* MyriadPro-Light.otf */; };
-		E9B4EAC725107C2F00F8AB47 /* MyriadPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAAF25107C0900F8AB47 /* MyriadPro-LightIt.otf */; };
-		E9B4EAC825107C2F00F8AB47 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB225107C0900F8AB47 /* MyriadPro-Regular.otf */; };
-		E9B4EAC925107C2F00F8AB47 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB325107C0900F8AB47 /* MyriadPro-Semibold.otf */; };
-		E9B4EACA25107C2F00F8AB47 /* MyriadPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E9B4EAB025107C0900F8AB47 /* MyriadPro-SemiboldIt.otf */; };
+		E926EC3F25302A0D00D4AF97 /* MyriadPro-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3125302A0C00D4AF97 /* MyriadPro-Black.otf */; };
+		E926EC4025302A0D00D4AF97 /* MyriadPro-BoldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3225302A0C00D4AF97 /* MyriadPro-BoldIt.otf */; };
+		E926EC4125302A0D00D4AF97 /* MyriadPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3325302A0C00D4AF97 /* MyriadPro-Semibold.otf */; };
+		E926EC4225302A0D00D4AF97 /* MyriadPro-CondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3425302A0C00D4AF97 /* MyriadPro-CondIt.otf */; };
+		E926EC4325302A0D00D4AF97 /* MyriadPro-Cond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3525302A0C00D4AF97 /* MyriadPro-Cond.otf */; };
+		E926EC4425302A0D00D4AF97 /* MyriadPro-LightIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3625302A0C00D4AF97 /* MyriadPro-LightIt.otf */; };
+		E926EC4525302A0D00D4AF97 /* MyriadPro-SemiboldIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3725302A0C00D4AF97 /* MyriadPro-SemiboldIt.otf */; };
+		E926EC4625302A0D00D4AF97 /* MyriadPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3825302A0C00D4AF97 /* MyriadPro-Regular.otf */; };
+		E926EC4725302A0D00D4AF97 /* MyriadPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3925302A0C00D4AF97 /* MyriadPro-Light.otf */; };
+		E926EC4825302A0D00D4AF97 /* MyriadPro-It.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3A25302A0D00D4AF97 /* MyriadPro-It.otf */; };
+		E926EC4925302A0D00D4AF97 /* MyriadPro-BoldCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3B25302A0D00D4AF97 /* MyriadPro-BoldCond.otf */; };
+		E926EC4A25302A0D00D4AF97 /* MyriadPro-BoldCondIt.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3C25302A0D00D4AF97 /* MyriadPro-BoldCondIt.otf */; };
+		E926EC4B25302A0D00D4AF97 /* MyriadPro-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3D25302A0D00D4AF97 /* MyriadPro-Bold.otf */; };
+		E926EC4C25302A0D00D4AF97 /* MyriadPro-BlackCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = E926EC3E25302A0D00D4AF97 /* MyriadPro-BlackCond.otf */; };
 		EB32EB911D614E3E82012ED5 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 65919EA0DCB9434EA7968920 /* FontAwesome5_Brands.ttf */; };
 /* End PBXBuildFile section */
 
@@ -107,20 +107,20 @@
 		CC0F5F6FFAA746CEA8EB2815 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		D459D316D3734B97BA8315C6 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		D8348DC312B8458190A069F3 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
-		E9B4EAAF25107C0900F8AB47 /* MyriadPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-LightIt.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-LightIt.otf"; sourceTree = "<group>"; };
-		E9B4EAB025107C0900F8AB47 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-SemiboldIt.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
-		E9B4EAB125107C0900F8AB47 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCond.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
-		E9B4EAB225107C0900F8AB47 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Regular.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Regular.otf"; sourceTree = "<group>"; };
-		E9B4EAB325107C0900F8AB47 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Semibold.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
-		E9B4EAB425107C0900F8AB47 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCondIt.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
-		E9B4EAB525107C0900F8AB47 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Cond.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Cond.otf"; sourceTree = "<group>"; };
-		E9B4EAB625107C0900F8AB47 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Black.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Black.otf"; sourceTree = "<group>"; };
-		E9B4EAB725107C0900F8AB47 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldIt.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
-		E9B4EAB825107C0A00F8AB47 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-It.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-It.otf"; sourceTree = "<group>"; };
-		E9B4EAB925107C0A00F8AB47 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-CondIt.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
-		E9B4EABA25107C0A00F8AB47 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Light.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Light.otf"; sourceTree = "<group>"; };
-		E9B4EABB25107C0A00F8AB47 /* MyriadPro-BlackCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BlackCond.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-BlackCond.otf"; sourceTree = "<group>"; };
-		E9B4EABC25107C0A00F8AB47 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Bold.otf"; path = "../../../../Downloads/Taskerium/Fontas_Myriad_pro/MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		E926EC3125302A0C00D4AF97 /* MyriadPro-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Black.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Black.otf"; sourceTree = "<group>"; };
+		E926EC3225302A0C00D4AF97 /* MyriadPro-BoldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldIt.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldIt.otf"; sourceTree = "<group>"; };
+		E926EC3325302A0C00D4AF97 /* MyriadPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Semibold.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Semibold.otf"; sourceTree = "<group>"; };
+		E926EC3425302A0C00D4AF97 /* MyriadPro-CondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-CondIt.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-CondIt.otf"; sourceTree = "<group>"; };
+		E926EC3525302A0C00D4AF97 /* MyriadPro-Cond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Cond.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Cond.otf"; sourceTree = "<group>"; };
+		E926EC3625302A0C00D4AF97 /* MyriadPro-LightIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-LightIt.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-LightIt.otf"; sourceTree = "<group>"; };
+		E926EC3725302A0C00D4AF97 /* MyriadPro-SemiboldIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-SemiboldIt.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-SemiboldIt.otf"; sourceTree = "<group>"; };
+		E926EC3825302A0C00D4AF97 /* MyriadPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Regular.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Regular.otf"; sourceTree = "<group>"; };
+		E926EC3925302A0C00D4AF97 /* MyriadPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Light.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Light.otf"; sourceTree = "<group>"; };
+		E926EC3A25302A0D00D4AF97 /* MyriadPro-It.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-It.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-It.otf"; sourceTree = "<group>"; };
+		E926EC3B25302A0D00D4AF97 /* MyriadPro-BoldCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCond.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldCond.otf"; sourceTree = "<group>"; };
+		E926EC3C25302A0D00D4AF97 /* MyriadPro-BoldCondIt.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BoldCondIt.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-BoldCondIt.otf"; sourceTree = "<group>"; };
+		E926EC3D25302A0D00D4AF97 /* MyriadPro-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-Bold.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-Bold.otf"; sourceTree = "<group>"; };
+		E926EC3E25302A0D00D4AF97 /* MyriadPro-BlackCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "MyriadPro-BlackCond.otf"; path = "../../../../Project_stuff/Taskerium/Taskerium/Fontas_Myriad_pro/MyriadPro-BlackCond.otf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 		F303F12F8E7C7127D0D5D488 /* Pods-TaskeriumCP-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TaskeriumCP-tvOS.release.xcconfig"; path = "Target Support Files/Pods-TaskeriumCP-tvOS/Pods-TaskeriumCP-tvOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -282,20 +282,20 @@
 		E926EFE124F63E8F00795BD6 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
-				E9B4EAB625107C0900F8AB47 /* MyriadPro-Black.otf */,
-				E9B4EABB25107C0A00F8AB47 /* MyriadPro-BlackCond.otf */,
-				E9B4EABC25107C0A00F8AB47 /* MyriadPro-Bold.otf */,
-				E9B4EAB125107C0900F8AB47 /* MyriadPro-BoldCond.otf */,
-				E9B4EAB425107C0900F8AB47 /* MyriadPro-BoldCondIt.otf */,
-				E9B4EAB725107C0900F8AB47 /* MyriadPro-BoldIt.otf */,
-				E9B4EAB525107C0900F8AB47 /* MyriadPro-Cond.otf */,
-				E9B4EAB925107C0A00F8AB47 /* MyriadPro-CondIt.otf */,
-				E9B4EAB825107C0A00F8AB47 /* MyriadPro-It.otf */,
-				E9B4EABA25107C0A00F8AB47 /* MyriadPro-Light.otf */,
-				E9B4EAAF25107C0900F8AB47 /* MyriadPro-LightIt.otf */,
-				E9B4EAB225107C0900F8AB47 /* MyriadPro-Regular.otf */,
-				E9B4EAB325107C0900F8AB47 /* MyriadPro-Semibold.otf */,
-				E9B4EAB025107C0900F8AB47 /* MyriadPro-SemiboldIt.otf */,
+				E926EC3125302A0C00D4AF97 /* MyriadPro-Black.otf */,
+				E926EC3E25302A0D00D4AF97 /* MyriadPro-BlackCond.otf */,
+				E926EC3D25302A0D00D4AF97 /* MyriadPro-Bold.otf */,
+				E926EC3B25302A0D00D4AF97 /* MyriadPro-BoldCond.otf */,
+				E926EC3C25302A0D00D4AF97 /* MyriadPro-BoldCondIt.otf */,
+				E926EC3225302A0C00D4AF97 /* MyriadPro-BoldIt.otf */,
+				E926EC3525302A0C00D4AF97 /* MyriadPro-Cond.otf */,
+				E926EC3425302A0C00D4AF97 /* MyriadPro-CondIt.otf */,
+				E926EC3A25302A0D00D4AF97 /* MyriadPro-It.otf */,
+				E926EC3925302A0C00D4AF97 /* MyriadPro-Light.otf */,
+				E926EC3625302A0C00D4AF97 /* MyriadPro-LightIt.otf */,
+				E926EC3825302A0C00D4AF97 /* MyriadPro-Regular.otf */,
+				E926EC3325302A0C00D4AF97 /* MyriadPro-Semibold.otf */,
+				E926EC3725302A0C00D4AF97 /* MyriadPro-SemiboldIt.otf */,
 			);
 			path = fonts;
 			sourceTree = "<group>";
@@ -393,6 +393,8 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = 8U8LW972MB;
+						ProvisioningStyle = Manual;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
@@ -444,33 +446,33 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9B4EABD25107C2F00F8AB47 /* MyriadPro-Black.otf in Resources */,
-				E9B4EABE25107C2F00F8AB47 /* MyriadPro-BlackCond.otf in Resources */,
-				E9B4EABF25107C2F00F8AB47 /* MyriadPro-Bold.otf in Resources */,
-				E9B4EAC025107C2F00F8AB47 /* MyriadPro-BoldCond.otf in Resources */,
-				E9B4EAC125107C2F00F8AB47 /* MyriadPro-BoldCondIt.otf in Resources */,
-				E9B4EAC225107C2F00F8AB47 /* MyriadPro-BoldIt.otf in Resources */,
-				E9B4EAC325107C2F00F8AB47 /* MyriadPro-Cond.otf in Resources */,
-				E9B4EAC425107C2F00F8AB47 /* MyriadPro-CondIt.otf in Resources */,
-				E9B4EAC525107C2F00F8AB47 /* MyriadPro-It.otf in Resources */,
-				E9B4EAC625107C2F00F8AB47 /* MyriadPro-Light.otf in Resources */,
-				E9B4EAC725107C2F00F8AB47 /* MyriadPro-LightIt.otf in Resources */,
-				E9B4EAC825107C2F00F8AB47 /* MyriadPro-Regular.otf in Resources */,
-				E9B4EAC925107C2F00F8AB47 /* MyriadPro-Semibold.otf in Resources */,
-				E9B4EACA25107C2F00F8AB47 /* MyriadPro-SemiboldIt.otf in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				E926EC4C25302A0D00D4AF97 /* MyriadPro-BlackCond.otf in Resources */,
+				E926EC4025302A0D00D4AF97 /* MyriadPro-BoldIt.otf in Resources */,
+				E926EC4B25302A0D00D4AF97 /* MyriadPro-Bold.otf in Resources */,
+				E926EC4A25302A0D00D4AF97 /* MyriadPro-BoldCondIt.otf in Resources */,
 				AC6E39AA77B347CC8D1D77AC /* AntDesign.ttf in Resources */,
 				C65BC6A1E9B6454AB2034965 /* Entypo.ttf in Resources */,
 				C4331ECE31FD4BF78237A458 /* EvilIcons.ttf in Resources */,
+				E926EC4625302A0D00D4AF97 /* MyriadPro-Regular.otf in Resources */,
+				E926EC4325302A0D00D4AF97 /* MyriadPro-Cond.otf in Resources */,
 				9A093C52052841859CDF6E5E /* Feather.ttf in Resources */,
 				B3F26FE67C2A4E2D8BB4E1A6 /* FontAwesome.ttf in Resources */,
 				EB32EB911D614E3E82012ED5 /* FontAwesome5_Brands.ttf in Resources */,
+				E926EC4225302A0D00D4AF97 /* MyriadPro-CondIt.otf in Resources */,
+				E926EC4425302A0D00D4AF97 /* MyriadPro-LightIt.otf in Resources */,
 				2F37193E32494DA7B000DB30 /* FontAwesome5_Solid.ttf in Resources */,
 				73F481422057453BA99D753B /* Fontisto.ttf in Resources */,
+				E926EC4725302A0D00D4AF97 /* MyriadPro-Light.otf in Resources */,
+				E926EC4125302A0D00D4AF97 /* MyriadPro-Semibold.otf in Resources */,
+				E926EC4925302A0D00D4AF97 /* MyriadPro-BoldCond.otf in Resources */,
 				8DE2F0D0B0FB4C5B804D4E74 /* Foundation.ttf in Resources */,
 				D19A0E3D21C041E895580390 /* Ionicons.ttf in Resources */,
+				E926EC3F25302A0D00D4AF97 /* MyriadPro-Black.otf in Resources */,
+				E926EC4825302A0D00D4AF97 /* MyriadPro-It.otf in Resources */,
 				747E505F80FA4687B942C99D /* MaterialCommunityIcons.ttf in Resources */,
 				80CA594A2A08425FA72ED8DE /* MaterialIcons.ttf in Resources */,
+				E926EC4525302A0D00D4AF97 /* MyriadPro-SemiboldIt.otf in Resources */,
 				104C69A694B54786B7358375 /* Octicons.ttf in Resources */,
 				2B9086F962764FA1B20C8D59 /* Zocial.ttf in Resources */,
 			);
@@ -772,6 +774,9 @@
 			baseConfigurationReference = 17A0F3C41050365A4D7BEB01 /* Pods-TaskeriumCPTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = 8U8LW972MB;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -786,6 +791,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskeriumCP.app/TaskeriumCP";
 			};
 			name = Debug;
@@ -795,7 +802,10 @@
 			baseConfigurationReference = CB75096D2D71083D8290ADB5 /* Pods-TaskeriumCPTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Distribution";
+				CODE_SIGN_STYLE = Manual;
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = 8U8LW972MB;
 				INFOPLIST_FILE = TaskeriumCPTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -806,6 +816,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TaskeriumCP.app/TaskeriumCP";
 			};
 			name = Release;
